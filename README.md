@@ -1,12 +1,12 @@
-<a href="http://getbootstrap.com">
-  <img src="http://twitter.github.com/bootstrap/assets/img/bootstrap-docs-readme.png" width="100px">
+<a href="http://alademann.github.com/sass-bootstrap/">
+  <img src="http://alademann.github.com/sass-bootstrap/assets/img/bootstrap-docs-readme.png" width="100px">
 </a>
 
-# [Bootstrap v2.3.1](http://twitter.github.com/bootstrap) [![Build Status](https://secure.travis-ci.org/twitter/bootstrap.png)](http://travis-ci.org/twitter/bootstrap)
+# Sass Bootstrap v3.0.0
 
-Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat).
+Sass Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass/Compass by [Aaron Lademann](https://github.com/alademann).
 
-To get started, checkout [http://getbootstrap.com](http://getbootstrap.com)!
+To get started, check out the [SASS Bootstrap Documentation](http://alademann.github.com/sass-bootstrap/)!
 
 
 
@@ -14,75 +14,67 @@ To get started, checkout [http://getbootstrap.com](http://getbootstrap.com)!
 
 Three quick start options are available:
 
-* [Download the latest release](https://github.com/twitter/bootstrap/zipball/master).
-* Clone the repo: `git clone git://github.com/twitter/bootstrap.git`.
-* Install with Twitter's [Bower](http://twitter.github.com/bower): `bower install bootstrap`.
+* [Download the latest release](https://github.com/alademann/sass-bootstrap/zipball/master).
+* Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
+
+Read the [Getting Started page](http://alademann.github.com/sass-bootstrap/getting-started/) for information on the framework contents, basic template guidelines, and more.
+
+
+## Bugs and feature requests
+
+Have a bug or a feature request? [Please open a new issue](https://github.com/alademann/sass-bootstrap/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
 
 
 
-## Versioning
+## Documentation
 
-For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
+SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://pages.github.com/). To view the [Sass Bootstrap Docs](http://alademann.github.com/sass-bootstrap/) locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
 
-Releases will be numbered with the following format:
 
-`<major>.<minor>.<patch>`
+### Running Jekyll locally alongside Sass / Compass
 
-And constructed with the following guidelines:
+We have [Sass](http://sass-lang.com) set up to compile static CSS into the directory that Jekyll "watches" when instructed to automatically regenerate.  If you are wanting to view documentation locally at ```localhost:9001```, we recommend uncommenting the ```auto: --auto``` instruction in ```_config.yml```.  This way, when running ```$ compass watch```, the updated CSS files injected into the directory Jekyll is watching will force regeneration of your static documentation files.  
 
-* Breaking backward compatibility bumps the major (and resets the minor and patch)
-* New additions without breaking backward compatibility bumps the minor (and resets the patch)
-* Bug fixes and misc changes bumps the patch
-
-For more information on SemVer, please visit [http://semver.org/](http://semver.org/).
+You should also comment out the remote url instruction in ```_config.yml``` and uncomment the local ```url: /``` declaration so that the dynamic ```{{ site.url }}``` tags in the Jekyll templates will generate URLs that will work on your rig.
 
 
 
-## Bug tracker
+## Compiling CSS
 
-Have a bug or a feature request? [Please open a new issue](https://github.com/twitter/bootstrap/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
-
-
-
-## Community
-
-Keep track of development and community news.
-
-* Follow [@twbootstrap on Twitter](http://twitter.com/twbootstrap).
-* Read and subscribe to the [The Official Twitter Bootstrap Blog](http://blog.getbootstrap.com).
-* Have a question that's not a feature request or bug report? [Ask on the mailing list.](http://groups.google.com/group/twitter-bootstrap)
-* Chat with fellow Bootstrappers in IRC. On the `irc.freenode.net` server, in the `##twitter-bootstrap` channel.
-
-
-
-## Compiling CSS and JavaScript
-
-Bootstrap includes a [makefile](Makefile) with convenient methods for working with the framework. Before getting started, be sure to install [the necessary local dependencies](package.json):
+SASS Bootstrap makes use of [Sassy CSS](http://sass-lang.com) and [Compass](http://compass-style.org), so you'll need to install both ruby gems to generate static CSS.
 
 ```
-$ npm install
+$ sudo gem install sass
 ```
 
-When completed, you'll be able to run the various make commands provided:
+```
+$ sudo gem install compass
+```
 
-#### build - `make`
-Runs the recess compiler to rebuild the `/less` files and compiles the docs. Requires recess and uglify-js.
+Once you've installed these gems, simply run terminal from your repo directory, and run
 
-#### test - `make test`
-Runs jshint and qunit tests headlessly in [phantomjs](http://code.google.com/p/phantomjs/) (used for ci). Depends on having phantomjs installed.
+```
+$ compass watch
+```
 
-#### watch - `make watch`
-This is a convenience method for watching just Less files and automatically building them whenever you save. Requires the Watchr gem.
+This will poll your Sass (`.scss`) source files for changes, and automatically update your static CSS for you.  To make this polling a little more user-friendly on a mac, we recommend installing [Compass Growl](https://github.com/Compass/compass-growl)
 
-Should you encounter problems with installing dependencies or running the makefile commands, be sure to first uninstall any previous versions (global and local) you may have installed, and then rerun `npm install`.
+```
+$ sudo gem install compass-growl
+```
+
+Then you can be notified via your native OSX growl notifications by adding this to your watch command
+
+```
+$ compass watch -r compass-growl
+```
+
 
 
 
 ## Contributing
 
 Please submit all pull requests against *-wip branches. If your pull request contains JavaScript patches or features, you must include relevant unit tests. All HTML and CSS should conform to the [Code Guide](http://github.com/mdo/code-guide), maintained by [Mark Otto](http://github.com/mdo).
-
-Thanks!
 
 
 
@@ -98,20 +90,13 @@ Thanks!
 + [http://twitter.com/fat](http://twitter.com/fat)
 + [http://github.com/fat](http://github.com/fat)
 
+**Aaron Lademann**
+
++ [http://twitter.com/alademann](http://twitter.com/alademann)
++ [http://github.com/alademann](http://github.com/alademann)
+
 
 
 ## Copyright and license
 
-Copyright 2012 Twitter, Inc.
-
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this work except in compliance with the License.
-You may obtain a copy of the License in the LICENSE file, or at:
-
-  [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Copyright 2013 Twitter, Inc and Aaron Lademann - under [the Apache 2.0 license](LICENSE).

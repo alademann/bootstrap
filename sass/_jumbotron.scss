@@ -1,0 +1,32 @@
+//
+// Jumbotron
+// --------------------------------------------------
+
+
+.jumbotron {
+  padding: 30px;
+  margin-bottom: 30px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: ($lineHeightBase * 1.5);
+  color: $jumbotronLeadColor;
+  background-color: $jumbotronBg;
+  h1 {
+    line-height: 1;
+    color: $jumbotronHeadingColor;
+  }
+  p {
+    line-height: 1.4;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .jumbotron {
+    padding: 50px 60px;
+    border-radius: $borderRadiusLarge; // Only round corners at higher resolutions // TODO: should the radius here be a var?
+
+    h1 {
+      font-size: 60px;
+    }
+  }
+}

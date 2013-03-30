@@ -1,6 +1,6 @@
-# Contributing to Bootstrap
+# Contributing to SASS Bootstrap
 
-Looking to contribute something to Bootstrap? **Here's how you can help.**
+Looking to contribute something to SASS Bootstrap? **Here's how you can help.**
 
 
 
@@ -25,7 +25,7 @@ We only accept issues that are bug reports or feature requests. Bugs must be iso
 
 ## Notes on the repo
 
-As of v2.0.0, Bootstrap's documentation is powered by Mustache templates and built via `make` before each commit and release. This was done to enable internationalization (translation) in a future release by uploading our strings to the [Twitter Translation Center](http://translate.twttr.com/). Any edits to the docs should be first done in the Mustache files and then recompiled into the HTML.
+As of v3.0.0, SASS Bootstrap's documentation is powered by Jekyll templates and built dynamically by Github Pages before each release.
 
 
 
@@ -33,8 +33,7 @@ As of v2.0.0, Bootstrap's documentation is powered by Mustache templates and bui
 
 - Try to submit pull requests against the latest `*-wip` branch for easier merging
 - Any changes to the docs must be made to the Mustache templates, not just the compiled HTML pages
-- CSS changes must be done in .less files first, never just the compiled files
-- If modifying the .less files, always recompile and commit the compiled files bootstrap.css and bootstrap.min.css
+- CSS changes must be done in .scss files first, never just the compiled files
 - Try not to pollute your pull request with unintended changes--keep them simple and small
 - Try to share which browsers your code has been tested in before submitting a pull request
 
@@ -42,7 +41,7 @@ As of v2.0.0, Bootstrap's documentation is powered by Mustache templates and bui
 
 ## Coding standards: HTML
 
-- Two spaces for indentation, never tabs
+- Four spaces for indentation, never tabs
 - Double quotes only, never single quotes
 - Always use proper indentation
 - Use tags and elements appropriate for an HTML5 doctype (e.g., self-closing tags)
@@ -64,7 +63,7 @@ As of v2.0.0, Bootstrap's documentation is powered by Mustache templates and bui
 
 - No semicolons
 - Comma first
-- 2 spaces (no tabs)
+- 4 spaces (no tabs)
 - strict mode
 - "Attractive"
 
@@ -72,4 +71,4 @@ As of v2.0.0, Bootstrap's documentation is powered by Mustache templates and bui
 
 ## License
 
-By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.com/twitter/bootstrap/blob/master/LICENSE
+By contributing your code, you agree to license your contribution under the terms of the [APLv2](LICENSE)

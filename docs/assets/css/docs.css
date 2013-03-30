@@ -1,588 +1,265 @@
-/* Add additional stylesheets below
--------------------------------------------------- */
 /*
-  Bootstrap's documentation styles
-  Special styles for presenting Bootstrap's documentation and examples
-*/
-
-
-
-/* Body and structure
+ * Sass Bootstrap Documentation
+ * Special styles for presenting Bootstrap's documentation and code examples.
+ */
+/* Key scaffolding
 -------------------------------------------------- */
-
+/* line 14, ../../../sass/docs.scss */
 body {
+  padding-top: 50px;
   position: relative;
-  padding-top: 40px;
+  /* For scrollyspy */
+  /* We add the padding to the body for >768px only */
 }
 
-/* Code in headings */
-h3 code {
-  font-size: 14px;
-  font-weight: normal;
+/*  */
+/* line 21, ../../../sass/docs.scss */
+.bs-docs-footer {
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
-
-
-/* Tweak navbar brand link to be super sleek
--------------------------------------------------- */
-
-body > .navbar {
-  font-size: 13px;
-}
-
-/* Change the docs' brand */
-body > .navbar .brand {
-  padding-right: 0;
-  padding-left: 0;
-  margin-left: 20px;
-  float: right;
-  font-weight: bold;
-  color: #000;
-  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
-  -webkit-transition: all .2s linear;
-     -moz-transition: all .2s linear;
-          transition: all .2s linear;
-}
-body > .navbar .brand:hover {
-  text-decoration: none;
-  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
-}
-
 
 /* Sections
 -------------------------------------------------- */
-
-/* padding for in-page bookmarks and fixed navbar */
+/* Padding for in-page bookmarks */
+/* line 32, ../../../sass/docs.scss */
 section {
   padding-top: 30px;
 }
+/* line 36, ../../../sass/docs.scss */
+.container > .row section:first-child {
+  padding-top: 0;
+}
+
+/* Few stylistic typography tweaks */
+/* line 43, ../../../sass/docs.scss */
 section > .page-header,
 section > .lead {
   color: #5a5a5a;
 }
+
+/* line 46, ../../../sass/docs.scss */
 section > ul li {
   margin-bottom: 5px;
 }
 
-/* Separators (hr) */
-.bs-docs-separator {
-  margin: 40px 0 39px;
+/* Navbar
+-------------------------------------------------- */
+/* line 59, ../../../sass/docs.scss */
+.bs-docs-navbar {
+  background-color: #fff;
+  border-bottom: 1px solid #f0c9f3;
 }
 
-/* Faded out hr */
-hr.soften {
-  height: 1px;
-  margin: 70px 0;
-  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.1), rgba(0,0,0,0));
-  border: 0;
+/* line 68, ../../../sass/docs.scss */
+.bs-docs-navbar .nav > li > a:hover, .bs-docs-navbar .nav > li > a:focus {
+  outline: 0 none;
+  background-color: #f6f2f7;
+}
+/* line 78, ../../../sass/docs.scss */
+.bs-docs-navbar .nav > li.active > a, .bs-docs-navbar .nav > li.active > a:hover, .bs-docs-navbar .nav > li.active > a:focus {
+  font-weight: 500;
+  background-color: transparent;
+  color: #ce4dd6;
+  cursor: default;
 }
 
-
+/* line 90, ../../../sass/docs.scss */
+.navbar-brand b {
+  color: #ce4dd6;
+}
 
 /* Jumbotrons
 -------------------------------------------------- */
-
-/* Base class
-------------------------- */
-.jumbotron {
+/* Base class */
+/* line 100, ../../../sass/docs.scss */
+.bs-docs-jumbotron {
   position: relative;
-  padding: 40px 0;
+  margin-bottom: 20px;
+  padding: 30px 15px;
   color: #fff;
   text-align: center;
-  text-shadow: 0 1px 3px rgba(0,0,0,.4), 0 0 30px rgba(0,0,0,.075);
-  background: #020031; /* Old browsers */
-  background: -moz-linear-gradient(45deg,  #020031 0%, #6d3353 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#020031), color-stop(100%,#6d3353)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* IE10+ */
-  background: linear-gradient(45deg,  #020031 0%,#6d3353 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#020031', endColorstr='#6d3353',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  -webkit-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-     -moz-box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
-          box-shadow: inset 0 3px 7px rgba(0,0,0,.2), inset 0 -3px 7px rgba(0,0,0,.2);
+  background-color: #9b3aa1;
 }
-.jumbotron h1 {
-  font-size: 80px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  line-height: 1;
-}
-.jumbotron p {
-  font-size: 24px;
-  font-weight: 300;
-  line-height: 1.25;
-  margin-bottom: 30px;
+
+/* line 108, ../../../sass/docs.scss */
+.bs-docs-jumbotron h1 {
+  font-size: 50px;
 }
 
 /* Link styles (used on .masthead-links as well) */
-.jumbotron a {
+/* line 113, ../../../sass/docs.scss */
+.bs-docs-jumbotron a {
   color: #fff;
-  color: rgba(255,255,255,.5);
+  color: rgba(255, 255, 255, 0.5);
   -webkit-transition: all .2s ease-in-out;
-     -moz-transition: all .2s ease-in-out;
-          transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
-.jumbotron a:hover {
+
+/* line 120, ../../../sass/docs.scss */
+.bs-docs-jumbotron a:hover {
   color: #fff;
-  text-shadow: 0 0 10px rgba(255,255,255,.25);
 }
 
 /* Download button */
-.masthead .btn {
-  padding: 19px 24px;
-  font-size: 24px;
-  font-weight: 200;
-  color: #fff; /* redeclare to override the `.jumbotron a` */
-  border: 0;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-     -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-  -webkit-transition: none;
-     -moz-transition: none;
-          transition: none;
-}
-.masthead .btn:hover {
-  -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-     -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25);
-}
-.masthead .btn:active {
-  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
-     -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
-          box-shadow: inset 0 2px 4px rgba(0,0,0,.1), 0 1px 0 rgba(255,255,255,.1);
+/* line 125, ../../../sass/docs.scss */
+.bs-docs-jumbotron .btn {
+  padding: 18px 24px;
+  font-size: 21px;
 }
 
-
-/* Pattern overlay
-------------------------- */
-.jumbotron .container {
-  position: relative;
-  z-index: 2;
-}
-.jumbotron:after {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: url(../img/bs-docs-masthead-pattern.png) repeat center center;
-  opacity: .4;
-}
-@media
-only screen and (-webkit-min-device-pixel-ratio: 2),
-only screen and (   min--moz-device-pixel-ratio: 2),
-only screen and (     -o-min-device-pixel-ratio: 2/1) {
-
-  .jumbotron:after {
-    background-size: 150px 150px;
-  }
-
+/* line 131, ../../../sass/docs.scss */
+.bs-docs-jumbotron .btn,
+.bs-docs-jumbotron .btn:hover,
+.bs-docs-jumbotron .btn:active {
+  color: #9b3aa1;
+  background-color: #fff;
+  border-color: #fff;
 }
 
 /* Masthead (docs home)
 ------------------------- */
-.masthead {
-  padding: 70px 0 80px;
-  margin-bottom: 0;
-  color: #fff;
-}
+/* line 139, ../../../sass/docs.scss */
 .masthead h1 {
-  font-size: 120px;
   line-height: 1;
-  letter-spacing: -2px;
-}
-.masthead p {
-  font-size: 40px;
-  font-weight: 200;
-  line-height: 1.25;
 }
 
 /* Textual links in masthead */
+/* line 144, ../../../sass/docs.scss */
 .masthead-links {
-  margin: 0;
+  margin: 20px 0;
   list-style: none;
 }
+
+/* line 148, ../../../sass/docs.scss */
 .masthead-links li {
   display: inline;
   padding: 0 10px;
-  color: rgba(255,255,255,.25);
+  color: rgba(255, 255, 255, 0.25);
 }
-
-/* Social proof buttons from GitHub & Twitter */
-.bs-docs-social {
-  padding: 15px 0;
-  text-align: center;
-  background-color: #f5f5f5;
-  border-top: 1px solid #fff;
-  border-bottom: 1px solid #ddd;
-}
-
-/* Quick links on Home */
-.bs-docs-social-buttons {
-  margin-left: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-.bs-docs-social-buttons li {
-  display: inline-block;
-  padding: 5px 8px;
-  line-height: 1;
-  *display: inline;
-  *zoom: 1;
-}
-
-/* Subhead (other pages)
-------------------------- */
-.subhead {
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-.subhead h1 {
-  font-size: 60px;
-}
-.subhead p {
-  margin-bottom: 20px;
-}
-.subhead .navbar {
-  display: none;
-}
-
-
 
 /* Marketing section of Overview
 -------------------------------------------------- */
-
-.marketing {
+/* line 159, ../../../sass/docs.scss */
+.bs-docs-marketing {
   text-align: center;
   color: #5a5a5a;
 }
-.marketing h1 {
+
+/* line 163, ../../../sass/docs.scss */
+.bs-docs-marketing h1 {
   margin: 60px 0 10px;
-  font-size: 60px;
-  font-weight: 200;
+  font-size: 50px;
   line-height: 1;
-  letter-spacing: -1px;
 }
-.marketing h2 {
-  font-weight: 200;
+
+/* line 168, ../../../sass/docs.scss */
+.bs-docs-marketing h2 {
   margin-bottom: 5px;
 }
-.marketing p {
+
+/* line 171, ../../../sass/docs.scss */
+.bs-docs-marketing p {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.4;
 }
-.marketing .marketing-byline {
+
+/* line 175, ../../../sass/docs.scss */
+.bs-docs-marketing .marketing-byline {
   margin-bottom: 40px;
-  font-size: 20px;
+  font-size: 21px;
   font-weight: 300;
   line-height: 1.25;
   color: #999;
 }
+
+/* line 182, ../../../sass/docs.scss */
 .marketing-img {
   display: block;
-  margin: 0 auto 30px;
+  margin: 30px auto 10px;
   max-height: 145px;
 }
 
-
-
-/* Footer
--------------------------------------------------- */
-
-.footer {
-  text-align: center;
-  padding: 30px 0;
-  margin-top: 70px;
-  border-top: 1px solid #e5e5e5;
-  background-color: #f5f5f5;
-}
-.footer p {
-  margin-bottom: 0;
-  color: #777;
-}
-.footer-links {
-  margin: 10px 0;
-}
-.footer-links li {
-  display: inline;
-  padding: 0 2px;
-}
-.footer-links li:first-child {
-  padding-left: 0;
-}
-
-
-
 /* Special grid styles
 -------------------------------------------------- */
-
+/* line 193, ../../../sass/docs.scss */
 .show-grid {
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
-.show-grid [class*="span"] {
+
+/* line 196, ../../../sass/docs.scss */
+.show-grid [class^="span"] {
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #eee;
-  text-align: center;
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
-  min-height: 40px;
-  line-height: 40px;
+  border: 1px solid #ddd;
 }
-.show-grid [class*="span"]:hover {
+
+/* line 202, ../../../sass/docs.scss */
+.show-grid [class^="span"]:hover {
   background-color: #ddd;
 }
-.show-grid .show-grid {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.show-grid .show-grid [class*="span"] {
-  margin-top: 5px;
-}
-.show-grid [class*="span"] [class*="span"] {
-  background-color: #ccc;
-}
-.show-grid [class*="span"] [class*="span"] [class*="span"] {
-  background-color: #999;
-}
 
-
-
-/* Mini layout previews
+/* Sidenav
 -------------------------------------------------- */
-.mini-layout {
-  border: 1px solid #ddd;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.075);
-     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.075);
-          box-shadow: 0 1px 2px rgba(0,0,0,.075);
-}
-.mini-layout,
-.mini-layout .mini-layout-body,
-.mini-layout.fluid .mini-layout-sidebar {
-  height: 300px;
-}
-.mini-layout {
-  margin-bottom: 20px;
-  padding: 9px;
-}
-.mini-layout div {
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
-}
-.mini-layout .mini-layout-body {
-  background-color: #dceaf4;
-  margin: 0 auto;
-  width: 70%;
-}
-.mini-layout.fluid .mini-layout-sidebar,
-.mini-layout.fluid .mini-layout-header,
-.mini-layout.fluid .mini-layout-body {
-  float: left;
-}
-.mini-layout.fluid .mini-layout-sidebar {
-  background-color: #bbd8e9;
-  width: 20%;
-}
-.mini-layout.fluid .mini-layout-body {
-  width: 77.5%;
-  margin-left: 2.5%;
+/* Base styles are not affixable given mobile-first */
+/* line 212, ../../../sass/docs.scss */
+.bs-docs-sidenav {
+  margin: 20px 0 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-
-
-/* Download page
--------------------------------------------------- */
-
-.download .page-header {
-  margin-top: 36px;
-}
-.page-header .toggle-all {
-  margin-top: 5px;
+/* line 218, ../../../sass/docs.scss */
+.bs-docs-sidenav.affix {
+  position: static;
+  top: 0;
 }
 
-/* Space out h3s when following a section */
-.download h3 {
-  margin-bottom: 5px;
-}
-.download-builder input + h3,
-.download-builder .checkbox + h3 {
-  margin-top: 9px;
-}
-
-/* Fields for variables */
-.download-builder input[type=text] {
-  margin-bottom: 9px;
-  font-family: Menlo, Monaco, "Courier New", monospace;
-  font-size: 12px;
-  color: #d14;
-}
-.download-builder input[type=text]:focus {
-  background-color: #fff;
+/* Chevrons within each link */
+/* line 224, ../../../sass/docs.scss */
+.bs-docs-sidenav .glyphicon-chevron-right {
+  float: right;
+  margin-top: 1px;
+  margin-right: -6px;
+  opacity: .25;
+  color: #000;
 }
 
-/* Custom, larger checkbox labels */
-.download .checkbox {
-  padding: 6px 10px 6px 25px;
-  font-size: 13px;
-  line-height: 18px;
-  color: #555;
-  background-color: #f9f9f9;
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
-  cursor: pointer;
-}
-.download .checkbox:hover {
-  color: #333;
-  background-color: #f5f5f5;
-}
-.download .checkbox small {
-  font-size: 12px;
-  color: #777;
+/* line 231, ../../../sass/docs.scss */
+.bs-docs-sidenav a:hover .glyphicon-chevron-right {
+  opacity: .5;
 }
 
-/* Variables section */
-#variables label {
-  margin-bottom: 0;
+/* line 235, ../../../sass/docs.scss */
+.bs-docs-sidenav .active .glyphicon-chevron-right,
+.bs-docs-sidenav .active a:hover .glyphicon-chevron-right {
+  color: #fff;
+  opacity: 1;
 }
-
-/* Giant download button */
-.download-btn {
-  margin: 36px 0 108px;
-}
-#download p,
-#download h4 {
-  max-width: 50%;
-  margin: 0 auto;
-  color: #999;
-  text-align: center;
-}
-#download h4 {
-  margin-bottom: 0;
-}
-#download p {
-  margin-bottom: 18px;
-}
-.download-btn .btn {
-  display: block;
-  width: auto;
-  padding: 19px 24px;
-  margin-bottom: 27px;
-  font-size: 30px;
-  line-height: 1;
-  text-align: center;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-}
-
-
-
-/* Misc
--------------------------------------------------- */
-
-/* Make tables spaced out a bit more */
-h2 + table,
-h3 + table,
-h4 + table,
-h2 + .row {
-  margin-top: 5px;
-}
-
-/* Example sites showcase */
-.example-sites {
-  xmargin-left: 20px;
-}
-.example-sites img {
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.scrollspy-example {
-  height: 200px;
-  overflow: auto;
-  position: relative;
-}
-
-
-/* Fake the :focus state to demo it */
-.focused {
-  border-color: rgba(82,168,236,.8);
-  -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 8px rgba(82,168,236,.6);
-     -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 8px rgba(82,168,236,.6);
-          box-shadow: inset 0 1px 3px rgba(0,0,0,.1), 0 0 8px rgba(82,168,236,.6);
-  outline: 0;
-}
-
-/* For input sizes, make them display block */
-.docs-input-sizes select,
-.docs-input-sizes input[type=text] {
-  display: block;
-  margin-bottom: 9px;
-}
-
-/* Icons
-------------------------- */
-.the-icons {
-  margin-left: 0;
-  list-style: none;
-}
-.the-icons li {
-  float: left;
-  width: 25%;
-  line-height: 25px;
-}
-.the-icons i:hover {
-  background-color: rgba(255,0,0,.25);
-}
-
-/* Example page
-------------------------- */
-.bootstrap-examples h4 {
-  margin: 10px 0 5px;
-}
-.bootstrap-examples p {
-  font-size: 13px;
-  line-height: 18px;
-}
-.bootstrap-examples .thumbnail {
-  margin-bottom: 9px;
-  background-color: #fff;
-}
-
-
 
 /* Bootstrap code examples
 -------------------------------------------------- */
-
 /* Base class */
+/* line 246, ../../../sass/docs.scss */
 .bs-docs-example {
   position: relative;
-  margin: 15px 0;
-  padding: 39px 19px 14px;
-  *padding-top: 19px;
-  background-color: #fff;
+  padding: 39px 14px 14px;
+  margin-bottom: -1px;
   border: 1px solid #ddd;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+/* line 254, ../../../sass/docs.scss */
+.bs-docs-example .navbar-fixed-top, .bs-docs-example .navbar-fixed-bottom {
+  position: absolute;
+  z-index: 1029;
 }
 
 /* Echo out a label for the example */
+/* line 263, ../../../sass/docs.scss */
 .bs-docs-example:after {
   content: "Example";
   position: absolute;
@@ -591,97 +268,59 @@ h2 + .row {
   padding: 3px 7px;
   font-size: 12px;
   font-weight: bold;
+  color: #9da0a4;
   background-color: #f5f5f5;
   border: 1px solid #ddd;
-  color: #9da0a4;
-  -webkit-border-radius: 4px 0 4px 0;
-     -moz-border-radius: 4px 0 4px 0;
-          border-radius: 4px 0 4px 0;
+  border-top-left-radius: 4px;
+  border-bottom-right-radius: 4px;
 }
 
-/* Remove spacing between an example and it's code */
-.bs-docs-example + .prettyprint {
-  margin-top: -20px;
-  padding-top: 15px;
-}
-
-/* Tweak examples
-------------------------- */
-.bs-docs-example > p:last-child {
-  margin-bottom: 0;
-}
-.bs-docs-example .table,
-.bs-docs-example .progress,
-.bs-docs-example .well,
-.bs-docs-example .alert,
-.bs-docs-example .hero-unit,
-.bs-docs-example .pagination,
-.bs-docs-example .navbar,
-.bs-docs-example > .nav,
-.bs-docs-example blockquote {
-  margin-bottom: 5px;
-}
-.bs-docs-example .pagination {
+/* Tweak display of the examples */
+/* line 280, ../../../sass/docs.scss */
+.bs-docs-example + .prettyprint,
+.bs-docs-example + .highlight {
   margin-top: 0;
-}
-.bs-navbar-top-example,
-.bs-navbar-bottom-example {
-  z-index: 1;
-  padding: 0;
-  height: 90px;
-  overflow: hidden; /* cut the drop shadows off */
-}
-.bs-navbar-top-example .navbar-fixed-top,
-.bs-navbar-bottom-example .navbar-fixed-bottom {
-  margin-left: 0;
-  margin-right: 0;
-}
-.bs-navbar-top-example {
-  -webkit-border-radius: 0 0 4px 4px;
-     -moz-border-radius: 0 0 4px 4px;
-          border-radius: 0 0 4px 4px;
-}
-.bs-navbar-top-example:after {
-  top: auto;
-  bottom: -1px;
-  -webkit-border-radius: 0 4px 0 4px;
-     -moz-border-radius: 0 4px 0 4px;
-          border-radius: 0 4px 0 4px;
-}
-.bs-navbar-bottom-example {
-  -webkit-border-radius: 4px 4px 0 0;
-     -moz-border-radius: 4px 4px 0 0;
-          border-radius: 4px 4px 0 0;
-}
-.bs-navbar-bottom-example .navbar {
-  margin-bottom: 0;
-}
-form.bs-docs-example {
-  padding-bottom: 19px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-/* Images */
-.bs-docs-example-images img {
-  margin: 10px;
-  display: inline-block;
+/* Tweak content of examples for optimum awesome */
+/* line 299, ../../../sass/docs.scss */
+.bs-docs-example > p:last-child,
+.bs-docs-example > ul:last-child,
+.bs-docs-example > ol:last-child,
+.bs-docs-example > blockquote:last-child,
+.bs-docs-example > input:last-child,
+.bs-docs-example > select:last-child,
+.bs-docs-example > textarea:last-child,
+.bs-docs-example > .table:last-child,
+.bs-docs-example > .jumbotron:last-child,
+.bs-docs-example > .alert:last-child {
+  margin-bottom: 0;
 }
 
 /* Tooltips */
+/* line 304, ../../../sass/docs.scss */
 .bs-docs-tooltip-examples {
   text-align: center;
   margin: 0 0 10px;
   list-style: none;
 }
+
+/* line 309, ../../../sass/docs.scss */
 .bs-docs-tooltip-examples li {
   display: inline;
   padding: 0 10px;
 }
 
 /* Popovers */
+/* line 315, ../../../sass/docs.scss */
 .bs-docs-example-popover {
   padding-bottom: 24px;
   background-color: #f9f9f9;
 }
+
+/* line 319, ../../../sass/docs.scss */
 .bs-docs-example-popover .popover {
   position: relative;
   display: block;
@@ -691,12 +330,17 @@ form.bs-docs-example {
 }
 
 /* Dropdowns */
+/* line 328, ../../../sass/docs.scss */
 .bs-docs-example-submenus {
   min-height: 180px;
 }
+
+/* line 331, ../../../sass/docs.scss */
 .bs-docs-example-submenus > .pull-left + .pull-left {
   margin-left: 20px;
 }
+
+/* line 335, ../../../sass/docs.scss */
 .bs-docs-example-submenus .dropup > .dropdown-menu,
 .bs-docs-example-submenus .dropdown > .dropdown-menu {
   display: block;
@@ -705,28 +349,220 @@ form.bs-docs-example {
   *width: 180px;
 }
 
+/* Typography */
+/* line 344, ../../../sass/docs.scss */
+.bs-docs-example-type .table td {
+  color: #999;
+  vertical-align: middle;
+}
 
+/* line 350, ../../../sass/docs.scss */
+.bs-docs-example-type .table td,
+.bs-docs-example-type .table th {
+  padding: 15px 0;
+  border-color: #eee;
+}
+
+/* line 355, ../../../sass/docs.scss */
+.bs-docs-example-type .table tr:first-child td,
+.bs-docs-example-type .table tr:first-child th {
+  border-top: 0;
+}
+
+/* line 363, ../../../sass/docs.scss */
+.bs-docs-example-type h1,
+.bs-docs-example-type h2,
+.bs-docs-example-type h3,
+.bs-docs-example-type h4,
+.bs-docs-example-type h5,
+.bs-docs-example-type h6 {
+  margin: 0;
+}
+
+/* Navbar examples */
+/* line 370, ../../../sass/docs.scss */
+.bs-navbar-top-example,
+.bs-navbar-bottom-example {
+  z-index: 1;
+  padding: 0;
+  height: 90px;
+  overflow: hidden;
+  /* cut the drop shadows off */
+}
+
+/* line 377, ../../../sass/docs.scss */
+.bs-navbar-top-example .navbar-fixed-top,
+.bs-navbar-bottom-example .navbar-fixed-bottom {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* line 381, ../../../sass/docs.scss */
+.bs-navbar-top-example {
+  -webkit-border-radius: 0 0 4px 4px;
+  -moz-border-radius: 0 0 4px 4px;
+  border-radius: 0 0 4px 4px;
+}
+
+/* line 386, ../../../sass/docs.scss */
+.bs-navbar-top-example:after {
+  top: auto;
+  bottom: -1px;
+  -webkit-border-radius: 0 4px 0 4px;
+  -moz-border-radius: 0 4px 0 4px;
+  border-radius: 0 4px 0 4px;
+}
+
+/* line 393, ../../../sass/docs.scss */
+.bs-navbar-bottom-example {
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+}
+
+/* line 398, ../../../sass/docs.scss */
+.bs-navbar-bottom-example .navbar {
+  margin-bottom: 0;
+}
+
+/* Example modals */
+/* line 403, ../../../sass/docs.scss */
+.bs-docs-example-modal {
+  background-color: #f5f5f5;
+}
+
+/* line 406, ../../../sass/docs.scss */
+.bs-docs-example-modal .modal {
+  position: relative;
+  top: auto;
+  right: auto;
+  left: auto;
+  bottom: auto;
+  z-index: 1;
+  display: block;
+}
+
+/* line 415, ../../../sass/docs.scss */
+.bs-docs-example-modal .modal-dialog {
+  left: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Example dropdowns */
+/* line 424, ../../../sass/docs.scss */
+.bs-docs-example > .dropdown > .dropdown-menu,
+.bs-docs-example-submenu > .pull-left > .dropup > .dropdown-menu,
+.bs-docs-example-submenu > .pull-left > .dropdown > .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* line 429, ../../../sass/docs.scss */
+.bs-docs-example-submenu {
+  min-height: 240px;
+}
+
+/* line 432, ../../../sass/docs.scss */
+.bs-docs-example-submenu > .pull-left + .pull-left {
+  margin-left: 20px;
+}
+
+/* Example tabbable tabs */
+/* line 437, ../../../sass/docs.scss */
+.bs-docs-example-tabs .nav-tabs {
+  margin-bottom: 15px;
+}
+
+/* Example templates
+-------------------------------------------------- */
+/* line 445, ../../../sass/docs.scss */
+.bs-docs-examples h4 {
+  margin-bottom: 5px;
+}
+
+/* line 448, ../../../sass/docs.scss */
+.bs-docs-examples p {
+  margin-bottom: 20px;
+}
+
+/* Icons
+-------------------------------------------------- */
+/* line 457, ../../../sass/docs.scss */
+.the-icons {
+  padding-bottom: 1px;
+  margin-left: 0;
+  list-style: none;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+/* line 464, ../../../sass/docs.scss */
+.the-icons li {
+  float: left;
+  width: 100px;
+  height: 110px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  font-size: 12px;
+  line-height: 1.25;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 -1px -1px 0;
+}
+
+/* line 478, ../../../sass/docs.scss */
+.the-icons .glyphicon {
+  display: block;
+  margin: 5px auto;
+  vertical-align: middle;
+  margin-right: 3px;
+  font-size: 24px;
+}
+
+/* line 485, ../../../sass/docs.scss */
+.the-icons li:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+}
 
 /* Responsive docs
 -------------------------------------------------- */
+/* Related: responsive utilities tables */
+/* line 495, ../../../sass/docs.scss */
+.table code {
+  font-size: 13px;
+  font-weight: normal;
+}
 
 /* Utility classes table
 ------------------------- */
+/* line 502, ../../../sass/docs.scss */
 .responsive-utilities th small {
   display: block;
   font-weight: normal;
   color: #999;
 }
+
+/* line 507, ../../../sass/docs.scss */
 .responsive-utilities tbody th {
   font-weight: normal;
 }
+
+/* line 510, ../../../sass/docs.scss */
 .responsive-utilities td {
   text-align: center;
 }
+
+/* line 513, ../../../sass/docs.scss */
 .responsive-utilities td.is-visible {
   color: #468847;
   background-color: #dff0d8 !important;
 }
+
+/* line 517, ../../../sass/docs.scss */
 .responsive-utilities td.is-hidden {
   color: #ccc;
   background-color: #f9f9f9 !important;
@@ -734,12 +570,16 @@ form.bs-docs-example {
 
 /* Responsive tests
 ------------------------- */
+/* line 524, ../../../sass/docs.scss */
 .responsive-utilities-test {
   margin-top: 5px;
   margin-left: 0;
   list-style: none;
-  overflow: hidden; /* clear floats */
+  overflow: hidden;
+  /* clear floats */
 }
+
+/* line 530, ../../../sass/docs.scss */
 .responsive-utilities-test li {
   position: relative;
   float: left;
@@ -752,316 +592,322 @@ form.bs-docs-example {
   text-align: center;
   border: 1px solid #ddd;
   -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
+
+/* line 545, ../../../sass/docs.scss */
 .responsive-utilities-test li + li {
   margin-left: 10px;
 }
+
+/* line 548, ../../../sass/docs.scss */
 .responsive-utilities-test span {
   position: absolute;
-  top:    -1px;
-  left:   -1px;
-  right:  -1px;
+  top: -1px;
+  left: -1px;
+  right: -1px;
   bottom: -1px;
   -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }
+
+/* line 558, ../../../sass/docs.scss */
 .responsive-utilities-test span {
   color: #468847;
   background-color: #dff0d8;
   border: 1px solid #d6e9c6;
 }
 
-
-
-/* Sidenav for Docs
+/* Footer
 -------------------------------------------------- */
+/* line 569, ../../../sass/docs.scss */
+.bs-docs-footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 100px;
+}
+/* line 574, ../../../sass/docs.scss */
+.bs-docs-footer, .bs-docs-footer .attrib {
+  border-top: 1px solid #e5e5e5;
+}
+/* line 578, ../../../sass/docs.scss */
+.bs-docs-footer .attrib {
+  margin-top: 30px;
+  padding-top: 15px;
+}
 
-.bs-docs-sidenav {
-  width: 228px;
-  margin: 30px 0 0;
-  padding: 0;
-  background-color: #fff;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
-  -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-     -moz-box-shadow: 0 1px 4px rgba(0,0,0,.065);
-          box-shadow: 0 1px 4px rgba(0,0,0,.065);
+/* line 584, ../../../sass/docs.scss */
+.bs-docs-footer p {
+  margin-bottom: 0;
+  color: #777;
 }
-.bs-docs-sidenav > li > a {
-  display: block;
-  width: 190px \9;
-  margin: 0 0 -1px;
-  padding: 8px 14px;
-  border: 1px solid #e5e5e5;
+
+/* line 588, ../../../sass/docs.scss */
+.footer-links {
+  margin: 10px 0;
 }
-.bs-docs-sidenav > li:first-child > a {
-  -webkit-border-radius: 6px 6px 0 0;
-     -moz-border-radius: 6px 6px 0 0;
-          border-radius: 6px 6px 0 0;
+
+/* line 591, ../../../sass/docs.scss */
+.footer-links li {
+  display: inline;
+  padding: 0 2px;
 }
-.bs-docs-sidenav > li:last-child > a {
-  -webkit-border-radius: 0 0 6px 6px;
-     -moz-border-radius: 0 0 6px 6px;
-          border-radius: 0 0 6px 6px;
+
+/* line 595, ../../../sass/docs.scss */
+.footer-links li:first-child {
+  padding-left: 0;
 }
-.bs-docs-sidenav > .active > a {
+
+/* Social proof buttons from GitHub & Twitter */
+/* line 600, ../../../sass/docs.scss */
+.bs-docs-social {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Quick links on Home */
+/* line 606, ../../../sass/docs.scss */
+.bs-docs-social-buttons {
+  display: inline-block;
+  margin: 0;
+  padding: 0 10px;
+  list-style: none;
+}
+
+/* line 612, ../../../sass/docs.scss */
+.bs-docs-social-buttons li {
+  display: inline-block;
+  padding: 5px 8px 5px 0;
+  line-height: 1;
+}
+/* line 616, ../../../sass/docs.scss */
+.bs-docs-social-buttons li:last-child {
+  padding-right: 0;
+}
+
+/* line 620, ../../../sass/docs.scss */
+.bs-docs-social-buttons .twitter-follow-button {
+  width: 225px !important;
+}
+
+/* line 623, ../../../sass/docs.scss */
+.bs-docs-social-buttons .twitter-share-button {
+  width: 98px !important;
+}
+
+/* Misc docs stuff
+-------------------------------------------------- */
+/* Pseudo :focus state for showing how it looks in the docs */
+/* line 633, ../../../sass/docs.scss */
+input.focused {
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+  -moz-box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+/* Scrollspy demo on fixed height div */
+/* line 642, ../../../sass/docs.scss */
+.scrollspy-example {
   position: relative;
-  z-index: 2;
-  padding: 9px 15px;
+  height: 200px;
+  margin-top: 10px;
+  overflow: auto;
+}
+
+/* line 649, ../../../sass/docs.scss */
+.highlight {
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+}
+
+/* line 656, ../../../sass/docs.scss */
+.highlight pre {
+  padding: 0;
+  margin-bottom: 0;
+  background-color: transparent;
   border: 0;
-  text-shadow: 0 1px 0 rgba(0,0,0,.15);
-  -webkit-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-     -moz-box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-          box-shadow: inset 1px 0 0 rgba(0,0,0,.1), inset -1px 0 0 rgba(0,0,0,.1);
-}
-/* Chevrons */
-.bs-docs-sidenav .icon-chevron-right {
-  float: right;
-  margin-top: 2px;
-  margin-right: -6px;
-  opacity: .25;
-}
-.bs-docs-sidenav > li > a:hover {
-  background-color: #f5f5f5;
-}
-.bs-docs-sidenav a:hover .icon-chevron-right {
-  opacity: .5;
-}
-.bs-docs-sidenav .active .icon-chevron-right,
-.bs-docs-sidenav .active a:hover .icon-chevron-right {
-  background-image: url(../img/glyphicons-halflings-white.png);
-  opacity: 1;
-}
-.bs-docs-sidenav.affix {
-  top: 40px;
-}
-.bs-docs-sidenav.affix-bottom {
-  position: absolute;
-  top: auto;
-  bottom: 270px;
 }
 
+/* line 662, ../../../sass/docs.scss */
+.highlight pre code {
+  font-size: inherit;
+  color: #333;
+  /* Effectively the base text color */
+}
 
+/* line 666, ../../../sass/docs.scss */
+.highlight pre .lineno {
+  display: inline-block;
+  width: 22px;
+  padding-right: 5px;
+  margin-right: 10px;
+  text-align: right;
+  color: #bebec5;
+}
 
-
-/* Responsive
+/* Docs gallery
 -------------------------------------------------- */
-
-/* Desktop large
-------------------------- */
-@media (min-width: 1200px) {
-  .bs-docs-container {
-    max-width: 970px;
-  }
-  .bs-docs-sidenav {
-    width: 258px;
-  }
-  .bs-docs-sidenav > li > a {
-    width: 230px \9; /* Override the previous IE8-9 hack */
-  }
+/* line 680, ../../../sass/docs.scss */
+.bs-docs-gallery .thumbnail {
+  max-width: 400px;
+  margin: 0 auto 20px;
 }
 
-/* Desktop
-------------------------- */
-@media (max-width: 980px) {
-  /* Unfloat brand */
-  body > .navbar-fixed-top .brand {
-    float: left;
-    margin-left: 0;
-    padding-left: 10px;
-    padding-right: 10px;
+/* Responsive variations
+-------------------------------------------------- */
+/* Hide code snippets on mobile devices */
+@media screen and (max-width: 480px) {
+  /* line 691, ../../../sass/docs.scss */
+  .bs-docs-example {
+    border-radius: 4px;
   }
 
-  /* Inline-block quick links for more spacing */
-  .quick-links li {
-    display: inline-block;
-    margin: 5px;
-  }
-
-  /* When affixed, space properly */
-  .bs-docs-sidenav {
-    top: 0;
-    width: 218px;
-    margin-top: 30px;
-    margin-right: 0;
+  /* line 694, ../../../sass/docs.scss */
+  .highlight {
+    display: none;
   }
 }
-
-/* Tablet to desktop
-------------------------- */
-@media (min-width: 768px) and (max-width: 979px) {
-  /* Remove any padding from the body */
+/* Tablets and up */
+@media screen and (min-width: 768px) {
+  /* Account for fixed navbar (which is static to start) */
+  /* line 703, ../../../sass/docs.scss */
   body {
-    padding-top: 0;
-  }
-  /* Widen masthead and social buttons to fill body padding */
-  .jumbotron {
-    margin-top: -20px; /* Offset bottom margin on .navbar */
-  }
-  /* Adjust sidenav width */
-  .bs-docs-sidenav {
-    width: 166px;
-    margin-top: 20px;
-  }
-  .bs-docs-sidenav.affix {
-    top: 0;
-  }
-}
-
-/* Tablet
-------------------------- */
-@media (max-width: 767px) {
-  /* Remove any padding from the body */
-  body {
-    padding-top: 0;
+    padding-top: 50px;
+    /* Default height of navbar */
   }
 
-  /* Widen masthead and social buttons to fill body padding */
-  .jumbotron {
-    padding: 40px 20px;
-    margin-top:   -20px; /* Offset bottom margin on .navbar */
-    margin-right: -20px;
-    margin-left:  -20px;
+  /* Tweak display of docs jumbotrons */
+  /* line 708, ../../../sass/docs.scss */
+  .masthead {
+    padding-top: 100px;
+    padding-bottom: 100px;
   }
+
+  /* line 712, ../../../sass/docs.scss */
   .masthead h1 {
-    font-size: 90px;
-  }
-  .masthead p,
-  .masthead .btn {
-    font-size: 24px;
-  }
-  .marketing .span4 {
-    margin-bottom: 40px;
-  }
-  .bs-docs-social {
-    margin: 0 -20px;
+    font-size: 100px;
   }
 
-  /* Space out the show-grid examples */
-  .show-grid [class*="span"] {
-    margin-bottom: 5px;
+  /* line 715, ../../../sass/docs.scss */
+  .masthead p {
+    font-size: 30px;
+    margin-left: 10%;
+    margin-right: 10%;
   }
 
-  /* Sidenav */
-  .bs-docs-sidenav {
-    width: auto;
-    margin-bottom: 20px;
+  /* line 720, ../../../sass/docs.scss */
+  .subhead {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    text-align: left;
   }
+
+  /* From here, start to affix the nav because we keep columns here */
+  /* line 727, ../../../sass/docs.scss */
   .bs-docs-sidenav.affix {
-    position: static;
-    width: auto;
-    top: 0;
+    position: fixed;
+    top: 54px;
   }
 
-  /* Unfloat the back to top link in footer */
-  .footer {
-    margin-left: -20px;
-    margin-right: -20px;
-    padding-left: 20px;
-    padding-right: 20px;
+  /* line 731, ../../../sass/docs.scss */
+  .bs-docs-sidenav {
+    width: 170px;
   }
-  .footer p {
-    margin-bottom: 9px;
+
+  /* line 734, ../../../sass/docs.scss */
+  .bs-docs-sidenav.affix-bottom {
+    position: absolute;
+    top: auto;
+    bottom: 270px;
+  }
+
+  /* line 741, ../../../sass/docs.scss */
+  section > h2,
+  section > .h2 {
+    margin-top: 60px;
+  }
+
+  /* line 746, ../../../sass/docs.scss */
+  section > h3,
+  section > .h3 {
+    margin-top: 30px;
   }
 }
-
-/* Landscape phones
-------------------------- */
-@media (max-width: 480px) {
-  /* Remove padding above jumbotron */
-  body {
-    padding-top: 0;
+/* Tablets/desktops and up */
+@media screen and (min-width: 992px) {
+  /* Icons */
+  /* line 756, ../../../sass/docs.scss */
+  .the-icons li {
+    width: 12.5%;
   }
 
-  /* Change up some type stuff */
-  h2 small {
-    display: block;
+  /* line 760, ../../../sass/docs.scss */
+  .bs-docs-sidenav {
+    width: 220px;
   }
+}
+/* Large desktops and up */
+@media screen and (min-width: 1200px) {
+  /* line 767, ../../../sass/docs.scss */
+  .bs-docs-sidenav {
+    width: 260px;
+  }
+}
+/* line 21, ../../../sass/_mixins.scss */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+  line-height: 0;
+}
+/* line 28, ../../../sass/_mixins.scss */
+.clearfix:after {
+  clear: both;
+}
 
-  /* Downsize the jumbotrons */
-  .jumbotron h1 {
-    font-size: 45px;
-  }
-  .jumbotron p,
-  .jumbotron .btn {
-    font-size: 18px;
-  }
-  .jumbotron .btn {
-    display: block;
-    margin: 0 auto;
-  }
+/* line 12, ../../../sass/_utilities.scss */
+.pull-right {
+  float: right;
+}
 
-  /* center align subhead text like the masthead */
-  .subhead h1,
-  .subhead p {
-    text-align: center;
-  }
+/* line 15, ../../../sass/_utilities.scss */
+.pull-left {
+  float: left;
+}
 
-  /* Marketing on home */
-  .marketing h1 {
-    font-size: 30px;
-  }
-  .marketing-byline {
-    font-size: 18px;
-  }
+/* line 23, ../../../sass/_utilities.scss */
+.hide {
+  display: none !important;
+}
 
-  /* center example sites */
-  .example-sites {
-    margin-left: 0;
-  }
-  .example-sites > li {
-    float: none;
-    display: block;
-    max-width: 280px;
-    margin: 0 auto 18px;
-    text-align: center;
-  }
-  .example-sites .thumbnail > img {
-    max-width: 270px;
-  }
+/* line 26, ../../../sass/_utilities.scss */
+.show {
+  display: block !important;
+}
 
-  /* Do our best to make tables work in narrow viewports */
-  table code {
-    white-space: normal;
-    word-wrap: break-word;
-    word-break: break-all;
-  }
+/* line 29, ../../../sass/_utilities.scss */
+.invisible {
+  visibility: hidden;
+}
 
-  /* Examples: dropdowns */
-  .bs-docs-example-submenus > .pull-left {
-    float: none;
-    clear: both;
-  }
-  .bs-docs-example-submenus > .pull-left,
-  .bs-docs-example-submenus > .pull-left + .pull-left {
-    margin-left: 0;
-  }
-  .bs-docs-example-submenus p {
-    margin-bottom: 0;
-  }
-  .bs-docs-example-submenus .dropup > .dropdown-menu,
-  .bs-docs-example-submenus .dropdown > .dropdown-menu {
-    margin-bottom: 10px;
-    float: none;
-    max-width: 180px;
-  }
+/* line 32, ../../../sass/_utilities.scss */
+.text-hide {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
 
-  /* Examples: modal */
-  .modal-example .modal {
-    position: relative;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: auto;
-  }
-
-  /* Tighten up footer */
-  .footer {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
+/* line 40, ../../../sass/_utilities.scss */
+.affix {
+  position: fixed;
 }

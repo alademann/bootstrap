@@ -1,0 +1,19 @@
+# Dependencies
+markdown:     rdiscount
+pygments:     true
+
+# Permalinks
+permalink:    pretty
+
+# Server
+source:       ./docs
+destination:  ./_gh_pages
+server_port:  9001
+
+# Remote URL (comment out when testing locally)
+url:          http://alademann.github.com/sass-bootstrap/
+
+# Local URL (comment out before sending to server)
+#url:          /
+# automatic regeneration (comment out when sending to server)
+#auto: --auto

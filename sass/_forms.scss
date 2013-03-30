@@ -1,0 +1,542 @@
+//
+// Forms
+// --------------------------------------------------
+
+
+// Non-controls
+// -------------------------
+
+form {
+  margin: 0;
+}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+legend {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: $lineHeightBase;
+  font-size: ($fontSizeBase * 1.5);
+  line-height: ($lineHeightBase * 2);
+  color: $grayDark;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;  // TODO: should a <legend> border color/ width be a variable?
+}
+
+label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-weight: bold; // TODO: why not font-weight: 500 here?
+}
+
+// Form controls
+// -------------------------
+
+// Shared size and type resets
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  display: inline-block;
+  @include tb_box-sizing(border-box); // Makes inputs behave like true block-level elements
+  min-height: $lineHeightBase; // Make inputs at least the height of their button counterpart (base line-height + padding + border)
+  padding: 6px 9px; // TODO: variables for form input padding?
+  // margin-bottom: ($lineHeightBase / 2);
+  font-size: $fontSizeBase;
+  line-height: $lineHeightBase;
+  color: $gray;
+  vertical-align: middle;
+  background-color: $inputBg;
+  border: 1px solid $inputBdColor; // TODO: should form input border widths be variables too?
+  border-radius: $inputBdRadius;
+  @include tb_box-shadow(inset 0 1px 1px rgba(0,0,0,.075)); // TODO: should form drop/inset shadows be mixins / vars?
+  @include tb_transition(#{border linear .2s, box-shadow linear .2s});
+}
+
+// Reset appearance properties for textual inputs and textarea
+// Can't be on input[type=*] selectors or it's too specific
+input,
+select,
+textarea {
+  width: 100%;
+}
+
+// Reset width of input images, buttons, radios, checkboxes
+input[type="file"],
+input[type="image"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="radio"],
+input[type="checkbox"] {
+  width: auto; // Override of generic input selector
+}
+
+// Reset height since textareas have rows
+textarea {
+  height: auto;
+}
+
+// Everything else
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  // Focus state
+  &:focus {
+    border-color: rgba(82,168,236,.8);
+    outline: 0;
+    outline: thin dotted \9; // IE8-9
+    // @include tb_box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6)});
+    @include tb_box-shadow(0 0 8px rgba(82,168,236,.6)); // TODO: the blue focus color should be a var
+  }
+}
+
+// Position radios and checkboxes better
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 4px 0 0;
+  margin-top: 1px \9; // IE8-9
+  line-height: normal;
+}
+
+// Set the height of select and file controls to match text inputs
+select,
+input[type="file"] {
+  height: $inputHeightBase; // In IE7, the height of the select element cannot be changed by height, only font-size. TODO: Check if this is still needed when dropping IE7 support
+  line-height: $inputHeightBase;
+}
+
+// Make multiple select elements height not fixed
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+// Focus for select, file, radio, and checkbox
+select:focus,
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  @include tb_tab-focus();
+}
+
+
+// Placeholder
+// -------------------------
+
+// Placeholder text gets special styles because when browsers invalidate entire lines if it doesn't understand a selector
+input,
+textarea {
+  @include tb_placeholder();
+}
+
+
+// CHECKBOXES & RADIOS
+// -------------------
+
+// Indent the labels to position radios/checkboxes as hanging
+.radio,
+.checkbox {
+  display: block;
+  min-height: $lineHeightBase; // clear the floating input if there is no label text
+  margin-bottom: ($lineHeightBase / 2);
+  padding-left: 20px; // TODO: variable here?
+  label {
+    display: inline;
+    margin-bottom: 0;
+    font-weight: normal;
+  }
+}
+
+.radio input[type="radio"],
+.radio-inline input[type="radio"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+  float: left;
+  margin-left: -20px; // TODO: variable here to match the left padding of .radio / .checkbox?
+}
+.radio + .radio,
+.checkbox + .checkbox {
+  margin-top: -($lineHeightBase / 4);
+}
+
+// Move the options list down to align with labels
+.controls > .radio:first-child,
+.controls > .checkbox:first-child {
+  padding-top: 5px; // has to be padding because margin collaspes
+}
+
+// Radios and checkboxes on same line
+.radio-inline,
+.checkbox-inline {
+  display: inline-block;
+  padding-top: 5px;
+  padding-left: 20px; // TODO: variable here to match the left padding of .radio / .checkbox?
+  margin-bottom: 0;
+  vertical-align: middle;
+  font-weight: normal;
+}
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-top: 0;
+  margin-left: 10px; // space out consecutive inline controls TODO: variable?
+}
+
+
+
+// INPUT SIZES
+// -----------
+
+select,
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  &.input-large {
+    padding: $paddingLarge;
+    font-size: $fontSizeLarge;
+    border-radius: $borderRadiusLarge;
+  }
+  &.input-small {
+    min-height: $inputHeightSmall;
+    padding: $paddingSmall;
+    font-size: $fontSizeSmall;
+    border-radius: $borderRadiusSmall;
+  }
+}
+
+
+
+// GRID SIZING FOR INPUTS
+// ----------------------
+
+// Grid style input sizes
+input[class*="span"],
+select[class*="span"],
+textarea[class*="span"] {
+  float: none;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+// Ensure input-prepend/append never wraps
+.input-append input[class*="span"],
+.input-prepend input[class*="span"] {
+  display: inline-block;
+}
+
+input[class*="span"],
+select[class*="span"],
+textarea[class*="span"] {
+  height: $inputHeightBase;
+}
+
+
+
+// DISABLED STATE
+// --------------
+
+// Disabled and read-only inputs
+// Note: HTML5 says that inputs under a fieldset > legend:first-child won't be
+//   disabled if the fieldset is disabled. Due to implementation difficulty,
+//   we don't honor that edge case; we style them as disabled anyway.
+input,
+select,
+textarea {
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    cursor: not-allowed;
+    background-color: $inputBgDisabled;
+  }
+}
+// Explicitly reset the colors here
+input[type="radio"],
+input[type="checkbox"] {
+  &[disabled],
+  &[readonly],
+  fieldset[disabled] & {
+    background-color: transparent;
+  }
+}
+
+
+
+
+// FORM FIELD FEEDBACK STATES
+// --------------------------
+
+// Warning
+.has-warning {
+  @include tb_formFieldState($state_warningText, $state_warningText, $state_warningBg);
+}
+// Error
+.has-error {
+  @include tb_formFieldState($state_errorText, $state_errorText, $state_errorBg);
+}
+// Success
+.has-success {
+  @include tb_formFieldState($state_successText, $state_successText, $state_successBg);
+}
+
+// HTML5 invalid states
+// Shares styles with the .control-group.error above
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+  color: #b94a48;
+  border-color: #ee5f5b;
+  &:focus {
+    border-color: darken(#ee5f5b, 10%); // TODO: is the color lightened here supposed to be a var?
+    @include tb_box-shadow(0 0 6px lighten(#ee5f5b, 20%)); // TODO: is the color lightened here supposed to be a var?
+  }
+}
+
+
+
+// FORM ACTIONS
+// ------------
+
+.form-actions {
+  padding: ($lineHeightBase - 1) 20px $lineHeightBase;
+  margin-top: $lineHeightBase;
+  margin-bottom: $lineHeightBase;
+  background-color: $formActionsBackground;
+  border-top: 1px solid #e5e5e5; // TOOD: should the form actions top border be a variable?
+  @include tb_clearfix; // Adding clearfix to allow for .pull-right button containers
+}
+
+
+
+// HELP TEXT
+// ---------
+
+.help-block,
+.help-inline {
+  color: lighten($textColor, 25%); // lighten the text some for contrast
+}
+
+.help-block {
+  display: block; // account for any element using help-block
+  margin-bottom: ($lineHeightBase / 2);
+}
+
+.help-inline {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 5px;
+}
+
+
+
+// Input groups
+// --------------------------------------------------
+
+// Base styles
+// -------------------------
+.input-group {
+  display: table;
+
+  // Undo padding and float of grid classes
+  &[class*="span"] {
+    float: none;
+    padding: 0;
+  }
+
+  input,
+  select {
+    width: 100%;
+  }
+}
+
+// Display as table-cell
+// -------------------------
+.input-group-addon,
+.input-group-btn,
+.input-group input {
+  display: table-cell;
+  margin: 0;
+  border-radius: 0;
+  &.input-small {
+    border-radius: 0;
+  }
+  &.input-large {
+    border-radius: 0;
+  }
+}
+// Addon and addon wrapper for buttons
+.input-group-addon,
+.input-group-btn {
+  width: 1%;
+  vertical-align: middle; // Match the inputs
+}
+
+// Text input groups
+// -------------------------
+.input-group-addon {
+  @include tb_box-sizing(border-box);
+  padding: 6px 8px; // TODO: should these input-group-addon buttons padding be a var?
+  font-size: $fontSizeBase;
+  font-weight: normal;
+  line-height: $lineHeightBase;
+  text-align: center;
+  text-shadow: 0 1px 0 #fff;
+  background-color: $grayLighter; // TODO: should the bg and border of an addon button be a var?
+  border: 1px solid #ccc;
+
+	&.input-small {
+	  padding: $paddingSmall;
+	  font-size: $fontSizeSmall;
+  }
+	&.input-large {
+		padding: $paddingLarge;
+		font-size: $fontSizeLarge;
+	}
+}
+
+// Reset rounded corners
+.input-group input:first-child,
+.input-group-addon:first-child {
+  @include tb_border-left-radius($borderRadiusBase);
+  &.input-small {
+    @include tb_border-left-radius($borderRadiusSmall);
+  }
+  &.input-large {
+    @include tb_border-left-radius($borderRadiusLarge);
+  }
+}
+.input-group-addon:first-child {
+  border-right: 0;
+}
+.input-group input:last-child,
+.input-group-addon:last-child {
+  @include tb_border-right-radius($borderRadiusBase);
+  &.input-small {
+    @include tb_border-right-radius($borderRadiusSmall);
+  }
+  &.input-large {
+    @include tb_border-right-radius($borderRadiusLarge);
+  }
+}
+.input-group-addon:last-child {
+  border-left: 0;
+}
+
+// Button input groups
+// -------------------------
+.input-group-btn {
+  position: relative;
+  white-space: nowrap;
+}
+.input-group-btn > .btn {
+  position: relative;
+  float: left; // Collapse white-space
+  border-radius: 0;
+  + .btn {
+    margin-left: -1px;
+  }
+  // Bring the "active" button to the front
+  &:hover,
+  &:active {
+    z-index: 2;
+  }
+}
+
+// Prepended buttons
+.input-group-btn:first-child {
+  // Round the left corners only
+  > .btn:first-child,
+  > .dropdown-toggle:first-child {
+    @include tb_border-left-radius($borderRadiusBase);
+    &.btn-large { @include tb_border-left-radius($borderRadiusLarge); }
+    &.btn-small { @include tb_border-left-radius($borderRadiusSmall); }
+  }
+}
+
+// Appended buttons
+.input-group-btn:last-child {
+  // Round the right corners only
+  > .btn:last-child,
+  > .dropdown-toggle {
+    @include tb_border-right-radius($borderRadiusBase);
+    &.btn-large { @include tb_border-right-radius($borderRadiusLarge); }
+    &.btn-small { @include tb_border-right-radius($borderRadiusSmall); }
+  }
+}
+
+
+
+// Horizontal forms
+// --------------------------------------------------
+
+@media screen and (min-width: 768px) {
+
+  .form-horizontal {
+
+    // Increase spacing between groups
+    .control-group {
+      position: relative;
+      margin-bottom: $lineHeightBase;
+      @include tb_clearfix;
+
+      input,
+      select,
+      textarea {
+        margin-bottom: 0;
+      }
+    }
+
+    // Float the labels left
+    .control-group > .control-label {
+      float: left;
+      width: ($horizontalComponentOffset - 20); // TODO: why 20 here? same as the checkbox margin vars?
+      padding-top: 6px;
+      text-align: right;
+    }
+
+    // Move over all input controls and content over
+    .control-group > .controls {
+      margin-left: $horizontalComponentOffset;
+    }
+  }
+}

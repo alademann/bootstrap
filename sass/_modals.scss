@@ -1,0 +1,154 @@
+//
+// Modals
+// --------------------------------------------------
+
+// .modal-open      - body class for killing the scroll
+// .modal           - container to scroll within
+// .modal-dialog    - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and shit
+
+// Kill the scroll on the body
+.modal-open {
+  overflow: hidden;
+}
+
+// Container that the modal scrolls within
+.modal {
+  display: none;
+  overflow: auto;
+  overflow-y: scroll;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $zindexModalBackdrop;
+  -webkit-overflow-scrolling: touch;
+
+  // Slide entry option for modals
+  &.slide {
+    &, &.down, &.out {
+      top: -25%;
+      @include tb_transition(#{opacity 0.3s linear, top 0.3s ease-out}); // TODO: make the modal timings here be a var
+      &.in {
+        top: 0;
+      }
+    }
+    &.up {
+      &.out {
+        top: auto;
+        bottom: -25%;
+      }
+      &.in {
+        top: auto;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+// Shell div to position the modal with bottom padding
+.modal-dialog { // TODO: implement this new syntax
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  padding: 10px;
+  z-index: ($zindexModalBackdrop + 10);
+}
+
+// Actual modal
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #999; // TODO: appearance of modal should be variables
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: $borderRadiusLarge;
+  @include tb_box-shadow(0 3px 9px rgba(0,0,0,.5));
+  @include tb_background-clip(padding-box);
+  // Remove focus outline from opened modal
+  outline: none;
+}
+
+// Modal background
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: ($zindexModalBackdrop - 10);
+  background-color: #000; // TODO: modal backdrop color and opacity should be vars
+  // Fade for backdrop
+  &.fade { opacity: 0; }
+  &.fade.in { opacity: .5; }
+}
+
+// Modal header
+// Top section of the modal w/ title and dismiss
+.modal-header {
+  padding: 9px 15px;
+  border-bottom: 1px solid #eee; // TODO: modal header traits should be vars
+}
+// Close icon
+.modal-header .close { 
+  right: 0;
+  top: 2px;
+}
+
+// Title text within header
+.modal-title {
+  margin: 0;
+  line-height: 30px; // effectively set a min-height for the header TODO: this should be a var
+}
+
+// Modal body
+// Where all modal content resides (sibling of .modal-header and .modal-footer)
+.modal-body {
+  position: relative;
+  padding: $modalInnerPadding;
+  // this area should scroll
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+// Footer (for actions)
+.modal-footer {
+  margin-top: 15px;
+  padding: ($modalInnerPadding - 1) $modalInnerPadding $modalInnerPadding;
+  text-align: right; // right align buttons
+  border-top: 1px solid #e5e5e5;
+  @include tb_clearfix; // clear it in case folks use .pull-* classes on buttons
+
+  // Properly space out buttons
+  .btn + .btn {
+    margin-left: 5px; // TODO: spacing between modal action buttons should be a var
+    margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
+  }
+  // but override that for button groups
+  .btn-group .btn + .btn {
+    margin-left: -1px;
+  }
+  // and override it for block buttons as well
+  .btn-block + .btn-block {
+    margin-left: 0;
+  }
+}
+
+// Scale up the modal
+@media screen and (min-width: 768px) {
+
+  .modal-dialog {
+    left: 50%;
+    right: auto;
+    width: 560px;
+    margin-left: -280px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .modal-content {
+    @include tb_box-shadow(0 5px 15px rgba(0,0,0,.5));
+  }
+
+}

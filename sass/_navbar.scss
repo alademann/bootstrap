@@ -1,0 +1,328 @@
+//
+// Navbars
+// --------------------------------------------------
+
+// Wrapper and base class
+.navbar {
+  position: relative;
+  padding: 10px 15px;
+  background-color: $navbarBg;
+  border-radius: $borderRadiusBase;
+  // Prevent floats from breaking the navbar
+  @include tb_clearfix;
+}
+
+// Navbar nav links
+// -------------------------
+
+.navbar {
+  .nav {
+    // space out from .navbar .brand and .btn-navbar
+    margin-top: 15px;
+  }
+  .nav > li > a { // TODO: don't be so specific limiting this to an <a> tag
+    padding-top: (($navbarHeight - $lineHeightBase) / 2);
+    padding-bottom: (($navbarHeight - $lineHeightBase) / 2);
+    color: $navbarLinkColor;
+    line-height: 20px;
+  }
+  .nav > li > a:hover,
+  .nav > li > a:focus { // TODO: don't be so specific limiting this to an <a> tag
+    color: $navbarLinkColorHover;
+    background-color: $navbarLinkBgHover;
+  }
+  // Active state
+  .nav > .active { // TODO: don't be so specific limiting this to an <a> tag
+    > a {
+      &:hover, &:focus {
+        color: $navbarLinkColorActive;
+        background-color: $navbarLinkBgActive;
+      }
+    }
+  }
+  // Disabled state
+  .nav > .disabled { // TODO: don't be so specific limiting this to an <a> tag
+    > a {
+      &:hover, &:focus {
+        color: $navbarLinkColorDisabled;
+        background-color: $navbarLinkBgDisabled;
+      }
+    }
+  }
+}
+
+
+
+//
+// Navbar alignment options
+// --------------------------------------------------
+
+// Static navbar
+.navbar-static-top {
+  border-radius: 0;
+}
+
+// Fix the top/bottom navbars when screen real estate supports it
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: $zindexFixedNavbar;
+  border-radius: 0;
+}
+.navbar-fixed-top    { top: 0; }
+.navbar-fixed-bottom { bottom: 0; }
+
+
+
+//
+// Navbar optional components
+// --------------------------------------------------
+
+// Brand/project name
+.navbar-brand {
+  display: block;
+  max-width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 7px 15px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: $lineHeightBase;
+  color: $navbarBrandColor;
+  text-align: center;
+  &:hover,
+  &:focus {
+    color: $navbarBrandColorHover;
+    text-decoration: none;
+    background-color: $navbarBrandBgHover;
+  }
+}
+
+// Collapsible navbar toggle
+.navbar-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  &:hover,
+  &:focus {
+    background-color: #ddd;
+  }
+
+  // Bars
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: #ccc;
+    border-radius: 1px;
+  }
+  .icon-bar + .icon-bar {
+    margin-top: 4px;
+  }
+}
+
+// Dividers in navbar
+.navbar .nav > .divider {
+  @include tb_nav-divider(darken($navbarBg, 5%), lighten($navbarBg, 5%));
+}
+
+// Navbar form
+.navbar-form {
+  @include tb_navbarVerticalAlign(34px); // Vertically center in navbar
+}
+
+// Dropdown menus
+
+// Menu position and menu carets
+.navbar .nav > li > .dropdown-menu {
+  margin-top: 0;
+  @include tb_border-top-radius(0);
+}
+// Menu position and menu caret support for dropups via extra dropup class
+.navbar-fixed-bottom .nav > li > .dropdown-menu {
+  @include tb_border-bottom-radius(0);
+}
+
+// Dropdown menu items and carets
+.navbar .nav {
+  // Caret should match text color on hover
+  li.dropdown > a:hover .caret,
+  li.dropdown > a:focus .caret { // TODO: don't be so specific limiting this to an <a> tag
+    border-top-color: $navbarLinkColorHover;
+    border-bottom-color: $navbarLinkColorHover;
+  }
+
+  // Remove background color from open dropdown
+  li.dropdown.open > .dropdown-toggle,
+  li.dropdown.active > .dropdown-toggle,
+  li.dropdown.open.active > .dropdown-toggle {
+    background-color: $navbarLinkBgActive;
+    color: $navbarLinkColorActive;
+  }
+  li.dropdown > .dropdown-toggle .caret {
+    border-top-color: $navbarLinkColor;
+    border-bottom-color: $navbarLinkColor;
+  }
+  li.dropdown.open > .dropdown-toggle .caret,
+  li.dropdown.active > .dropdown-toggle .caret,
+  li.dropdown.open.active > .dropdown-toggle .caret {
+    border-top-color: $navbarLinkColorActive;
+    border-bottom-color: $navbarLinkColorActive;
+  }
+}
+
+// Right aligned menus need alt position
+.navbar .pull-right > li > .dropdown-menu,
+.navbar .nav > li > .dropdown-menu.pull-right {
+  left: auto;
+  right: 0;
+}
+
+
+
+// Inverse navbar
+// --------------------------------------------------
+
+.navbar-inverse {
+  background-color: $navbarInverseBg;
+
+  .navbar-brand {
+    color: $navbarInverseBrandColor;
+    &:hover,
+    &:focus {
+      color: $navbarInverseBrandColorHover;
+      background-color: $navbarInverseBrandBgHover;
+    }
+  }
+
+  .navbar-text {
+    color: $navbarInverseText;
+  }
+
+  .nav > li > a { // TODO: don't be so specific limiting this to an <a> tag
+    color: $navbarInverseLinkColor;
+  }
+
+  .nav > li > a:focus,
+  .nav > li > a:hover { // TODO: don't be so specific limiting this to an <a> tag
+    color: $navbarInverseLinkColorHover;
+    background-color: $navbarInverseLinkBgHover;
+  }
+  .nav > .active > a,
+  .nav > .active > a:hover,
+  .nav > .active > a:focus { // TODO: don't be so specific limiting this to an <a> tag
+    color: $navbarInverseLinkColorActive;
+    background-color: $navbarInverseLinkBgActive;
+  }
+  .nav > .disabled > a,
+  .nav > .disabled > a:hover,
+  .nav > .disabled > a:focus { // TODO: don't be so specific limiting this to an <a> tag
+    color: $navbarInverseLinkColorDisabled;
+    background-color: $navbarInverseLinkBgDisabled;
+  }
+
+  // Darken the responsive nav toggle
+  .navbar-toggle {
+    border-color: #333;
+    &:hover,
+    &:focus {
+      background-color: #333; // TODO: this should be a var
+    }
+    .icon-bar {
+      background-color: #fff;
+    }
+  }
+
+  // Darken Dividers
+  .nav > .divider {
+    background-color: darken($navbarInverseBg, 5%);
+    border-bottom-color: lighten($navbarInverseBg, 5%);
+  }
+
+  // Dropdowns
+  .nav li.dropdown.open > .dropdown-toggle,
+  .nav li.dropdown.active > .dropdown-toggle,
+  .nav li.dropdown.open.active > .dropdown-toggle {
+    background-color: $navbarInverseLinkBgActive;
+    color: $navbarInverseLinkColorActive;
+  }
+  .nav li.dropdown > a:hover .caret,
+  .nav li.dropdown > a:focus .caret { // TODO: don't be so specific limiting this to an <a> tag
+    border-top-color: $navbarInverseLinkColorActive;
+    border-bottom-color: $navbarInverseLinkColorActive;
+  }
+  .nav li.dropdown > .dropdown-toggle .caret {
+    border-top-color: $navbarInverseLinkColor;
+    border-bottom-color: $navbarInverseLinkColor;
+  }
+  .nav li.dropdown.open > .dropdown-toggle .caret,
+  .nav li.dropdown.active > .dropdown-toggle .caret,
+  .nav li.dropdown.open.active > .dropdown-toggle .caret {
+    border-top-color: $navbarInverseLinkColorActive;
+    border-bottom-color: $navbarInverseLinkColorActive;
+  }
+}
+
+
+
+// Responsive
+// --------------------------------------------------
+
+@media screen and (min-width: 768px) {
+  .navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .navbar-brand {
+    float: left;
+    padding-top: (($navbarHeight - $lineHeightBase) / 2) - 1;
+    padding-bottom: (($navbarHeight - $lineHeightBase) / 2) + 1;
+    margin-left: -10px; // TODO: why -10px here? variable?
+  }
+  .navbar .nav {
+    float: left;
+    margin-top: 0; // undo top margin to make nav extend full height of navbar
+    @include tb_clearfix;
+
+    &.pull-right {
+      float: right;
+    }
+  }
+  .navbar .nav > li {
+    float: left;
+  }
+
+  // Dividers go vertical
+  // Change the height and height, disable bottom border, then add right border
+  .navbar .nav > .divider {
+    width: 1px;
+    height: ($navbarHeight * .6);
+    margin: ($navbarHeight * .2) 9px;
+    border-bottom: 0;
+    border-right: 1px solid lighten($navbarBg, 5%);
+  }
+  // Since we override the border, we need to specify it again for inverted navbars
+  .navbar-inverse .nav > .divider {
+    border-right-color: lighten($navbarInverseBg, 5%);
+  }
+
+  // Required to make the collapsing navbar work on regular desktops
+  .navbar-toggle {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: none;
+  }
+  .nav-collapse.collapse {
+    height: auto !important;
+    overflow: visible !important;
+  }
+
+}

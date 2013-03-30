@@ -1,0 +1,99 @@
+//
+// Alerts
+// --------------------------------------------------
+
+
+// Base styles
+// -------------------------
+
+.alert {
+  padding: 8px 35px 8px 14px;
+  margin-bottom: $lineHeightBase;
+  color: $state_warningText;
+  background-color: $state_warningBg;
+  border: 1px solid $state_warningBd;
+  border-radius: $borderRadiusBase;
+
+  // Headings for larger alerts
+  h4 {
+    margin-top: 0;
+    // Specified for the h4 to prevent conflicts of changing $headingsColor
+    color: inherit;
+  }
+  // Match the hr to the border of the alert
+  hr {
+    border-top-color: darken($state_warningBd, 5%);
+  }
+  // Inherit color for immediate links and bolden them some
+  > a,
+  > p > a {
+    font-weight: 500;
+    color: darken($state_warningText, 10%);
+  }
+}
+
+
+// Adjust close link position
+.alert .close {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  line-height: $lineHeightBase;
+  color: inherit;
+}
+
+// Alternate styles
+// -------------------------
+
+.alert-success {
+  background-color: $state_successBg;
+  border-color: $state_successBd;
+  color: $state_successText;
+  hr {
+    border-top-color: darken($state_successBd, 5%);
+  }
+  > a,
+  > p > a {
+    color: darken($state_successText, 10%);
+  }
+}
+.alert-danger,
+.alert-error {
+  background-color: $state_errorBg;
+  border-color: $state_errorBd;
+  color: $state_errorText;
+  hr {
+    border-top-color: darken($state_errorBd, 5%);
+  }
+  > a,
+  > p > a {
+    color: darken($state_errorText, 10%);
+  }
+}
+.alert-info {
+  background-color: $state_infoBg;
+  border-color: $state_infoBd;
+  color: $state_infoText;
+  hr {
+    border-top-color: darken($state_infoBd, 5%);
+  }
+  > a,
+  > p > a {
+    color: darken($state_infoText, 10%);
+  }
+}
+
+// Block alerts
+// -------------------------
+
+.alert-block {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.alert-block > p,
+.alert-block > ul {
+  margin-bottom: 0;
+}
+.alert-block p + p {
+  margin-top: 5px;
+}

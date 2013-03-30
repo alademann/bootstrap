@@ -1,0 +1,100 @@
+//
+// Pagination (multiple pages)
+// --------------------------------------------------
+.pagination {
+  display: inline-block;
+  margin: $lineHeightBase 0;
+  border-radius: $borderRadiusBase;
+}
+.pagination > li {
+  display: inline; // Remove list-style and block-level defaults
+}
+.pagination > li > a,
+.pagination > li > span { // TODO: don't be so specific limiting this to an <a> tag
+  float: left; // Collapse white-space
+  padding: 4px 12px;
+  line-height: $lineHeightBase;
+  text-decoration: none;
+  background-color: $paginationBg;
+  border: 1px solid $paginationBdColor;
+  border-left-width: 0;
+}
+.pagination > li > a:hover,
+.pagination > li > a:focus,
+.pagination > .active > a,
+.pagination > .active > span { // TODO: don't be so specific limiting this to an <a> tag
+  background-color: $paginationBgActive;
+}
+.pagination > .active > a,
+.pagination > .active > span { // TODO: don't be so specific limiting this to an <a> tag
+  color: $grayLight;
+  cursor: default;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus { // TODO: don't be so specific limiting this to an <a> tag
+  color: $grayLight;
+  background-color: transparent;
+  cursor: default;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span { // TODO: don't be so specific limiting this to an <a> tag
+  border-left-width: 1px;
+  @include tb_border-left-radius($borderRadiusBase);
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span { // TODO: don't be so specific limiting this to an <a> tag
+  @include tb_border-right-radius($borderRadiusBase);
+}
+
+
+// Sizing
+// --------------------------------------------------
+
+// Large
+.pagination-large { // TODO: don't be so specific limiting this to an <a> tag
+  > li > a,
+  > li > span {
+    padding: $paddingLarge;
+    font-size: $fontSizeLarge;
+  }
+  > li:first-child > a,
+  > li:first-child > span {
+    @include tb_border-left-radius($borderRadiusLarge);
+  }
+  > li:last-child > a,
+  > li:last-child > span {
+    @include tb_border-right-radius($borderRadiusLarge);
+  }
+}
+
+// Small and mini
+.pagination-mini,
+.pagination-small { // TODO: don't be so specific limiting this to an <a> tag
+  > li:first-child > a,
+  > li:first-child > span {
+    @include tb_border-left-radius($borderRadiusSmall);
+  }
+  > li:last-child > a,
+  > li:last-child > span {
+    @include tb_border-right-radius($borderRadiusSmall);
+  }
+}
+
+// Small
+.pagination-small { // TODO: don't be so specific limiting this to an <a> tag
+  > li > a,
+  > li > span {
+    padding: $paddingSmall;
+    font-size: $fontSizeSmall;
+  }
+}
+// Mini
+.pagination-mini { // TODO: don't be so specific limiting this to an <a> tag
+  > li > a,
+  > li > span {
+    padding: $paddingMini;
+    font-size: $fontSizeMini;
+  }
+}
