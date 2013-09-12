@@ -7,13 +7,13 @@
 // -------------------------
 
 .clearfix {
-  @include tb_clearfix;
+  @include clearfix;
 }
 .pull-right {
-  float: right;
+  float: right !important;
 }
 .pull-left {
-  float: left;
+  float: left !important;
 }
 
 
@@ -30,7 +30,7 @@
   visibility: hidden;
 }
 .text-hide {
-  @include tb_hide-text;
+  @include text-hide();
 }
 
 

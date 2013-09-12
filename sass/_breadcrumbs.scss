@@ -5,24 +5,19 @@
 
 .breadcrumb {
   padding: 8px 15px;
-  margin: 0 0 $lineHeightBase;
+  margin-bottom: $line-height-computed;
   list-style: none;
-  background-color: $almostWhite; // TODO: variable?
-  border-radius: $borderRadiusBase;
+  background-color: $breadcrumb-bg;
+  border-radius: $border-radius-base;
   > li {
     display: inline-block;
-    text-shadow: 0 1px 0 #fff;
-    @include tb_ie7-inline-block(); // TODO: is this still required since divider is a pseudo elem now?
-
-    // divider
-    &:after {
-      display: inline-block;
-      content: "\00a0 /"; // Unicode space added since inline-block means non-collapsing white-space
+    &+li:before {
+      content: "/\00a0"; // Unicode space added since inline-block means non-collapsing white-space
       padding: 0 5px;
-      color: #ccc; // TODO: variable
+      color: $breadcrumb-color;
     }
   }
   > .active {
-    color: $grayLight;
+    color: $breadcrumb-active-color;
   }
 }

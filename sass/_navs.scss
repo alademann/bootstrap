@@ -7,205 +7,201 @@
 // --------------------------------------------------
 
 .nav {
-  margin-left: 0;
   margin-bottom: 0;
   padding-left: 0; // Override default ul/ol
   list-style: none;
-  @include tb_clearfix;
-}
-.nav > li {
-  display: block;
-}
-.nav > li > a {
-  position: relative;
-  display: block;
-  padding: 10px 15px; // TODO: nav item padding should be a var
-  // caret color should match the text color
-  .caret { border-top-color: $linkColor; }
-}
-.nav > li > a:hover,
-.nav > li > a:focus {
-  text-decoration: none;
-  background-color: $grayLighter;
+  @include clearfix;
+
+  > li {
+    position: relative;
+    display: block;
+
+    > a {
+      position: relative;
+      display: block;
+      padding: $nav-link-padding;
+      &:hover,
+      &:focus {
+        text-decoration: none;
+        background-color: $nav-link-hover-bg;
+      }
+    }
+
+    // Disabled state sets text to gray and nukes hover/tab effects
+    &.disabled > a {
+      color: $nav-disabled-link-color;
+
+      &:hover,
+      &:focus {
+        color: $nav-disabled-link-hover-color;
+        text-decoration: none;
+        background-color: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  // Open dropdowns
+  .open > a {
+    &,
+    &:hover,
+    &:focus {
+      background-color: $nav-link-hover-bg;
+      border-color: $link-color;
+    }
+  }
+
+  // Dividers (basically an hr) within the dropdown
+  .nav-divider {
+    @include nav-divider;
+  }
+
+  // Prevent IE8 from misplacing imgs
+  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
+  > li > a > img {
+    max-width: none;
+  }
 }
 
-// Redeclare pull classes because of specifity
-// TODO: consider making these utilities !important to avoid this bullshit
-.nav > .pull-right {
-  float: right;
-}
-
-
-
-// Nav variations
-// --------------------------------------------------
 
 // Tabs
 // -------------------------
 
 // Give the tabs something to sit on
 .nav-tabs {
-  border-bottom: 1px solid #ddd;
-}
-// Make the list-items overlay the bottom border
-.nav-tabs > li {
-  float: left;
-  // Make the list-items overlay the bottom border
-  margin-bottom: -1px;
-}
-// Actual tabs (as links)
-.nav-tabs > li > a { // TODO: don't be so specific limiting this to an <a> tag
-  margin-right: 2px;
-  line-height: $lineHeightBase;
-  border: 1px solid transparent;
-  border-radius: $borderRadiusBase $borderRadiusBase 0 0;
-  &:hover { // TODO: should this have a :focus as well?
-    border-color: $grayLighter $grayLighter #ddd; // TODO: tab border colors should be vars
+  border-bottom: 1px solid $nav-tabs-border-color;
+  > li {
+    float: left;
+    // Make the list-items overlay the bottom border
+    margin-bottom: -1px;
+
+    // Actual tabs (as links)
+    > a {
+      margin-right: 2px;
+      line-height: $line-height-base;
+      border: 1px solid transparent;
+      border-radius: $border-radius-base $border-radius-base 0 0;
+      &:hover {
+        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
+      }
+    }
+
+    // Active state, and it's :hover to override normal :hover
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-tabs-active-link-hover-color;
+        background-color: $nav-tabs-active-link-hover-bg;
+        border: 1px solid $nav-tabs-active-link-hover-border-color;
+        border-bottom-color: transparent;
+        cursor: default;
+      }
+    }
+  }
+  // pulling this in mainly for less shorthand
+  &.nav-justified {
+    @extend .nav-justified;
+    @extend .nav-tabs-justified;
   }
 }
-// Active state, and it's :hover to override normal :hover
-.nav-tabs > .active > a,
-.nav-tabs > .active > a:hover,
-.nav-tabs > .active > a:focus { // TODO: don't be so specific limiting this to an <a> tag
-  color: $gray;
-  background-color: $bodyBackground;
-  border: 1px solid #ddd; // TODO: tab border colors should be vars
-  border-bottom-color: transparent;
-  cursor: default;
-  // caret color should match the text color
-  .caret { border-top-color: $gray; }
-}
+
 
 // Pills
 // -------------------------
+.nav-pills {
+  > li {
+    float: left;
 
-.nav-pills > li {
-  float: left;
-}
+    // Links rendered as pills
+    > a {
+      border-radius: 5px;
+    }
+    + li {
+      margin-left: 2px;
+    }
 
-// Links rendered as pills
-.nav-pills > li > a { // TODO: don't be so specific limiting this to an <a> tag
-  border-radius: 5px;
-}
-.nav-pills > li + li > a { // TODO: don't be so specific limiting this to an <a> tag
-  margin-left: 2px; // TODO: this pill spacing matches tab spacing, use a var
-}
-
-// Active state
-.nav-pills > .active > a,
-.nav-pills > .active > a:hover,
-.nav-pills > .active > a:focus { // TODO: don't be so specific limiting this to an <a> tag
-  color: #fff;
-  background-color: $linkColor; // TODO: this bg color should be inherited from global menu styling
-  // carets and badges should match the text color
-  .caret { border-top-color: #fff; }
-  // badges appear with reverse contrast
-  .badge {
-    color: $linkColor;
-    background-color: #fff;
+    // Active state
+    &.active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: $nav-pills-active-link-hover-color;
+        background-color: $nav-pills-active-link-hover-bg;
+      }
+    }
   }
 }
 
+
 // Stacked pills
-.nav-stacked > li {
-  float: none;
+.nav-stacked {
+  > li {
+    float: none;
+    + li {
+      margin-top: 2px;
+      margin-left: 0; // no need for this gap between nav items
+    }
+  }
 }
-.nav-stacked > li + li > a { // TODO: don't be so specific limiting this to an <a> tag
-  margin-top: 2px;
-  margin-left: 0; // no need for this gap between nav items
-}
+
+
+// Nav variations
+// --------------------------------------------------
 
 // Justified nav links
 // -------------------------
 
 .nav-justified {
-  // Negative margin doesn't work, so we hack it
-  max-height: 40px;
-}
-.nav-justified > li {
-  float: none;
-  display: table-cell;
-  width: 1%;
-  text-align: center;
-}
+  width: 100%;
 
-// Lists
-// -------------------------
+  > li {
+    float: none;
+     > a {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
 
-.nav-list > li > a { // TODO: don't be so specific limiting this to an <a> tag
-  margin-bottom: -1px; // pull up the following link for a 1px border between
-  border: 1px solid #e5e5e5; // TODO: all this nav-list appearance stuff should be inherited from global menu styling
-}
-.nav-list > li:first-child > a { // TODO: don't be so specific limiting this to an <a> tag
-  @include tb_border-top-radius($borderRadiusBase);
-}
-.nav-list > li:last-child > a { // TODO: don't be so specific limiting this to an <a> tag
-  @include tb_border-bottom-radius($borderRadiusBase);
-}
-.nav-list > .active > a,
-.nav-list > .active > a:hover,
-.nav-list > .active > a:focus { // TODO: don't be so specific limiting this to an <a> tag
-  z-index: 2; // Bring active item forward so border sits on top of next element
-  color: #fff;
-  background-color: $linkColor;
-  border-color: $linkColor;
-  // carets and badges should match the text color
-  .caret { border-top-color: #fff; }
-  // badges appear with reverse contrast
-  .badge {
-    color: $linkColor;
-    background-color: #fff;
+  @media (min-width: $screen-sm-min) {
+    > li {
+      display: table-cell;
+      width: 1%;
+      > a {
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
+// Move borders to anchors instead of bottom of list
+.nav-tabs-justified {
+  border-bottom: 0;
 
+  > li > a {
+    // Override margin from .nav-tabs
+    margin-right: 0;
+    border-radius: $border-radius-base;
+  }
 
-// Nav states and addons
-// --------------------------------------------------
+  > .active > a,
+  > .active > a:hover,
+  > .active > a:focus {
+    border: 1px solid $nav-tabs-justified-link-border-color;
+  }
 
-// Disabled state
-// -------------------------
-
-// Gray out text
-.nav > .disabled > a { // TODO: don't be so specific limiting this to an <a> tag
-  color: $grayLight;
-  // caret color should match the text color
-  .caret { border-top-color: $grayLight; }
+  @media (min-width: $screen-sm-min) {
+    > li > a {
+      border-bottom: 1px solid $nav-tabs-justified-link-border-color;
+      border-radius: $border-radius-base $border-radius-base 0 0;
+    }
+    > .active > a,
+    > .active > a:hover,
+    > .active > a:focus {
+      border-bottom-color: $nav-tabs-justified-active-link-border-color;
+    }
+  }
 }
-// Nuke hover effects
-.nav > .disabled > a:hover,
-.nav > .disabled > a:focus { // TODO: don't be so specific limiting this to an <a> tag
-  color: $grayLight;
-  text-decoration: none;
-  background-color: transparent;
-  cursor: default;
-  // caret color should match the text color
-  .caret { border-top-color: $grayLight; }
-}
-
-// Nav headers (for dropdowns and lists)
-// -------------------------
-
-.nav-header {
-  display: block;
-  padding: 3px 15px;
-  font-size: 11px;
-  font-weight: bold;
-  line-height: $lineHeightBase;
-  color: $grayLight;
-  text-shadow: 0 1px 0 rgba(255,255,255,.5);
-  text-transform: uppercase;
-}
-// Space them out when they follow another list item (link)
-.nav li + .nav-header {
-  margin-top: 9px;
-}
-
-// Dividers (basically an hr) within the dropdown
-.nav .divider {
-  @include tb_nav-divider; // TODO: this should be a global menu style mixin
-}
-
 
 
 // Tabbable tabs
@@ -213,7 +209,7 @@
 
 // Clear any floats
 .tabbable {
-  @include tb_clearfix;
+  @include clearfix;
 }
 
 // Show/hide tabbable areas
@@ -221,10 +217,32 @@
 .pill-content > .pill-pane {
   display: none;
 }
-.tab-content > .active,
-.pill-content > .active {
-  display: block;
+.tab-content,
+.pill-content {
+  > .active {
+    display: block;
+  }
 }
 
 
 
+// Dropdowns
+// -------------------------
+
+// Make dropdown carets use link color in navs
+.nav .caret {
+  border-top-color: $link-color;
+  border-bottom-color: $link-color;
+}
+.nav a:hover .caret {
+  border-top-color: $link-hover-color;
+  border-bottom-color: $link-hover-color;
+}
+
+// Specific dropdowns
+.nav-tabs .dropdown-menu {
+  // make dropdown border overlap tab border
+  margin-top: -1px;
+  // Remove the top rounded corners here since there is a hard edge above the menu
+  @include border-top-radius(0);
+}

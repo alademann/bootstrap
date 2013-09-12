@@ -6,14 +6,21 @@ pygments:     true
 permalink:    pretty
 
 # Server
-source:       ./docs
 destination:  ./_gh_pages
-server_port:  9001
+port:         9003
 
-# Remote URL (comment out when testing locally)
-url:          http://alademann.github.com/sass-bootstrap/
+exclude:      ["*.zip", "browserstack.json", "node_modules", "twbs", "temp-css", "sass", "less", ".editorconfig", "composer.json", ".ruby-version", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "Makefile", "Rakefile", "LICENSE", "README.md", "CONTRIBUTING.md", "requirements.txt"]
 
-# Local URL (comment out before sending to server)
-#url:          /
-# automatic regeneration (comment out when sending to server)
-#auto: --auto
+
+## CUSTOM VARS
+repo:               https://github.com/alademann/sass-bootstrap
+download:           https://github.com/alademann/sass-bootstrap/zipball/master
+download_dist:      https://github.com/alademann/sass-bootstrap/blob/master/sass-bootstrap-dist.zip
+
+issues_open:        https://github.com/alademann/sass-bootstrap/issues?state=open
+issues_new:         https://github.com/alademann/sass-bootstrap/issues/new
+
+# Misc Vars
+ga_id:              UA-39735819-1
+app_name:           Sass Bootstrap
+current_version:    3.0.1

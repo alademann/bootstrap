@@ -12,6 +12,13 @@
   overflow: hidden;
 }
 
+// Account for hiding of scrollbar
+body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+  margin-right: 15px
+}
+
 // Container that the modal scrolls within
 .modal {
   display: none;
@@ -22,51 +29,34 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: $zindexModalBackdrop;
-  -webkit-overflow-scrolling: touch;
+  z-index: $zindex-modal-background;
 
-  // Slide entry option for modals
-  &.slide {
-    &, &.down, &.out {
-      top: -25%;
-      @include tb_transition(#{opacity 0.3s linear, top 0.3s ease-out}); // TODO: make the modal timings here be a var
-      &.in {
-        top: 0;
-      }
-    }
-    &.up {
-      &.out {
-        top: auto;
-        bottom: -25%;
-      }
-      &.in {
-        top: auto;
-        bottom: 0;
-      }
-    }
+  // When fading in the modal, animate it to slide down
+  &.fade .modal-dialog {
+    @include translate(0, -25%);
+    @include transition-transform(#{"0.3s ease-out"});
   }
+  &.in .modal-dialog { @include translate(0, 0); }
 }
 
 // Shell div to position the modal with bottom padding
-.modal-dialog { // TODO: implement this new syntax
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
+.modal-dialog {
+  margin-left: auto;
+  margin-right: auto;
   width: auto;
   padding: 10px;
-  z-index: ($zindexModalBackdrop + 10);
+  z-index: ($zindex-modal-background + 10);
 }
 
 // Actual modal
 .modal-content {
   position: relative;
-  background-color: #fff;
-  border: 1px solid #999; // TODO: appearance of modal should be variables
-  border: 1px solid rgba(0,0,0,.2);
-  border-radius: $borderRadiusLarge;
-  @include tb_box-shadow(0 3px 9px rgba(0,0,0,.5));
-  @include tb_background-clip(padding-box);
+  background-color: $modal-content-bg;
+  border: 1px solid $modal-content-fallback-border-color; //old browsers fallback (ie8 etc)
+  border: 1px solid $modal-content-border-color;
+  border-radius: $border-radius-large;
+  @include box-shadow(0 3px 9px rgba(0,0,0,.5));
+  background-clip: padding-box;
   // Remove focus outline from opened modal
   outline: none;
 }
@@ -78,52 +68,49 @@
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: ($zindexModalBackdrop - 10);
-  background-color: #000; // TODO: modal backdrop color and opacity should be vars
+  z-index: ($zindex-modal-background - 10);
+  background-color: $modal-backdrop-bg;
   // Fade for backdrop
-  &.fade { opacity: 0; }
-  &.fade.in { opacity: .5; }
+  &.fade { @include opacity(0); }
+  &.in { @include opacity(.5); }
 }
 
 // Modal header
 // Top section of the modal w/ title and dismiss
 .modal-header {
-  padding: 9px 15px;
-  border-bottom: 1px solid #eee; // TODO: modal header traits should be vars
+  padding: $modal-title-padding;
+  border-bottom: 1px solid $modal-header-border-color;
+  min-height: ($modal-title-padding + $modal-title-line-height);
 }
 // Close icon
-.modal-header .close { 
-  right: 0;
-  top: 2px;
+.modal-header .close {
+  margin-top: -2px;
 }
 
 // Title text within header
 .modal-title {
   margin: 0;
-  line-height: 30px; // effectively set a min-height for the header TODO: this should be a var
+  line-height: $modal-title-line-height;
 }
 
 // Modal body
 // Where all modal content resides (sibling of .modal-header and .modal-footer)
 .modal-body {
   position: relative;
-  padding: $modalInnerPadding;
-  // this area should scroll
-  overflow-y: auto;
-  max-height: 400px;
+  padding: $modal-inner-padding;
 }
 
 // Footer (for actions)
 .modal-footer {
   margin-top: 15px;
-  padding: ($modalInnerPadding - 1) $modalInnerPadding $modalInnerPadding;
+  padding: ($modal-inner-padding - 1) $modal-inner-padding $modal-inner-padding;
   text-align: right; // right align buttons
-  border-top: 1px solid #e5e5e5;
-  @include tb_clearfix; // clear it in case folks use .pull-* classes on buttons
+  border-top: 1px solid $modal-footer-border-color;
+  @include clearfix; // clear it in case folks use .pull-* classes on buttons
 
   // Properly space out buttons
   .btn + .btn {
-    margin-left: 5px; // TODO: spacing between modal action buttons should be a var
+    margin-left: 5px;
     margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
   }
   // but override that for button groups
@@ -137,18 +124,17 @@
 }
 
 // Scale up the modal
-@media screen and (min-width: 768px) {
+@media screen and (min-width: $screen-sm) {
 
   .modal-dialog {
     left: 50%;
     right: auto;
-    width: 560px;
-    margin-left: -280px;
+    width: 600px;
     padding-top: 30px;
     padding-bottom: 30px;
   }
   .modal-content {
-    @include tb_box-shadow(0 5px 15px rgba(0,0,0,.5));
+    @include box-shadow(0 5px 15px rgba(0,0,0,.5));
   }
 
 }

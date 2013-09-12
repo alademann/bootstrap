@@ -1,12 +1,12 @@
-<a href="http://alademann.github.com/sass-bootstrap/">
-  <img src="http://alademann.github.com/sass-bootstrap/assets/img/bootstrap-docs-readme.png" width="100px">
+<a href="http://alademann.github.io/sass-bootstrap/">
+  <img src="http://alademann.github.io/sass-bootstrap/assets/img/bootstrap-docs-readme.png" width="100px">
 </a>
 
 # Sass Bootstrap v3.0.0
 
 Sass Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass/Compass by [Aaron Lademann](https://github.com/alademann).
 
-To get started, check out the [SASS Bootstrap Documentation](http://alademann.github.com/sass-bootstrap/)!
+To get started, check out the [SASS Bootstrap Documentation](http://alademann.github.io/sass-bootstrap/)!
 
 
 
@@ -17,7 +17,7 @@ Three quick start options are available:
 * [Download the latest release](https://github.com/alademann/sass-bootstrap/zipball/master).
 * Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
 
-Read the [Getting Started page](http://alademann.github.com/sass-bootstrap/getting-started/) for information on the framework contents, basic template guidelines, and more.
+Read the [Getting Started page](http://alademann.github.io/sass-bootstrap/getting-started/) for information on the framework contents, basic template guidelines, and more.
 
 
 ## Bugs and feature requests
@@ -28,7 +28,7 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/al
 
 ## Documentation
 
-SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://pages.github.com/). To view the [Sass Bootstrap Docs](http://alademann.github.com/sass-bootstrap/) locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
+SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://pages.github.com/). To view the [Sass Bootstrap Docs](http://alademann.github.io/sass-bootstrap/) locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
 
 
 ### Running Jekyll locally alongside Sass / Compass

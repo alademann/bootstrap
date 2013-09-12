@@ -7,12 +7,10 @@
 // -------------------------
 
 .alert {
-  padding: 8px 35px 8px 14px;
-  margin-bottom: $lineHeightBase;
-  color: $state_warningText;
-  background-color: $state_warningBg;
-  border: 1px solid $state_warningBd;
-  border-radius: $borderRadiusBase;
+  padding: $alert-padding;
+  margin-bottom: $line-height-computed;
+  border: 1px solid transparent;
+  border-radius: $alert-border-radius;
 
   // Headings for larger alerts
   h4 {
@@ -20,80 +18,50 @@
     // Specified for the h4 to prevent conflicts of changing $headingsColor
     color: inherit;
   }
-  // Match the hr to the border of the alert
-  hr {
-    border-top-color: darken($state_warningBd, 5%);
+  // Provide class for links that match alerts
+  .alert-link {
+    font-weight: $alert-link-font-weight;
   }
-  // Inherit color for immediate links and bolden them some
-  > a,
-  > p > a {
-    font-weight: 500;
-    color: darken($state_warningText, 10%);
+
+  // Improve alignment and spacing of inner content
+  > p,
+  > ul {
+    margin-bottom: 0;
+  }
+  > p + p {
+    margin-top: 5px;
   }
 }
 
+// Dismissable alerts
+//
+// Expand the right padding and account for the close button's positioning.
 
-// Adjust close link position
-.alert .close {
-  position: relative;
-  top: -2px;
-  right: -21px;
-  line-height: $lineHeightBase;
-  color: inherit;
+.alert-dismissable {
+ padding-right: ($alert-padding + 20);
+
+  // Adjust close link position
+  .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    color: inherit;
+  }
 }
 
 // Alternate styles
-// -------------------------
+//
+// Generate contextual modifier classes for colorizing the alert.
 
 .alert-success {
-  background-color: $state_successBg;
-  border-color: $state_successBd;
-  color: $state_successText;
-  hr {
-    border-top-color: darken($state_successBd, 5%);
-  }
-  > a,
-  > p > a {
-    color: darken($state_successText, 10%);
-  }
-}
-.alert-danger,
-.alert-error {
-  background-color: $state_errorBg;
-  border-color: $state_errorBd;
-  color: $state_errorText;
-  hr {
-    border-top-color: darken($state_errorBd, 5%);
-  }
-  > a,
-  > p > a {
-    color: darken($state_errorText, 10%);
-  }
+  @include alert-variant($alert-success-bg, $alert-success-border, $alert-success-text);
 }
 .alert-info {
-  background-color: $state_infoBg;
-  border-color: $state_infoBd;
-  color: $state_infoText;
-  hr {
-    border-top-color: darken($state_infoBd, 5%);
-  }
-  > a,
-  > p > a {
-    color: darken($state_infoText, 10%);
-  }
+  @include alert-variant($alert-info-bg, $alert-info-border, $alert-info-text);
 }
-
-// Block alerts
-// -------------------------
-
-.alert-block {
-  padding-top: 14px;
-  padding-bottom: 14px;
+.alert-warning {
+  @include alert-variant($alert-warning-bg, $alert-warning-border, $alert-warning-text);
 }
-.alert-block > p,
-.alert-block > ul {
-  margin-bottom: 0;
-}
-.alert-block p + p {
-  margin-top: 5px;
+.alert-danger {
+  @include alert-variant($alert-danger-bg, $alert-danger-border, $alert-danger-text);
 }
