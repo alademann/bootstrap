@@ -1,5 +1,7 @@
 # Ignore compiled docs
 _gh_pages
+.gitmodules
+twbs
 
 # Numerous always-ignore extensions
 *.diff
