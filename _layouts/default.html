@@ -22,18 +22,20 @@
     <div class="container bs-docs-container">
       <div class="row">
         <div class="col-md-3">
-          <div class="bs-sidebar hidden-print {{ page.slug }}" role="complementary">
-            <ul class="nav bs-sidenav getting-started">
-              {% include nav-getting-started.html %}
-            </ul>
-            <ul class="nav bs-sidenav css">
-              {% include nav-css.html %}
-            </ul>
-            <ul class="nav bs-sidenav components">
-              {% include nav-components.html %}
-            </ul>
-            <ul class="nav bs-sidenav js">
-              {% include nav-javascript.html %}
+          <div class="bs-sidebar hidden-print" role="complementary">
+            <ul class="nav bs-sidenav">
+              {% if page.slug == "getting-started" %}
+                {% include nav-getting-started.html %}
+              {% endif %}
+              {% if page.slug == "css" %}
+                {% include nav-css.html %}
+              {% endif %}
+              {% if page.slug == "components" %}
+                {% include nav-components.html %}
+              {% endif %}
+              {% if page.slug == "js" %}
+                {% include nav-javascript.html %}
+              {% endif %}
             </ul>
           </div>
         </div>
