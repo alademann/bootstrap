@@ -3,13 +3,7 @@
 <meta name="description" content="{{ site.app_name }} {{ site.current_version }} documentation - using Sassy CSS (SCSS) instead of less to build the Twitter Bootstrap components.">
 <meta name="author" content="Aaron Lademann">
 
-<title>
-  {% if page.title == "{{ site.app_name }}" %}
-    {{ page.title }}
-  {% else if %}
-    {{ page.title }} &middot; {{ site.app_name }}
-  {% endif %}
-</title>
+<title>{% if page.title == site.app_name %}{{ page.title }} &middot; {{ page.lead }}{% else %}{{ page.title }} &middot; {{ site.app_name }}{% endif %}</title>
 
 <!-- Bootstrap core CSS -->
 <link href="{{ page.base_url }}dist/css/sass-bootstrap.css" rel="stylesheet">
