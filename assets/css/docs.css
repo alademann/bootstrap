@@ -417,6 +417,20 @@ body {
   text-shadow: 0 1px 0 #fff;
   background-color: #f7f5fa;
   border-radius: 5px;
+  display: none; /* hack for broken jekyll conditional */
+}
+
+.getting-started .bs-sidenav.getting-started {
+  display: block;
+}
+.css .bs-sidenav.css {
+  display: block;
+}
+.components .bs-sidenav.components {
+  display: block;
+}
+.js .bs-sidenav.js {
+  display: block;
 }
 
 /* All levels of nav */
