@@ -1,6 +1,6 @@
-# Contributing to Bootstrap
+# Contributing to SASS Bootstrap
 
-Looking to contribute something to Bootstrap? **Here's how you can help.**
+Looking to contribute something to SASS Bootstrap? **Here's how you can help.**
 
 
 
@@ -19,43 +19,51 @@ We only accept issues that are bug reports or feature requests. Bugs must be iso
 
 - `master` is the latest, deployed version.
 - `gh-pages` is the hosted docs (not to be used for pull requests).
-- `*-wip` is the official work in progress branch for the next release.
+- `*sass-wip` is the official work in progress branch for the next Sass release.
+
+
+
+## Notes on the repo
+
+As of v3.0.0, Saas Bootstrap's documentation is powered by Jekyll templates and built dynamically by Github Pages before each release.
 
 
 
 ## Pull requests
 
-- Try to submit pull requests against the latest `*-wip` branch for easier merging
-- CSS changes must be done in .less files first, never just the compiled files
-- If modifying the .less files, always recompile and commit the compiled files bootstrap.css and bootstrap.min.css
+- Try to submit pull requests against the latest `*sass-wip` branch for easier merging
+- Any changes to the docs must be made to the Mustache templates, not just the compiled HTML pages
+- CSS changes must be done in .scss files first, never just the compiled files
 - Try not to pollute your pull request with unintended changes--keep them simple and small
 - Try to share which browsers your code has been tested in before submitting a pull request
 
 
 
-## Coding standards
+## Coding standards: HTML
 
-### HTML
-
-- Two spaces for indentation, never tabs
+- Four spaces for indentation, never tabs
 - Double quotes only, never single quotes
 - Always use proper indentation
 - Use tags and elements appropriate for an HTML5 doctype (e.g., self-closing tags)
 
-### CSS
+
+
+## Coding standards: CSS
 
 - Adhere to the [Recess CSS property order](http://markdotto.com/2011/11/29/css-property-order/)
 - Multiple-line approach (one property and value per line)
 - Always a space after a property's colon (.e.g, `display: block;` and not `display:block;`)
 - End all lines with a semi-colon
-- For multiple, comma-separated selectors, place each selector on its own line
+- For multiple, comma-separated selectors, place each selector on it's own line
 - Attribute selectors, like `input[type="text"]` should always wrap the attribute's value in double quotes, for consistency and safety (see this [blog post on unquoted attribute values](http://mathiasbynens.be/notes/unquoted-attribute-values) that can lead to XSS attacks).
 
-### JS
+
+
+## Coding standards: JS
 
 - No semicolons
 - Comma first
-- 2 spaces (no tabs)
+- 4 spaces (no tabs)
 - strict mode
 - "Attractive"
 
@@ -63,4 +71,4 @@ We only accept issues that are bug reports or feature requests. Bugs must be iso
 
 ## License
 
-By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.com/twbs/bootstrap/blob/master/LICENSE
+By contributing your code, you agree to license your contribution under the terms of the [APLv2](LICENSE)

@@ -1,9 +1,11 @@
 /**
-* bootstrap.js v3.0.0 by @fat and @mdo
-* Copyright 2013 Twitter Inc.
-* http://www.apache.org/licenses/LICENSE-2.0
+* Sass Bootstrap v3.0.0 by Aaron Lademann and Twitter Inc.
+* Copyright 2013 Aaron Lademann and Twitter Inc.
+* Licensed under http://www.apache.org/licenses/LICENSE-2.0.
+*
+* Designed and built with all the love in the world by @alademann, @mdo and @fat.
 */
-if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
+if (!jQuery) { throw new Error("Sass Bootstrap requires jQuery") }
 
 /* ========================================================================
  * Bootstrap: transition.js v3.0.0

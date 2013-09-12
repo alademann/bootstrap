@@ -1,23 +1,26 @@
 # Dependencies
-markdown:         rdiscount
-pygments:         true
+markdown:     rdiscount
+pygments:     true
 
 # Permalinks
-permalink:        pretty
+permalink:    pretty
 
 # Server
-destination:      ./_gh_pages
-exclude:          [".editorconfig", ".gitignore", ".ruby-version", "bower.json", "composer.json", "CONTRIBUTING.md", "CNAME", "LICENSE", "Gruntfile.js", "package.json", "node_modules", "README.md", "less"]
-port:             9001
+destination:  ./_gh_pages
+port:         9003
 
-# Custom vars
-repo:             https://github.com/twbs/bootstrap
-download:         https://github.com/twbs/bootstrap/archive/v3.0.0.zip
-download_dist:    https://github.com/twbs/bootstrap/releases/download/v3.0.0/bootstrap-3.0.0-dist.zip
+exclude:      ["*.zip", "browserstack.json", "node_modules", "twbs", "temp-css", "sass", "less", ".editorconfig", "composer.json", ".ruby-version", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "Makefile", "Rakefile", "LICENSE", "README.md", "CONTRIBUTING.md", "requirements.txt"]
 
-blog:             http://blog.getbootstrap.com
-expo:             http://expo.getbootstrap.com
 
-cdn_css:          //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css
-cdn_theme_css:    //netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css
-cdn_js:           //netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js
+## CUSTOM VARS
+repo:               https://github.com/alademann/sass-bootstrap
+download:           https://github.com/alademann/sass-bootstrap/zipball/master
+download_dist:      https://github.com/alademann/sass-bootstrap/blob/master/sass-bootstrap-dist.zip
+
+issues_open:        https://github.com/alademann/sass-bootstrap/issues?state=open
+issues_new:         https://github.com/alademann/sass-bootstrap/issues/new
+
+# Misc Vars
+ga_id:              UA-39735819-1
+app_name:           Sass Bootstrap
+current_version:    3.0.11
