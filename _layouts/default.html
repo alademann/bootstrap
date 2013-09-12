@@ -26,11 +26,14 @@
             <ul class="nav bs-sidenav">
               {% if page.slug == "getting-started" %}
                 {% include nav-getting-started.html %}
-              {% elsif page.slug == "css" %}
+              {% endif %}
+              {% if page.slug == "css" %}
                 {% include nav-css.html %}
-              {% elsif page.slug == "components" %}
+              {% endif %}
+              {% if page.slug == "components" %}
                 {% include nav-components.html %}
-              {% elsif page.slug == "js" %}
+              {% endif %}
+              {% if page.slug == "js" %}
                 {% include nav-javascript.html %}
               {% endif %}
             </ul>
