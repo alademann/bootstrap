@@ -1,7 +1,18 @@
 /* jshint node: true */
+var path = require('path');
+var docsFolderMount = function folderMount(connect, point) {
+    return connect.static(path.resolve(point+'/_gh_pages/'));
+};
 
 module.exports = function(grunt) {
   "use strict";
+
+  var modules = {
+      self: this,
+      grunt: grunt
+  };
+
+  modules.livereload = require('./assets/js/grunts/livereload')(modules);
 
   // Project configuration.
   grunt.initConfig({
@@ -23,16 +34,22 @@ module.exports = function(grunt) {
     },
 
     jshint: {
-      options: {
-        jshintrc: 'js/.jshintrc'
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      src: {
+      plugins: {
+        options: {
+          jshintrc: 'js/.jshintrc'
+        },
         src: ['js/*.js']
       },
+      assets: {
+        options: {
+          jshintrc: 'js/.jshintrc'
+        },
+        src: ['assets/js/application.js']
+      },
       test: {
+        options: {
+          jshintrc: 'js/.jshintrc'
+        },
         src: ['js/tests/unit/*.js']
       }
     },
@@ -83,7 +100,7 @@ module.exports = function(grunt) {
         options: {
           config: 'config.rb',
           environment: 'production',
-          force: grunt.option('force') || false
+          force: grunt.option('force') || true
         }
       }
     },
@@ -94,7 +111,7 @@ module.exports = function(grunt) {
           archive: '<%= pkg.name %>-dist.zip'
         },
         files: [
-          {expand:true, cwd: 'dist/', dest: 'dist/', src: ['**']}
+          {expand:true, cwd: 'dist/', dest: 'sass-bootstrap/', src: ['**']}
         ]
       }
     },
@@ -115,10 +132,20 @@ module.exports = function(grunt) {
     },
 
     connect: {
-      server: {
+      test: {
         options: {
-          port: 9003,
+          port: 3000,
           base: '.'
+        }
+      },
+      // docs server
+      docs: {
+        options: {
+          port: 9001,
+          hostname: '0.0.0.0',
+          middleware: function(connect, options) {
+            return [docsFolderMount(connect, options.base)];
+          }
         }
       }
     },
@@ -137,17 +164,57 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      src: {
-        files: '<%= jshint.src.src %>',
-        tasks: ['jshint:src', 'qunit']
+      plugins: {
+        files: '<%= jshint.plugins.src %>',
+        tasks: ['jshint:plugins', 'qunit'],
+        options: {
+          livereload: true
+        }
+      },
+      docsjs: {
+        files: '<%= jshint.assets.src %>',
+        tasks: ['jshint:assets'],
+        options: {
+          livereload: true
+        }
       },
       test: {
         files: '<%= jshint.test.src %>',
-        tasks: ['jshint:test', 'qunit']
+        tasks: ['jshint:test', 'qunit'],
+        options: {
+          livereload: true
+        }
       },
-      css: {
+      scss: {
         files: ['sass/*.scss', 'sass/*/*.scss'],
-        tasks: ['compass:bootstrap']
+        tasks: ['compass:bootstrap'],
+        options: {
+          // no need for this because the compile that occurs in compass
+          // will update the css files that are being watched by the watch:html task
+          livereload: false
+        }
+      },
+      assets: {
+        files: ['assets/**/*'],
+        tasks: ['jekyll:docs'],
+        options: {
+          livereload: true
+        }
+      },
+      html: {
+        files: [
+          // must watch here to trigger jekyll when compass finishes compiling
+          'dist/**/*.css',
+          'fonts/**/*',
+          'js/**/*',
+          '**/*.html',
+          '!_gh_pages/**/*',
+          '!submodules/**/*'
+        ],
+        tasks: ['jekyll:docs'],
+        options: {
+          livereload: true
+        }
       }
     }
   });
@@ -167,12 +234,14 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-html-validation');
   grunt.loadNpmTasks('grunt-jekyll');
 
+  grunt.registerTask('lr', modules.livereload);
+
   // Docs HTML validation task
   grunt.registerTask('validate-html', ['jekyll', 'validation']);
 
   // Test task.
   grunt.registerTask('testSubtasks', ['jshint', 'qunit', 'validate-html']);
-  grunt.registerTask('testSubtasksNoValidation', ['jshint', 'qunit', 'jekyll']);
+  grunt.registerTask('testSubtasksNoValidation', ['jshint', 'qunit']);
   grunt.registerTask('test', 
     function() {
       if(grunt.option('validate')) {
@@ -188,14 +257,29 @@ module.exports = function(grunt) {
 
   // CSS distribution task.
   grunt.registerTask('dist-css', ['compass:bootstrap']);
+  grunt.registerTask('dist-css-min', ['compass:min']);
 
   // Fonts distribution task.
   grunt.registerTask('dist-fonts', ['copy:fonts']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-fonts', 'dist-css', 'dist-js', 'compress:dist']);
+  grunt.registerTask('dist', ['clean', 'dist-fonts', 'dist-css-min', 'dist-js', 'compress:dist']);
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist']);
+
+  // Default task that runs jekyll server, delivers uncompressed css and watch capabilities
+  grunt.registerTask('dev', 
+    [
+      'lr', 
+      'connect:docs', 
+      'dist-fonts', 
+      'dist-css', 
+      'test',
+      'dist-js', 
+      'compress:dist',
+      'watch'
+    ]
+  );
 
 };

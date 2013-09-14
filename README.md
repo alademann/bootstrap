@@ -1,8 +1,4 @@
-<a href="http://alademann.github.io/sass-bootstrap/">
-  <img src="http://alademann.github.io/sass-bootstrap/assets/img/bootstrap-docs-readme.png" width="100px">
-</a>
-
-# Sass Bootstrap v3.0.15
+# Sass Bootstrap v3.0.16
 
 Sass Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass/Compass by [Aaron Lademann](https://github.com/alademann).
 
@@ -14,16 +10,18 @@ To get started, check out the [SASS Bootstrap Documentation](http://alademann.gi
 
 Three quick start options are available:
 
-* [Download the latest release](https://github.com/alademann/sass-bootstrap/zipball/master).
+* [Download the latest release](https://github.com/alademann/sass-bootstrap/releases/tag/3.0.16).
 * Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
 * Install with [Bower](http://bower.io): `bower install alademann-sass-bootstrap`.
 
-Read the [Getting Started page](http://alademann.github.io/sass-bootstrap/getting-started/) for information on the framework contents, basic template guidelines, and more.
+Read the [Getting Started page](http://alademann.github.io/sass-bootstrap/getting-started/) for information on the framework contents, templates, examples and more.
 
 
 ## Bugs and feature requests
 
 Have a bug or a feature request? [Please open a new issue](https://github.com/alademann/sass-bootstrap/issues). Before opening any issue, please search for existing issues and read the [Issue Guidelines](https://github.com/necolas/issue-guidelines), written by [Nicolas Gallagher](https://github.com/necolas/).
+
+You may use [this JS Bin](http://jsbin.com/aYazOwU/1/edit) as a template for your bug reports.
 
 
 
@@ -32,27 +30,15 @@ Have a bug or a feature request? [Please open a new issue](https://github.com/al
 SASS Bootstrap's docs are built using [Jekyll](http://jekyllrb.com) and hosted on [GitHub Pages](http://pages.github.com/). To view the [Sass Bootstrap Docs](http://alademann.github.io/sass-bootstrap/) locally, you'll need to [install Jekyll](https://github.com/mojombo/jekyll/wiki/install) to run a local server.
 
 
-### Running Jekyll locally alongside Sass / Compass
+### Running Jekyll Docs locally alongside Sass / Compass
 
-We have [Sass](http://sass-lang.com) set up to compile static CSS into the directory that Jekyll "watches" when instructed to automatically regenerate.  If you are wanting to view documentation locally at ```localhost:9003```, we recommend uncommenting the ```auto: --auto``` instruction in ```_config.yml```.  This way, when running ```$ compass watch```, the updated CSS files injected into the directory Jekyll is watching will force regeneration of your static documentation files.  
+1. If necessary, [install Jekyll](http://jekyllrb.com/docs/installation) (requires v1.x).
+2. Install Sass and Compass by running `gem install sass && gem install compass`. (may have to use admin priveledges)
+3. Install Grunt dependencies by running `npm install -g grunt-cli && npm install`. (may have to use admin priveledges)
+4. Run `grunt dev` - and everything will compile, and be watched... complete with Live Reload functionality! (Requires browser extensions)
+5. Open [http://localhost:9001](http://localhost:9001) in your browser, and voila.
 
-You should also comment out the remote url instruction in ```_config.yml``` and uncomment the local ```url: /``` declaration so that the dynamic ```{{ site.url }}``` tags in the Jekyll templates will generate URLs that will work on your rig.
 
-
-
-## Compiling CSS and JavaScript
-
-### Install SCSS
-
-SASS Bootstrap makes use of [Sassy CSS](http://sass-lang.com) and [Compass](http://compass-style.org), so you'll need to install both ruby gems to generate static CSS.
-
-```
-$ sudo gem install sass
-```
-
-```
-$ sudo gem install compass
-```
 
 ### Install Grunt
 
@@ -70,16 +56,16 @@ When completed, you'll be able to run the various Grunt commands provided from t
 ### Available Grunt commands
 
 #### Build - `grunt`
-Run `grunt` to run tests locally and compile the CSS and JavaScript into `/dist`. **Uses [recess](http://twitter.github.io/recess/) and [UglifyJS](http://lisperator.net/uglifyjs/).**
+Run `grunt` to run js tests locally and compile the CSS and JavaScript into `/dist`.
 
 #### Only compile CSS and JavaScript - `grunt dist`
-`grunt dist` creates the `/dist` directory with compiled files. **Uses [recess](http://twitter.github.io/recess/) and [UglifyJS](http://lisperator.net/uglifyjs/).**
+`grunt dist` creates the `/dist` directory with compiled files.
 
 #### Tests - `grunt test`
 Runs [JSHint](http://jshint.com) and [QUnit](http://qunitjs.com/) tests headlessly in [PhantomJS](http://phantomjs.org/) (used for CI).
 
-#### Watch - `grunt watch`
-This is a convenience method for watching just Less files and automatically building them whenever you save.
+#### Watch - `grunt dev`
+This is a convenience method that watches all the assets required to run the documentation locally, and will recompile when you save any HTML / SCSS / JS file.  __Will also automatically refresh your browser if you install the LiveReload browser extension__.
 
 ### Troubleshooting dependencies
 

@@ -15,7 +15,7 @@ base_url: "../"
     </div>
 
     <h2 id="glyphicons-glyphs">Available glyphs</h2>
-    <p>Includes 180 glyphs in font format from the Glyphicon Halflings set. <a href="http://glyphicons.com/">Glyphicons</a> Halflings are normally not available for free, but their creator has made them available for Bootstrap free of cost. As a thank you, we only ask that you to include a link back to <a href="http://glyphicons.com/">Glyphicons</a> whenever possible.</p>
+    <p>Includes 200 glyphs in font format from the Glyphicon Halflings set. <a href="http://glyphicons.com/">Glyphicons</a> Halflings are normally not available for free, but their creator has made them available for Bootstrap free of cost. As a thank you, we only ask that you to include a link back to <a href="http://glyphicons.com/">Glyphicons</a> whenever possible.</p>
     <ul class="bs-glyphicons">
       <li><span class="glyphicon glyphicon-adjust"></span> .glyphicon .glyphicon-adjust</li>
       <li><span class="glyphicon glyphicon-align-center"></span> .glyphicon .glyphicon-align-center</li>
@@ -583,7 +583,7 @@ base_url: "../"
 
     <div class="bs-callout bs-callout-danger">
       <h4>Plugin dependency</h4>
-      <p>Button dropdowns require the <a href="../javascript/#dropdowns">dropdown plugin</a> to be included in your version of Bootstrap.</p>
+      <p>Button dropdowns require the <a href="../javascript/#dropdowns">dropdown plugin</a> to be included in your version of Sass Bootstrap.</p>
     </div>
 
     <h3 id="btn-dropdowns-single">Single button dropdowns</h3>
@@ -671,7 +671,10 @@ base_url: "../"
     <div class="bs-example">
       <div class="btn-group">
         <button type="button" class="btn btn-default">Default</button>
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
@@ -682,7 +685,10 @@ base_url: "../"
       </div><!-- /btn-group -->
       <div class="btn-group">
         <button type="button" class="btn btn-primary">Primary</button>
-        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
@@ -693,7 +699,10 @@ base_url: "../"
       </div><!-- /btn-group -->
       <div class="btn-group">
         <button type="button" class="btn btn-success">Success</button>
-        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
@@ -704,7 +713,10 @@ base_url: "../"
       </div><!-- /btn-group -->
       <div class="btn-group">
         <button type="button" class="btn btn-info">Info</button>
-        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
@@ -715,7 +727,10 @@ base_url: "../"
       </div><!-- /btn-group -->
       <div class="btn-group">
         <button type="button" class="btn btn-warning">Warning</button>
-        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
@@ -726,7 +741,10 @@ base_url: "../"
       </div><!-- /btn-group -->
       <div class="btn-group">
         <button type="button" class="btn btn-danger">Danger</button>
-        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
         <ul class="dropdown-menu" role="menu">
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
@@ -742,6 +760,7 @@ base_url: "../"
   <button type="button" class="btn btn-danger">Action</button>
   <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
   </button>
   <ul class="dropdown-menu" role="menu">
     <li><a href="#">Action</a></li>
@@ -837,7 +856,10 @@ base_url: "../"
       <div class="btn-toolbar" role="toolbar">
         <div class="btn-group dropup">
           <button type="button" class="btn btn-default">Dropup</button>
-          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -848,7 +870,10 @@ base_url: "../"
         </div><!-- /btn-group -->
         <div class="btn-group dropup">
           <button type="button" class="btn btn-primary">Right dropup</button>
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
           <ul class="dropdown-menu pull-right" role="menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -864,6 +889,7 @@ base_url: "../"
   <button type="button" class="btn btn-default">Dropup</button>
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
   </button>
   <ul class="dropdown-menu">
     <!-- Dropdown menu links -->
@@ -1133,6 +1159,7 @@ base_url: "../"
               <button type="button" class="btn btn-default" tabindex="-1">Action</button>
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
                 <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
               </button>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#">Action</a></li>
@@ -1152,6 +1179,7 @@ base_url: "../"
               <button type="button" class="btn btn-default" tabindex="-1">Action</button>
               <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" tabindex="-1">
                 <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
               </button>
               <ul class="dropdown-menu pull-right" role="menu">
                 <li><a href="#">Action</a></li>
@@ -1192,7 +1220,7 @@ base_url: "../"
       <h1 id="nav">Navs</h1>
     </div>
 
-    <p class="lead">Navs available in Bootstrap have shared markup, starting with the base <code>.nav</code> class, as well as shared states. Swap modifier classes to switch between each style.</p>
+    <p class="lead">Navs available in Sass Bootstrap have shared markup, starting with the base <code>.nav</code> class, as well as shared states. Swap modifier classes to switch between each style.</p>
 
     <h2 id="nav-tabs">Tabs</h2>
     <p>Note the <code>.nav-tabs</code> class requires the <code>.nav</code> base class.</p>
@@ -1210,6 +1238,10 @@ base_url: "../"
   <li><a href="#">Messages</a></li>
 </ul>
 {% endhighlight %}
+    <div class="bs-callout bs-callout-info">
+      <h4>Requires JavaScript tabs plugin</h4>
+      <p>For tabs with tabbable areas, you must use the <a href="../javascript/#tabs">tabs JavaScript plugin</a>.</p>
+    </div>
 
     <h2 id="nav-pills">Pills</h2>
     <p>Take that same HTML, but use <code>.nav-pills</code> instead:</p>
@@ -1409,7 +1441,9 @@ base_url: "../"
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
                 <li><a href="#">Separated link</a></li>
+                <li class="divider"></li>
                 <li><a href="#">One more separated link</a></li>
               </ul>
             </li>
@@ -1428,6 +1462,7 @@ base_url: "../"
                 <li><a href="#">Action</a></li>
                 <li><a href="#">Another action</a></li>
                 <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
                 <li><a href="#">Separated link</a></li>
               </ul>
             </li>
@@ -1459,7 +1494,9 @@ base_url: "../"
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
           <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
           <li><a href="#">Separated link</a></li>
+          <li class="divider"></li>
           <li><a href="#">One more separated link</a></li>
         </ul>
       </li>
@@ -1478,6 +1515,7 @@ base_url: "../"
           <li><a href="#">Action</a></li>
           <li><a href="#">Another action</a></li>
           <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
           <li><a href="#">Separated link</a></li>
         </ul>
       </li>
@@ -1488,7 +1526,7 @@ base_url: "../"
 
 <div class="bs-callout bs-callout-danger">
   <h4>Plugin dependency</h4>
-  <p>The responsive navbar requires the <a href="../javascript/#collapse">collapse plugin</a> to be included in your version of Bootstrap.</p>
+  <p>The responsive navbar requires the <a href="../javascript/#collapse">collapse plugin</a> to be included in your version of Sass Bootstrap.</p>
 </div>
 
 <div class="bs-callout bs-callout-warning">
@@ -1529,6 +1567,11 @@ base_url: "../"
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
 {% endhighlight %}
+
+<div class="bs-callout bs-callout-danger">
+  <h4>Always add labels</h4>
+  <p>Screen readers will have trouble with your forms if you don't include a label for every input. For these inline navbar forms, you can hide the labels using the <code>.sr-only</code> class.</p>
+</div>
 
 
     <h2 id="navbar-buttons">Buttons</h2>
@@ -1642,7 +1685,7 @@ base_url: "../"
 {% highlight css %}
 body { padding-top: 70px; }
 {% endhighlight %}
-      <p>Make sure to include this <strong>after</strong> the core Bootstrap CSS.</p>
+      <p>Make sure to include this <strong>after</strong> the core Sass Bootstrap CSS.</p>
     </div>
 
 
@@ -1683,7 +1726,7 @@ body { padding-top: 70px; }
 {% highlight css %}
 body { padding-bottom: 70px; }
 {% endhighlight %}
-      <p>Make sure to include this <strong>after</strong> the core Bootstrap CSS.</p>
+      <p>Make sure to include this <strong>after</strong> the core Sass Bootstrap CSS.</p>
     </div>
 
 
@@ -1996,7 +2039,7 @@ body { padding-bottom: 70px; }
     <div class="page-header">
       <h1 id="badges">Badges</h1>
     </div>
-    <p class="lead">Easily highlight new or unread items by adding a <code>&lt;span class="badge"&gt;</code> to links, Bootstrap navs, and more.</p>
+    <p class="lead">Easily highlight new or unread items by adding a <code>&lt;span class="badge"&gt;</code> to links, Sass Bootstrap navs, and more.</p>
 
     <div class="bs-example">
       <a href="#">Inbox <span class="badge">42</span></a>
@@ -2109,10 +2152,10 @@ body { padding-bottom: 70px; }
     <div class="page-header">
       <h1 id="thumbnails">Thumbnails</h1>
     </div>
-    <p class="lead">Extend Bootstrap's <a href="../css/#grid">grid system</a> with the thumbnail component to easily display grids of images, videos, text, and more.</p>
+    <p class="lead">Extend Sass Bootstrap's <a href="../css/#grid">grid system</a> with the thumbnail component to easily display grids of images, videos, text, and more.</p>
 
     <h3 id="thumbnails-default">Default example</h3>
-    <p>By default, Bootstrap's thumbnails are designed to showcase linked images with minimal required markup.</p>
+    <p>By default, Sass Bootstrap's thumbnails are designed to showcase linked images with minimal required markup.</p>
     <div class="bs-example">
       <div class="row">
         <div class="col-sm-6 col-md-3">
