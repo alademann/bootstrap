@@ -10,29 +10,28 @@ base_url: "../"
   ================================================== -->
   <div class="bs-docs-section">
     <div class="page-header">
-      <h1 id="download">Download Bootstrap</h1>
+      <h1 id="download">Download Sass Bootstrap</h1>
     </div>
-    <p class="lead">Bootstrap has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
+    <p class="lead">Sass Bootstrap has a few easy ways to quickly get started, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.</p>
 
     <h3 id="download-compiled">Compiled CSS, JS, and fonts</h3>
-    <p>The fastest way to get Bootstrap is to download the compiled and minified versions of our CSS and JavaScript, along with the included fonts. No documentation or original source files are included.</p>
-    <p><a class="btn btn-lg btn-primary" href="{{ site.download_dist }}" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);" role="button">Download compiled Sass Bootstrap</a></p>
+    <p>The fastest way to get Sass Bootstrap is to download the precompiled and minified versions of our CSS, JavaScript and fonts. No documentation or original code files are included.</p>
+    <p><a class="btn btn-lg btn-primary" href="{{ site.download_dist }}" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download compiled']);" role="button">Download precompiled Sass Bootstrap</a></p>
 
     <h3 id="download-additional">Additional downloads</h3>
     <div class="bs-docs-dl-options">
       <h4>
         <a href="{{ site.download }}" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'Download source']);">Download source code</a>
       </h4>
-      <p>Get the original files for all CSS and JavaScript by downloading the full release directly from GitHub.</p>
+      <p>Get the latest Sass Bootstrap SCSS and JavaScript source code by downloading it directly from GitHub.</p>
       <h4>
         <a href="{{ site.repo }}" onclick="_gaq.push(['_trackEvent', 'Getting started', 'Download', 'GitHub repo']);">Clone or fork via GitHub</a>
       </h4>
-      <p>Clone the entire project or fork your own version of Sass Bootstrap to make it your own by visiting us on GitHub.</p>
     </div>
 
     <div class="bs-callout bs-callout-warning" id="callout-sass-compilation">
       <h4>SCSS compilation</h4>
-      <p>If you download the original files, you need to compile Bootstrap's SCSS files into usable CSS. To do that, Sass Bootstrap only officially supports <a href="http://compass-style.org">Compass</a>, a Sass library / compilation tool built on top of <a href="http://sass-lang.com">Sass</a>.</p>
+      <p>If you download the original files, you need to compile Sass Bootstrap's SCSS files into usable CSS. To do that, Sass Bootstrap only officially supports <a href="http://compass-style.org">Compass</a>, a Sass library / compilation tool built on top of <a href="http://sass-lang.com">Sass</a>.</p>
     </div>
   </div>
 
@@ -48,7 +47,7 @@ base_url: "../"
     <p>Once downloaded, unzip the compressed folder to see the structure of (the compiled) Bootstrap. You'll see something like this:</p>
 
 {% highlight bash %}
-bootstrap/
+sass-bootstrap/
 ├── css/
 │   ├── sass-bootstrap.css
 ├── js/
@@ -61,10 +60,10 @@ bootstrap/
     └── glyphicons-halflings-regular.woff
 {% endhighlight %}
 
-    <p>This is the most basic form of Bootstrap: compiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>bootstrap.*</code>). Fonts from Glyphicons are also included.</p>
+    <p>This is the most basic form of Sass Bootstrap: precompiled files for quick drop-in usage in nearly any web project. We provide compiled CSS and JS (<code>sass-bootstrap.*</code>), as well as compiled and minified JS (<code>sass-bootstrap.min.js</code>). Fonts from Glyphicons are also included.</p>
     <div class="bs-callout bs-callout-danger">
       <h4>jQuery required</h4>
-      <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>.</p>
+      <p>Please note that <strong>all JavaScript plugins require jQuery</strong> to be included, as shown in the <a href="#template">starter template</a>. <a href="{{ site.repo }}/blob/{{ site.current_version }}/bower.json">Consult our <code>bower.json</code></a> to see which versions of jQuery are supported.</p>
     </div>
   </div>
 
@@ -76,9 +75,9 @@ bootstrap/
     <div class="page-header">
       <h1 id="template">Basic template</h1>
     </div>
-    <p class="lead">Make use of a super basic HTML template, or dive into a <a href="../getting-started#examples">few examples</a> we've started for you. We encourage folks to iterate on these examples and not simply use them as an end result.</p>
+    <p class="lead">Start with this basic HTML template, or modify <a href="../getting-started#examples">these examples</a>. We hope you'll customize our templates and examples, adapting them to suit your needs.</p>
 
-    <p>Copy and paste the HTML from below to get started with a bare bones Bootstrap document.</p>
+    <p>Copy the HTML below to begin working with a minimal Bootstrap document.</p>
 {% highlight html %}
 <!DOCTYPE html>
 <html>
@@ -114,7 +113,7 @@ bootstrap/
     <div class="page-header">
       <h1 id="examples">Examples</h1>
     </div>
-    <p class="lead">Build on the basic template above with Bootstrap's many components. Check out some of the more advanced tips for how to customize and build on top of them.</p>
+    <p class="lead">Build on the basic template above with Bootstrap's many components.</p>
 
     <div class="row bs-examples">
       <div class="col-xs-6 col-md-4">
@@ -248,25 +247,25 @@ bootstrap/
     <div class="page-header">
       <h1 id="disable-responsive">Disabling responsiveness</h1>
     </div>
-    <p class="lead">Don't want your site or application to be scaled on different devices? With a little bit of work, you can disable the responsive features of Bootstrap so that mobile users see your full desktop-version site. Read below or check out <a href="../examples/non-responsive/">the non-responsive example</a>.</p>
+    <p class="lead">Sass Bootstrap automatically adapts your pages for various screen sizes.
+      Here's how to disable this feature so your page works like in <a href="../examples/non-responsive/">this non-responsive example</a>.</p>
 
-    <h3>Steps to disable responsive views</h3>
-    <p>To disable responsive features, follow these steps. See it in action in the modified template below.</p>
+    <h3>Steps to disable page responsiveness</h3>
     <ol>
-      <li>Remove (or just don't add) the viewport <code>&lt;meta&gt;</code> mentioned in <a href="../css/#overview-mobile">the CSS docs</a></li>
-      <li>Remove the <code>max-width</code> on the <code>.container</code> for all grid tiers with <code>max-width: none !important;</code> and set a regular width like <code>width: 970px;</code>. Be sure that this comes after the default Bootstrap CSS. You can optionally avoid the <code>!important</code> with media queries or some selector-fu.</li>
-      <li>If using navbars, undo all the navbar collapsing and expanding behavior (this is too much to show here, so peep the example).</li>
-      <li>For grid layouts, make use of <code>.col-xs-*</code> classes in addition to or in place of the medium/large ones. Don't worry, the extra-small device grid scales up to all resolutions, so you're set there.</li>
+      <li>Omit the viewport <code>&lt;meta&gt;</code> mentioned in <a href="../css/#overview-mobile">the CSS docs</a></li>
+      <li>Override the <code>width</code> on the <code>.container</code> for each grid tier with a single width, for example <code>width: 970px !important;</code> Be sure that this comes after the default Bootstrap CSS. You can optionally avoid the <code>!important</code> with media queries or some selector-fu.</li>
+      <li>If using navbars, remove all navbar collapsing and expanding behavior.</li>
+      <li>For grid layouts, use <code>.col-xs-*</code> classes in addition to, or in place of, the medium/large ones. Don't worry, the extra-small device grid scales to all resolutions.</li>
     </ol>
-    <p>You'll still need Respond.js for IE8 (since our media queries are still there and need to be picked up). This just disables the "mobile site" of Bootstrap.</p>
+    <p>You'll still need Respond.js for IE8 (since our media queries are still there and need to be processed).
+      This disables the "mobile site" aspects of Bootstrap.</p>
 
-    <h3>Bootstrap template with disabled responsive</h3>
-    <p>We've taken the above steps and applied them to an example. Read it's source code to see the specific changes called out.</p>
+    <h3>Bootstrap template with responsiveness disabled</h3>
+    <p>We've applied these steps to an example. Read its source code to see the specific changes implemented.</p>
     <p>
       <a href="../examples/non-responsive/" class="btn btn-primary">View non-responsive example</a>
     </p>
   </div>
-
 
 
   <!-- Migration
@@ -275,11 +274,10 @@ bootstrap/
     <div class="page-header">
       <h1 id="migration">Migrating from 2.x to 3.0</h1>
     </div>
-    <p class="lead">Bootstrap 3 is not backwards compatible with v2.x. Folks looking to upgrade to v3 should use this section as a general upgrade guide. We've outlined some of the major changes and provided tables that highlight key changes. For an overview, <a href="http://blog.getbootstrap.com/2013/08/19/bootstrap-3-released/">read the announcement blog post</a>.</p>
-
+    <p class="lead">Sass Bootstrap 3 is not backwards compatible with v2.x. Use this section as a general guide to upgrading from v2.x to v3.0. For a broader overview, see <a href="http://blog.getbootstrap.com/2013/08/19/bootstrap-3-released/">what's new</a> in the v3.0 release announcement.</p>
 
     <h2 id="migration-classes">Major class changes</h2>
-    <p>Reference table for classes that have changed between v2.x and v3.0.</p>
+    <p>This table shows the style changes between v2.x and v3.0.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -382,6 +380,10 @@ bootstrap/
             <td><code>.input-lg</code></td>
           </tr>
           <tr>
+            <td><code>.control-group</code></td>
+            <td><code>.form-group</code></td>
+          </tr>
+          <tr>
             <td><code>.checkbox.inline</code> <code>.radio.inline</code></td>
             <td><code>.checkbox-inline</code> <code>.radio-inline</code></td>
           </tr>
@@ -413,13 +415,25 @@ bootstrap/
             <td><code>.text-error</code></td>
             <td><code>.text-danger</code></td>
           </tr>
+          <tr>
+            <td><code>.table .error</code></td>
+            <td><code>.table .danger</code></td>
+          </tr>
+          <tr>
+            <td><code>.bar</code></td>
+            <td><code>.progress-bar</code></td>
+          </tr>
+          <tr>
+            <td><code>.bar-*</code></td>
+            <td><code>.progress-bar-*</code></td>
+          </tr>
         </tbody>
       </table>
     </div><!-- /.table-responsive -->
 
 
     <h2 id="migration-new">What's new</h2>
-    <p>We've added a few new elements and changed some existing ones. Here's their new or updated classes.</p>
+    <p>We've added new elements and changed some existing ones. Here are the new or updated styles.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -446,7 +460,7 @@ bootstrap/
             <td><code>.jumbotron</code></td>
           </tr>
           <tr>
-            <td>Tiny grid (&lt;768px)</td>
+            <td>Extra small grid (&lt;768px)</td>
             <td><code>.col-xs-*</code></td>
           </tr>
           <tr>
@@ -535,7 +549,7 @@ bootstrap/
 
 
     <h2 id="migration-dropped">What's removed</h2>
-    <p>The following elements have been dropped or changed in v3.</p>
+    <p>The following elements have been dropped or changed in v3.0.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -567,8 +581,23 @@ bootstrap/
             <td><code>.row</code> (no more fixed grid)</td>
           </tr>
           <tr>
+            <td>Controls wrapper</td>
+            <td><code>.controls</code></td>
+            <td class="text-muted">N/A</td>
+          </tr>
+          <tr>
+            <td>Controls row</td>
+            <td><code>.controls-row</code></td>
+            <td><code>.row</code> or <code>.form-group</code></td>
+          </tr>
+          <tr>
             <td>Navbar inner</td>
             <td><code>.navbar-inner</code></td>
+            <td class="text-muted">N/A</td>
+          </tr>
+          <tr>
+            <td>Navbar vertical dividers</td>
+            <td><code>.navbar .divider-vertical</code></td>
             <td class="text-muted">N/A</td>
           </tr>
           <tr>
@@ -581,27 +610,32 @@ bootstrap/
             <td><code>.tabs-left</code> <code>.tabs-right</code> <code>.tabs-below</code></td>
             <td class="text-muted">N/A</td>
           </tr>
+          <tr>
+            <td>Nav lists</td>
+            <td><code>.nav-list</code> <code>.nav-header</code></td>
+            <td>No direct equivalent, but <a href="../components/#list-group">list groups</a> and <a href="../javascript/#collapse"><code>.panel-group</code>s</a> are similar.</td>
+          </tr>
         </tbody>
       </table>
     </div><!-- /.table-responsive -->
 
 
     <h2 id="migration-notes">Additional notes</h2>
-    <p>We've made many underlying changes in v3 that are not immediately apparent. Base classes, key styles, and behaviors have been adjusted for flexibility and our mobile first approach.</p>
+    <p>Other changes in v3.0 are not immediately apparent. Base classes, key styles, and behaviors have been adjusted for flexibility and our <em>mobile first</em> approach. Here's a partial list:</p>
     <ul>
       <li>Text-based form controls are now 100% wide. Wrap inputs inside <code>&lt;div class="col-*"&gt;&lt;/div&gt;</code> to control input widths.</li>
       <li><code>.badge</code> no longer has contextual (-success,-primary,etc..) classes.</li>
       <li><code>.btn</code> must also use <code>.btn-default</code> to get the "default" button.</li>
       <li><code>.container</code> and <code>.row</code> are now fluid (percentage-based).</li>
       <li>Images are no longer responsive by default. Use <code>.img-responsive</code> for fluid <code>&lt;img&gt;</code> size.</li>
-      <li>The icons, now <code>.glyphicon</code>, are now font based. They also require a base and icon class (e.g. <code>.glyphicon .glyphicon-asterisk</code>).</li>
+      <li>The icons, now <code>.glyphicon</code>, are now font based. Icons also require a base and icon class (e.g. <code>.glyphicon .glyphicon-asterisk</code>).</li>
       <li>Typeahead has been dropped, in favor of using <a href="http://twitter.github.io/typeahead.js/">Twitter Typeahead</a>.</li>
-      <li>Modal markup has changed significantly. The <code>.modal-header</code>, <code>.modal-body</code>, and <code>.modal-footer</code> sections now get wrapped in <code>.modal-content</code> and <code>.modal-dialog</code> for improved mobile styling and behavior.</li>
+      <li>Modal markup has changed significantly. The <code>.modal-header</code>, <code>.modal-body</code>, and <code>.modal-footer</code> sections are now wrapped in <code>.modal-content</code> and <code>.modal-dialog</code> for better mobile styling and behavior.</li>
+      <li>The HTML loaded by the <code>remote</code> modal option is now injected into the <code>.modal</code> instead of into the <code>.modal-body</code>. This allows you to also easily vary the header and footer of the modal, not just the modal body.</li>
       <li>JavaScript events are namespaced. For example, to handle the modal "show" event, use <code>'show.bs.modal'</code>. For tabs "shown" use <code>'shown.bs.tab'</code>, etc..</li>
     </ul>
-    <p>For more information on upgrades and code snippets from the community check out <a href="http://bootply.com/">Bootply</a>.</p>
+    <p>For more information on upgrading to v3.0, and code snippets from the community, see <a href="http://bootply.com/">Bootply</a>.</p>
   </div>
-
 
 
   <!-- Browser support
@@ -610,22 +644,64 @@ bootstrap/
     <div class="page-header">
       <h1 id="browsers">Browser support</h1>
     </div>
-    <p class="lead">Bootstrap is built to work best in the latest desktop and mobile browsers, meaning older and less advanced browsers might receive a less stylized, though fully functional, version of certain components.</p>
+    <p class="lead">Bootstrap is built to work best in the latest desktop and mobile browsers, meaning older browsers might display differently styled, though fully functional, renderings of certain components.</p>
 
     <h3>Supported browsers</h3>
     <p>Specifically, we support the latest versions of the following:</p>
     <ul>
       <li>Chrome (Mac, Windows, iOS, and Android)</li>
-      <li>Safari (Mac and iOS only, as Windows has more or less been discontinued)</li>
+      <li>Safari (Mac and iOS only, as the Windows version is being abandoned)</li>
       <li>Firefox (Mac, Windows)</li>
       <li>Internet Explorer</li>
       <li>Opera (Mac, Windows)</li>
     </ul>
-    <p>Unofficially, Bootstrap should look and behave well enough in Chromium for Linux and Internet Explorer 7, though they are not officially supported.</p>
+    <p>Unofficially, Bootstrap should look and behave well enough in Chromium and Chrome for Linux, Firefox for Linux, and Internet Explorer 7, though they are not officially supported.</p>
 
     <h3>Internet Explorer 8 and 9</h3>
-    <p>Internet Explorer 8 and 9 are also supported, however, please be aware that many CSS3 properties—e.g., rounded corners and shadows—are not supported by IE8. The <code>placeholder</code> attribute is also not supported in either of these versions.</p>
-    <p>In addition, <strong>Internet Explorer 8 requires the use of <a href="https://github.com/scottjehl/Respond">respond.js</a> to enable media query support.</strong></p>
+    <p>Internet Explorer 8 and 9 are also supported, however, please be aware that some CSS3 properties and HTML5 elements are not fully supported by these browsers. In addition, <strong>Internet Explorer 8 requires the use of <a href="https://github.com/scottjehl/Respond">respond.js</a> to enable media query support.</strong></p>
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th scope="col" class="col-xs-4">Feature</th>
+            <th scope="col" class="col-xs-4">Internet Explorer 8</th>
+            <th scope="col" class="col-xs-4">Internet Explorer 9</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><code>border-radius</code></th>
+            <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+            <td class="text-success"><span class="glyphicon glyphicon-ok"></span> Supported</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>box-shadow</code></th>
+            <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+            <td class="text-success"><span class="glyphicon glyphicon-ok"></span> Supported</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>transform</code></th>
+            <td class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+            <td class="text-success"><span class="glyphicon glyphicon-ok"></span> Supported, with <code>-ms</code> prefix</td>
+          </tr>
+          <tr>
+            <th scope="row"><code>transition</code></th>
+            <td colspan="2" class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+          </tr>
+        </tbody>
+        <tbody>
+          <tr>
+            <th scope="row"><code>placeholder</code></th>
+            <td colspan="2" class="text-danger"><span class="glyphicon glyphicon-remove"></span> Not supported</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Visit <a href="http://caniuse.com/">Can I use...</a> for details on browser support of CSS3 and HTML5 features.</p>
+
+    <h3>Internet Explorer 8 and box-sizing</h3>
+    <p>IE8 does not fully support <code>box-sizing: border-box;</code> when combined with <code>min-width</code>, <code>max-width</code>, <code>min-height</code>, or <code>max-height</code>. For that reason, as of v3.0.1, we no longer use <code>max-width</code> on <code>.container</code>s.</p>
 
     <h3>IE Compatibility modes</h3>
     <p>Bootstrap is not supported in the old Internet Explorer compatibility modes. To be sure you're using the latest rendering mode for IE, consider including the appropriate <code>&lt;meta&gt;</code> tag in your pages:</p>
@@ -634,8 +710,12 @@ bootstrap/
 {% endhighlight %}
     <p>See <a href="http://stackoverflow.com/questions/6771258/whats-the-difference-if-meta-http-equiv-x-ua-compatible-content-ie-edge">this StackOverflow question</a> for more information.</p>
 
-    <h3>Windows Phone 8 and Internet Explorer 10</h3>
-    <p>Internet Explorer 10 doesn't differentiate device width from viewport width, and thus doesn't properly apply the media queries in Bootstrap's CSS. To address this, you can optionally include the following CSS and JavaScript to work around this problem until Microsoft issues a fix.</p>
+    <h3>Internet Explorer 10 in Windows 8 and Windows Phone 8</h3>
+    <p>Internet Explorer 10 doesn't differentiate <strong>device width</strong> from <strong>viewport width</strong>, and thus doesn't properly apply the media queries in Bootstrap's CSS. Normally you'd just add a quick snippet of CSS to fix this:</p>
+{% highlight css %}
+@-ms-viewport       { width: device-width; }
+{% endhighlight %}
+    <p>However, this doesn't work as it causes Windows Phone 8 devices to show a mostly desktop view instead of narrow "phone" view. To address this, you'll need to <strong>include the following CSS and JavaScript to work around the bug until Microsoft issues a fix</strong>.</p>
 {% highlight css %}
 @-webkit-viewport   { width: device-width; }
 @-moz-viewport      { width: device-width; }
@@ -656,6 +736,7 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 }
 {% endhighlight %}
     <p>For more information and usage guidelines, read <a href="http://timkadlec.com/2013/01/windows-phone-8-and-device-width/">Windows Phone 8 and Device-Width</a>.</p>
+    <p>As a heads up, we include this in the Bootstrap docs as an example.</p>
 
     <h3>Safari percent rounding</h3>
     <p>In the latest Safari for Mac, its rendering engine has a little trouble with the long decimal places of our <code>.col-*-1</code> grid classes, meaning if you have 12 individual columns you'll notice they come up short compared to other rows of columns. We can't do much here (<a href="https://github.com/twbs/bootstrap/issues/9282">see #9282</a>) but you do have some options:</p>
@@ -676,7 +757,6 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
   </div>
 
 
-
   <!-- Third party support
   ================================================== -->
   <div class="bs-docs-section">
@@ -685,26 +765,53 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
     </div>
     <p class="lead">While we don't officially support any third party plugins or add-ons, we do offer some useful advice to help avoid potential issues in your projects.</p>
 
-    <h3>Google Maps</h3>
-    <p>If you're using Google Maps on a Bootstrapped project, you might run into some display problems due to our use of <code>* { box-sizing: border-box; }</code>. Previously, you may have also ran into issues with the use of <code>max-width</code> on images. The following snippet should avoid all those problems.</p>
+    <h3>Box-sizing</h3>
+    <p>Some third party software, including Google Maps and Google Custom Search Engine, conflict with Bootstrap due to <code>* { box-sizing: border-box; }</code>, a rule which makes it so <code>padding</code> does not affect the final computed width of an element. Learn more about <a href="http://css-tricks.com/box-sizing/">box model and sizing at CSS Tricks</a>.</p>
+    <p>Depending on the context, you may override as-needed (Option 1) or reset the box-sizing for entire regions (Option 2).</p>
 {% highlight css %}
-/* Fix Google Maps canvas
+/* Box-sizing resets
  *
- * Wrap your Google Maps embed in a `.google-map-canvas` to reset Bootstrap's
- * global `box-sizing` changes. You may optionally need to reset the `max-width`
- * on images in case you've applied that anywhere else. (That shouldn't be as
- * necessary with Bootstrap 3 though as that behavior is relegated to the
- * `.img-responsive` class.)
+ * Reset individual elements or override regions to avoid conflicts due to
+ * global box model settings of Bootstrap. Two options, individual overrides and
+ * region resets, are available as plain CSS and uncompiled LESS formats.
  */
 
-.google-map-canvas,
-.google-map-canvas * { .box-sizing(content-box); }
+/* Option 1A: Override a single element's box model via CSS */
+.element {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
 
-/* Optional responsive image override */
-img { max-width: none; }
+/* Option 1B: Override a single element's box model by using a Bootstrap LESS mixin */
+.element {
+  .box-sizing(content-box);
+}
+
+/* Option 2A: Reset an entire region via CSS */
+.reset-box-sizing,
+.reset-box-sizing *,
+.reset-box-sizing *:before,
+.reset-box-sizing *:after {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+/* Option 2B: Reset an entire region with a custom LESS mixin */
+.reset-box-sizing {
+  &,
+  *,
+  *:before,
+  *:after {
+    .box-sizing(content-box);
+  }
+}
+.element {
+  .reset-box-sizing();
+}
 {% endhighlight %}
   </div>
-
 
 
   <!-- Accessibility
@@ -737,7 +844,6 @@ img { max-width: none; }
       <li><a href="https://developer.mozilla.org/en-US/docs/Accessibility">MDN accessibility documentation</a></li>
     </ul>
   </div>
-
 
 
   <!-- License FAQs

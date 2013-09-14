@@ -32,38 +32,35 @@ As of v3.0.0, Saas Bootstrap's documentation is powered by Jekyll templates and 
 ## Pull requests
 
 - Try to submit pull requests against the latest `*sass-wip` branch for easier merging
-- Any changes to the docs must be made to the Mustache templates, not just the compiled HTML pages
-- CSS changes must be done in .scss files first, never just the compiled files
+- If modifying the `.scss` files, always recompile and commit the compiled file `sass-bootstrap.css`
 - Try not to pollute your pull request with unintended changes--keep them simple and small
 - Try to share which browsers your code has been tested in before submitting a pull request
 
 
 
-## Coding standards: HTML
+## Coding standards
 
-- Four spaces for indentation, never tabs
+### HTML
+
+- Two spaces for indentation, never tabs
 - Double quotes only, never single quotes
 - Always use proper indentation
 - Use tags and elements appropriate for an HTML5 doctype (e.g., self-closing tags)
 
-
-
-## Coding standards: CSS
+### CSS
 
 - Adhere to the [Recess CSS property order](http://markdotto.com/2011/11/29/css-property-order/)
 - Multiple-line approach (one property and value per line)
 - Always a space after a property's colon (.e.g, `display: block;` and not `display:block;`)
 - End all lines with a semi-colon
-- For multiple, comma-separated selectors, place each selector on it's own line
+- For multiple, comma-separated selectors, place each selector on its own line
 - Attribute selectors, like `input[type="text"]` should always wrap the attribute's value in double quotes, for consistency and safety (see this [blog post on unquoted attribute values](http://mathiasbynens.be/notes/unquoted-attribute-values) that can lead to XSS attacks).
 
-
-
-## Coding standards: JS
+### JS
 
 - No semicolons
 - Comma first
-- 4 spaces (no tabs)
+- 2 spaces (no tabs)
 - strict mode
 - "Attractive"
 
@@ -71,4 +68,4 @@ As of v3.0.0, Saas Bootstrap's documentation is powered by Jekyll templates and 
 
 ## License
 
-By contributing your code, you agree to license your contribution under the terms of the [APLv2](LICENSE)
+By contributing your code, you agree to license your contribution under the terms of the APLv2: https://github.com/twbs/bootstrap/blob/master/LICENSE

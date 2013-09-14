@@ -11,16 +11,16 @@
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <li{% if page.slug == "getting-started" %} class="active"{% endif %}>
+        <li{% if page.url == "/getting-started/" %} class="active"{% endif %}>
           <a href="{{ page.base_url }}getting-started">Getting started</a>
         </li>
-        <li{% if page.slug == "css" %} class="active"{% endif %}>
+        <li{% if page.url == "/css/" %} class="active"{% endif %}>
           <a href="{{ page.base_url }}css">CSS</a>
         </li>
-        <li{% if page.slug == "components" %} class="active"{% endif %}>
+        <li{% if page.url == "/components/" %} class="active"{% endif %}>
           <a href="{{ page.base_url }}components">Components</a>
         </li>
-        <li{% if page.slug == "js" %} class="active"{% endif %}>
+        <li{% if page.url == "/javascript/" %} class="active"{% endif %}>
           <a href="{{ page.base_url }}javascript">JavaScript</a>
         </li>
       </ul>

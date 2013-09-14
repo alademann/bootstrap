@@ -461,6 +461,8 @@ $('#myModal').on('hidden.bs.modal', function () {
   <a id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
     Dropdown <span class="caret"></span>
   </a>
+
+
   <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
     ...
   </ul>
@@ -573,7 +575,7 @@ $('#myDropdown').on('show.bs.dropdown', function () {
     <h2 id="scrollspy-usage">Usage</h2>
 
     <h3>Via data attributes</h3>
-    <p>To easily add scrollspy behavior to your topbar navigation, add <code>data-spy="scroll"</code> to the element you want to spy on (most typically this would be the <code>&lt;body&gt;</code>. Then add the <code>data-target</code> attribute with the ID or class of the parent element of any Bootstrap <code>.nav</code> component.</p>
+    <p>To easily add scrollspy behavior to your topbar navigation, add <code>data-spy="scroll"</code> to the element you want to spy on (most typically this would be the <code>&lt;body&gt;</code>). Then add the <code>data-target</code> attribute with the ID or class of the parent element of any Bootstrap <code>.nav</code> component.</p>
 {% highlight html %}
 <body data-spy="scroll" data-target="#navbar-example">
   ...
@@ -686,6 +688,11 @@ $('#myScrollspy').on('activate.bs.scrollspy', function () {
         </div>
       </div>
     </div><!-- /example -->
+
+    <div class="bs-callout bs-callout-info">
+      <h4>Extends tabbed navigation</h4>
+      <p>This plugin extends the <a href="../components/#nav-tabs">tabbed navigation component</a> to add tabbable areas.</p>
+    </div>
 
 
     <h2 id="tabs-usage">Usage</h2>
@@ -819,6 +826,10 @@ $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
       </div>
     </div><!-- /example -->
 
+    <div class="bs-callout bs-callout-danger">
+      <h4>Opt-in functionality</h4>
+      <p>For performance reasons, the Tooltip and Popover data-apis are opt-in, meaning <strong>you must initialize them yourself</strong>.</p>
+    </div>
     <div class="bs-callout bs-callout-info">
       <h4>Tooltips in button groups and input groups require special setting</h4>
       <p>When using tooltips on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the tooltip is triggered).</p>
@@ -985,6 +996,10 @@ $('#myTooltip').on('hidden.bs.tooltip', function () {
       <h4>Plugin dependency</h4>
       <p>Popovers require the <a href="#tooltips">tooltip plugin</a> to be included in your version of Bootstrap.</p>
     </div>
+    <div class="bs-callout bs-callout-danger">
+      <h4>Opt-in functionality</h4>
+      <p>For performance reasons, the Tooltip and Popover data-apis are opt-in, meaning <strong>you must initialize them yourself</strong>.</p>
+    </div>
     <div class="bs-callout bs-callout-info">
       <h4>Popovers in button groups and input groups require special setting</h4>
       <p>When using popovers on elements within a <code>.btn-group</code> or an <code>.input-group</code>, you'll have to specify the option <code>container: 'body'</code> (documented below) to avoid unwanted side effects (such as the element growing wider and/or losing its rounded corners when the popover is triggered).</p>
@@ -1016,6 +1031,7 @@ $('#myTooltip').on('hidden.bs.tooltip', function () {
       <div class="popover bottom">
         <div class="arrow"></div>
         <h3 class="popover-title">Popover bottom</h3>
+
         <div class="popover-content">
           <p>Sed posuere consectetur est at lobortis. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</p>
         </div>
@@ -1140,9 +1156,6 @@ $('#myTooltip').on('hidden.bs.tooltip', function () {
       <h4>Data attributes for individual popovers</h4>
       <p>Options for individual popovers can alternatively be specified through the use of data attributes, as explained above.</p>
     </div>
-
-    <h3>Markup</h3>
-    <p>For performance reasons, the Tooltip and Popover data-apis are opt in. If you would like to use them just specify a selector option.</p>
 
     <h3>Methods</h3>
     <h4>$().popover(options)</h4>
@@ -1670,10 +1683,10 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
           </div>
         </div>
         <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-          <span class="icon-prev"></span>
+          <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
         <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-          <span class="icon-next"></span>
+          <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
       </div>
     </div><!-- /example -->
@@ -1699,16 +1712,16 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
 
   <!-- Controls -->
   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="icon-prev"></span>
+    <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
   <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="icon-next"></span>
+    <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 </div>
 {% endhighlight %}
-<div class="bs-callout bs-callout-info">
-  <h4>Glyphicon Alternative</h4>
-  <p>With <a href="{{ page.base_url }}components/#glyphicons">Glyphicons</a> available, you may choose to style the left and right toggle buttons with <code>.glyphicon .glyphicon-chevron-left</code> and <code>.glyphicon .glyphicon-chevron-right</code>.</p>
+<div class="bs-callout bs-callout-warning" id="callout-carousel-transitions">
+  <h4>Transition animations not supported in Internet Explorer 8 &amp; 9</h4>
+  <p>Bootstrap exclusively uses CSS3 for its animations, but Internet Explorer 8 &amp; 9 don't support the necessary CSS properties. Thus, there are no slide transition animations when using these browsers. We have intentionally decided not to include jQuery-based fallbacks for the transitions.</p>
 </div>
 
     <h3>Optional captions</h3>
@@ -1744,10 +1757,10 @@ $('#myCollapsible').on('hidden.bs.collapse', function () {
           </div>
         </div>
         <a class="left carousel-control" href="#carousel-example-captions" data-slide="prev">
-          <span class="icon-prev"></span>
+          <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
         <a class="right carousel-control" href="#carousel-example-captions" data-slide="next">
-          <span class="icon-next"></span>
+          <span class="glyphicon glyphicon-chevron-right"></span>
         </a>
       </div>
     </div><!-- /example -->
@@ -1894,8 +1907,8 @@ $('#myCarousel').on('slide.bs.carousel', function () {
     <div class="bs-callout bs-callout-warning">
       <h4>Requires independent styling ;)</h4>
       <p>
-        Affix toggles between three states/classes: <code>affix</code>, <code>affix-top</code>, and <code>affix-bottom</code>. You must provide the styles for these classes yourself (independent of this plugin).
-        The <code>affix-top</code> class should be in the regular flow of the document. The <code>affix</code> class should be fixed to the page. And <code>affix-bottom</code> should be positioned absolute. Note, <code>affix-bottom</code> is special in that the plugin will place the element with JS relative to the <code>offset: { bottom: number }</code> option you've provided.
+        Affix toggles between three states/classes: <code>.affix</code>, <code>.affix-top</code>, and <code>.affix-bottom</code>. You must provide the styles for these classes yourself (independent of this plugin).
+        The <code>.affix-top</code> class should be in the regular flow of the document. The <code>.affix</code> class should be <code>position: fixed</code>. And <code>.affix-bottom</code> should be <code>position: absolute</code>. Note: <code>.affix-bottom</code> is special in that the plugin will place the element with JS relative to the <code>offset: { bottom: number }</code> option you've provided.
       </p>
     </div>
 

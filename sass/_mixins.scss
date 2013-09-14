@@ -522,22 +522,22 @@
 // Responsive utilities
 // -------------------------
 // More easily include all the states for responsive-utilities.less.
-@mixin responsive-visibility($css-class) {
-  #{$css-class} {
+@mixin responsive-visibility($parent) {
+  #{$parent} {
     display: block !important;
   }
-  tr#{$css-class} { display: table-row !important; }
-  th#{$css-class},
-  td#{$css-class} { display: table-cell !important; }
+  tr#{$parent} { display: table-row !important; }
+  th#{$parent},
+  td#{$parent} { display: table-cell !important; }
 }
 
-@mixin responsive-invisibility($css-class) {
-  #{$css-class} {
+@mixin responsive-invisibility($parent) {
+  #{$parent} {
     display: none !important;
   }
-  tr#{$css-class} { display: none !important; }
-  th#{$css-class},
-  td#{$css-class} { display: none !important; }
+  tr#{$parent} { display: none !important; }
+  th#{$parent},
+  td#{$parent} { display: none !important; }
 }
 
 // Grid System
@@ -728,8 +728,8 @@
 // horizontal sizing, wrap controls in the predefined grid classes. `<select>`
 // element gets special love because it's special, and that's a fact!
 
-@mixin input-size($input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius, $css-class) {
-  #{$css-class} {
+@mixin input-size($parent, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+  #{$parent} {
     height: $input-height;
     padding: $padding-vertical $padding-horizontal;
     font-size: $font-size;
@@ -737,12 +737,12 @@
     border-radius: $border-radius;
   }
 
-  select#{$css-class} {
+  select#{$parent} {
     height: $input-height;
     line-height: $input-height;
   }
 
-  textarea#{$css-class} {
+  textarea#{$parent} {
     height: auto;
   }
 }
