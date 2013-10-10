@@ -1,3 +1,6 @@
+---
+layout: example
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +10,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Grid Template for Bootstrap</title>
+    <title>Grid Template for {{ site.app_name }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/sass-bootstrap.css" rel="stylesheet">
@@ -20,13 +23,15 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+
+    {% include ga-js.html %}
   </head>
 
   <body>
     <div class="container">
 
       <div class="page-header">
-        <h1>Bootstrap grid examples</h1>
+        <h1>{{ site.app_name }} grid examples</h1>
         <p class="lead">Basic grid layouts to get you familiar with building within the Bootstrap grid system.</p>
       </div>
 
@@ -75,7 +80,7 @@
       <hr>
 
       <h3>Mixed: mobile and desktop</h3>
-      <p>The Bootstrap 3 grid system has four tiers of classes: xs (phones), sm (tablets), md (desktops), and lg (larger desktops). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
+      <p>The {{ site.app_name }} 3 grid system has four tiers of classes: xs (phones), sm (tablets), md (desktops), and lg (larger desktops). You can use nearly any combination of these classes to create more dynamic and flexible layouts.</p>
       <p>Each tier of classes scales up, meaning if you plan on setting the same widths for xs and sm, you only need to specify xs.</p>
       <div class="row">
         <div class="col-xs-12 col-md-8">.col-xs-12 .col-md-8</div>

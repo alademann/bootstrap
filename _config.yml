@@ -10,13 +10,13 @@ source:       ./
 destination:  ./_gh_pages
 port:         9001
 
-exclude:      ["*.zip", "browserstack.json", "node_modules", "submodules", "temp-css", "sass", "less", ".editorconfig", "composer.json", ".ruby-version", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "Makefile", "Rakefile", "LICENSE", "README.md", "CONTRIBUTING.md", "requirements.txt"]
+exclude:      ["*.zip", "browserstack.json", "node_modules", "submodules", "temp-css", "sass", "less", "tests", ".editorconfig", "composer.json", ".ruby-version", ".gitignore", "bower.json", "config.rb", "Gemfile", "Gruntfile.js", "package.json", "Makefile", "Rakefile", "LICENSE", "README.md", "CONTRIBUTING.md", "requirements.txt"]
 
 
 ## CUSTOM VARS
 repo:               https://github.com/alademann/sass-bootstrap
-download:           https://github.com/alademann/sass-bootstrap/archive/3.0.16.zip
-download_dist:      https://github.com/alademann/sass-bootstrap/raw/3.0.16/sass-bootstrap-dist.zip
+download:           https://github.com/alademann/sass-bootstrap/archive/3.0.17.zip
+download_dist:      https://github.com/alademann/sass-bootstrap/raw/3.0.17/sass-bootstrap-dist.zip
 
 issues_open:        https://github.com/alademann/sass-bootstrap/issues?state=open
 issues_new:         https://github.com/alademann/sass-bootstrap/issues/new
@@ -24,4 +24,4 @@ issues_new:         https://github.com/alademann/sass-bootstrap/issues/new
 # Misc Vars
 ga_id:              UA-39735819-1
 app_name:           Sass Bootstrap
-current_version:    3.0.16
+current_version:    3.0.17
