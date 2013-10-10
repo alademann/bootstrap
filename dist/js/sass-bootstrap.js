@@ -1,5 +1,5 @@
 /**
-* Sass Bootstrap v3.0.16 by Aaron Lademann and Twitter Inc.
+* Sass Bootstrap v3.0.17 by Aaron Lademann and Twitter Inc.
 * Copyright 2013 Aaron Lademann and Twitter Inc.
 * Licensed under http://www.apache.org/licenses/LICENSE-2.0.
 *
