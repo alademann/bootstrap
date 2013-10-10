@@ -88,19 +88,37 @@ module.exports = function(grunt) {
       }
     },
 
+    cssmin: {
+      bootstrap: {
+        expand : true,
+        cwd    : 'dist/css/',
+        src    : [
+          '<%= pkg.name %>.css'
+        ],
+        dest : 'dist/css/',
+        ext  : '.min.css',
+        options : {
+          banner : '' +
+            '/*!\n' +
+            '* <%= pkg.name %> v<%= pkg.version %>\n' +
+            '*\n' +
+            '* Copyright <%= grunt.template.today("yyyy") %> Twitter, Inc\n' +
+            '* Licensed under the Apache License v2.0\n' +
+            '* http://www.apache.org/licenses/LICENSE-2.0\n' +
+            '*\n' +
+            '* Designed and built with all the love in the world by @mdo and @fat.\n' +
+            '* Sass -ified by Aaron Lademann @alademann\n' +
+            '*/\n'
+        }
+      }
+    },
+
     compass: {
       bootstrap: {
         options: {
           config: 'config.rb',
           environment: 'development',
           force: grunt.option('force') || false
-        }
-      }, 
-      min: {
-        options: {
-          config: 'config.rb',
-          environment: 'production',
-          force: grunt.option('force') || true
         }
       }
     },
@@ -224,6 +242,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -232,6 +251,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-html-validation');
+  grunt.loadNpmTasks('grunt-css');
   grunt.loadNpmTasks('grunt-jekyll');
 
   grunt.registerTask('lr', modules.livereload);
@@ -256,14 +276,13 @@ module.exports = function(grunt) {
   grunt.registerTask('dist-js', ['concat', 'uglify']);
 
   // CSS distribution task.
-  grunt.registerTask('dist-css', ['compass:bootstrap']);
-  grunt.registerTask('dist-css-min', ['compass:min']);
+  grunt.registerTask('dist-css', ['compass:bootstrap', 'cssmin:bootstrap']);
 
   // Fonts distribution task.
   grunt.registerTask('dist-fonts', ['copy:fonts']);
 
   // Full distribution task.
-  grunt.registerTask('dist', ['clean', 'dist-fonts', 'dist-css-min', 'dist-js', 'compress:dist']);
+  grunt.registerTask('dist', ['clean', 'dist-fonts', 'dist-css', 'dist-js', 'compress:dist']);
 
   // Default task.
   grunt.registerTask('default', ['test', 'dist']);

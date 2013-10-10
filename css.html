@@ -13,10 +13,10 @@ base_url: "../"
     <div class="page-header">
       <h1 id="overview">Overview</h1>
     </div>
-    <p class="lead">Get the lowdown on the key pieces of Sass Bootstrap's infrastructure, including our approach to better, faster, stronger web development.</p>
+    <p class="lead">Get the lowdown on the key pieces of {{ site.app_name }}'s infrastructure, including our approach to better, faster, stronger web development.</p>
 
     <h3 id="overview-doctype">HTML5 doctype</h3>
-    <p>Sass Bootstrap makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.</p>
+    <p>{{ site.app_name }} makes use of certain HTML elements and CSS properties that require the use of the HTML5 doctype. Include it at the beginning of all your projects.</p>
 {% highlight html %}
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +25,7 @@ base_url: "../"
 {% endhighlight %}
 
     <h3 id="overview-mobile">Mobile first</h3>
-    <p>With Bootstrap 2, we added optional mobile friendly styles for key aspects of the framework. With Sass Bootstrap 3, we've rewritten the project to be mobile friendly from the start. Instead of adding on optional mobile styles, they're baked right into the core. In fact, <strong>Sass Bootstrap is mobile first</strong>. Mobile first styles can be found throughout the entire library instead of in separate files.</p>
+    <p>With Bootstrap 2, we added optional mobile friendly styles for key aspects of the framework. With Bootstrap 3, we've rewritten the project to be mobile friendly from the start. Instead of adding on optional mobile styles, they're baked right into the core. In fact, <strong>{{ site.app_name }} is mobile first</strong>. Mobile first styles can be found throughout the entire library instead of in separate files.</p>
     <p>To ensure proper rendering and touch zooming, <strong>add the viewport meta tag</strong> to your <code>&lt;head&gt;</code>.</p>
 {% highlight html %}
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,13 +36,13 @@ base_url: "../"
 {% endhighlight %}
 
     <h3 id="overview-responsive-images">Responsive images</h3>
-    <p>Images in Sass Bootstrap 3 can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element.</p>
+    <p>Images in Bootstrap 3 can be made responsive-friendly via the addition of the <code>.img-responsive</code> class. This applies <code>max-width: 100%;</code> and <code>height: auto;</code> to the image so that it scales nicely to the parent element.</p>
 {% highlight html %}
 <img src="..." class="img-responsive" alt="Responsive image">
 {% endhighlight %}
 
     <h3 id="overview-type-links">Typography and links</h3>
-    <p>Sass Bootstrap sets basic global display, typography, and link styles. Specifically, we:</p>
+    <p>{{ site.app_name }} sets basic global display, typography, and link styles. Specifically, we:</p>
     <ul>
       <li>Remove <code>margin</code> on the body</li>
       <li>Set <code>background-color: white;</code> on the <code>body</code></li>
@@ -71,13 +71,13 @@ base_url: "../"
     <div class="page-header">
       <h1 id="grid">Grid system</h1>
     </div>
-    <p class="lead">Sass Bootstrap includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes <a href="#grid-example-basic">predefined classes</a> for easy layout options, as well as powerful <a href="#grid-scss">mixins for generating more semantic layouts</a>.</p>
+    <p class="lead">{{ site.app_name }} includes a responsive, mobile first fluid grid system that appropriately scales up to 12 columns as the device or viewport size increases. It includes <a href="#grid-example-basic">predefined classes</a> for easy layout options, as well as powerful <a href="#grid-scss">mixins for generating more semantic layouts</a>.</p>
 
     <h3 id="grid-media-queries">Media queries</h3>
     <p>We use the following media queries to create the key breakpoints in our grid system.</p>
 {% highlight css %}
 /* Extra small devices (phones, less than 768px) */
-/* No media query since this is the default in Sass Bootstrap */
+/* No media query since this is the default in {{ site.app_name }} */
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: $screen-sm-min) { ... }
@@ -97,7 +97,7 @@ base_url: "../"
 {% endhighlight %}
 
     <h3 id="grid-options">Grid options</h3>
-    <p>See how aspects of the Sass Bootstrap grid system work across multiple devices with a handy table.</p>
+    <p>See how aspects of the {{ site.app_name }} grid system work across multiple devices with a handy table.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-striped">
         <thead>
@@ -406,7 +406,7 @@ base_url: "../"
 {% endhighlight %}
 
     <h3 id="grid-scss">SCSS mixins and variables</h3>
-    <p>In addition to <a href="#grid-example-basic">prebuilt grid classes</a> for fast layouts, Sass Bootstrap includes SCSS variables and mixins for quickly generating your own simple, semantic layouts.</p>
+    <p>In addition to <a href="#grid-example-basic">prebuilt grid classes</a> for fast layouts, {{ site.app_name }} includes SCSS variables and mixins for quickly generating your own simple, semantic layouts.</p>
 
     <h4>Variables</h4>
     <p>Variables determine the number of columns, the gutter width, and the media query point at which to begin floating columns. We use these to generate the predefined grid classes documented above, as well as for the custom mixins listed below.</p>
@@ -664,7 +664,7 @@ $grid-float-breakpoint:     768px;
 
     <!-- Body copy -->
     <h2 id="type-body-copy">Body copy</h2>
-    <p>Sass Bootstrap's global default <code>font-size</code> is <strong>14px</strong>, with a <code>line-height</code> of <strong>1.428</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code> (paragraphs) receive a bottom margin of half their computed line-height (10px by default).</p>
+    <p>{{ site.app_name }}'s global default <code>font-size</code> is <strong>14px</strong>, with a <code>line-height</code> of <strong>1.428</strong>. This is applied to the <code>&lt;body&gt;</code> and all paragraphs. In addition, <code>&lt;p&gt;</code> (paragraphs) receive a bottom margin of half their computed line-height (10px by default).</p>
     <div class="bs-example">
       <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula.</p>
       <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla.</p>
@@ -686,7 +686,7 @@ $grid-float-breakpoint:     768px;
 
     <!-- Using SCSS -->
     <h3>Built with Sass</h3>
-    <p>The typographic scale is based on two SCSS variables in <strong>_variables.scss</strong>: <code>$font-size-base</code> and <code>$line-height-base</code>. The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and Sass Bootstrap adapts.</p>
+    <p>The typographic scale is based on two SCSS variables in <strong>_variables.scss</strong>: <code>$font-size-base</code> and <code>$line-height-base</code>. The first is the base font-size used throughout and the second is the base line-height. We use those variables and some simple math to create the margins, paddings, and line-heights of all our type and more. Customize them and {{ site.app_name }} adapts.</p>
 
 
     <!-- Emphasis -->
@@ -1536,7 +1536,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
     <p>Add <code>.form-inline</code> for left-aligned and inline-block controls for a compact layout.</p>
     <div class="bs-callout bs-callout-danger">
       <h4>Requires custom widths</h4>
-      <p>Inputs, selects, and textareas are 100% wide by default in Sass Bootstrap. To use the inline form, you'll have to set a width on the form controls used within.</p>
+      <p>Inputs, selects, and textareas are 100% wide by default in {{ site.app_name }}. To use the inline form, you'll have to set a width on the form controls used within.</p>
     </div>
     <div class="bs-callout bs-callout-danger">
       <h4>Always add labels</h4>
@@ -1581,7 +1581,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
 
     <h2 id="forms-horizontal">Horizontal form</h2>
-    <p>Use Sass Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout by adding <code>.form-horizontal</code> to the form. Doing so changes <code>.form-group</code>s to behave as grid rows, so no need for <code>.row</code>.</p>
+    <p>Use {{ site.app_name }}'s predefined grid classes to align labels and groups of form controls in a horizontal layout by adding <code>.form-horizontal</code> to the form. Doing so changes <code>.form-group</code>s to behave as grid rows, so no need for <code>.row</code>.</p>
     <div class="bs-example">
       <form class="form-horizontal">
         <div class="form-group">
@@ -1859,7 +1859,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 
     <div class="bs-callout bs-callout-danger">
       <h4>Cross-browser compatibility</h4>
-      <p>While Sass Bootstrap will apply these styles in all browsers, Internet Explorer 9 and below don't actually support the <code>disabled</code> attribute on a <code>&lt;fieldset&gt;</code>. Use custom JavaScript to disable the fieldset in these browsers.</p>
+      <p>While {{ site.app_name }} will apply these styles in all browsers, Internet Explorer 9 and below don't actually support the <code>disabled</code> attribute on a <code>&lt;fieldset&gt;</code>. Use custom JavaScript to disable the fieldset in these browsers.</p>
     </div>
 
     <div class="bs-example">
@@ -1908,7 +1908,7 @@ For example, <code>&lt;section&gt;</code> should be wrapped as inline.
 {% endhighlight %}
 
     <h3 id="forms-validation">Validation states</h3>
-    <p>Sass Bootstrap includes validation styles for error, warning, and success states on form controls. To use, add <code>.has-warning</code>, <code>.has-error</code>, or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>, and <code>.help-block</code> within that element will receive the validation styles.</p>
+    <p>{{ site.app_name }} includes validation styles for error, warning, and success states on form controls. To use, add <code>.has-warning</code>, <code>.has-error</code>, or <code>.has-success</code> to the parent element. Any <code>.control-label</code>, <code>.form-control</code>, and <code>.help-block</code> within that element will receive the validation styles.</p>
 
     <div class="bs-example">
       <form role="form">

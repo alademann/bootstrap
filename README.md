@@ -1,4 +1,4 @@
-# Sass Bootstrap v3.0.16
+# Sass Bootstrap v3.0.17
 
 Sass Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass/Compass by [Aaron Lademann](https://github.com/alademann).
 
@@ -10,7 +10,7 @@ To get started, check out the [SASS Bootstrap Documentation](http://alademann.gi
 
 Three quick start options are available:
 
-* [Download the latest release](https://github.com/alademann/sass-bootstrap/releases/tag/3.0.16).
+* [Download the latest release](https://github.com/alademann/sass-bootstrap/releases/tag/3.0.17).
 * Clone the repo: `$ git clone git://github.com/alademann/sass-bootstrap.git`.
 * Install with [Bower](http://bower.io): `bower install sass-bootstrap-compass`.
 

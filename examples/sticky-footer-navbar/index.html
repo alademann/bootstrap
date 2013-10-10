@@ -1,3 +1,6 @@
+---
+layout: example
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +10,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Sticky Footer Navbar Template for Bootstrap</title>
+    <title>Sticky Footer Navbar Template for {{ site.app_name }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/sass-bootstrap.css" rel="stylesheet">
@@ -20,6 +23,8 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+
+    {% include ga-js.html %}
   </head>
 
   <body>
@@ -81,6 +86,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../assets/js/jquery.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../dist/js/sass-bootstrap.min.js"></script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 {
-    "name": "sass-bootstrap-compass"
+    "name": "sass-bootstrap"
   , "description": "Sleek, intuitive, and powerful front-end framework for faster and easier web development."
-  , "version": "3.0.16"
+  , "version": "3.0.17"
   , "keywords": ["bootstrap", "css", "sass", "scss"]
   , "homepage": "http://alademann.github.io/sass-bootstrap/"
   , "author": "Aaron Lademann and Twitter Inc."
@@ -30,7 +30,9 @@
       , "grunt-contrib-watch": "~0.5.1"
       , "grunt-contrib-compress": "0.5.2"
       , "grunt-contrib-compass": "~0.2.0"
+      , "grunt-contrib-cssmin": "~0.6.1"
       , "grunt-html-validation": "~0.1.4"
+      , "grunt-css": "~0.5.4"
       , "grunt-jekyll": "~0.3.8"
   }
 }

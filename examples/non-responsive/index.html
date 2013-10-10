@@ -1,3 +1,6 @@
+---
+layout: example
+---
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,7 +12,7 @@
 
     <link rel="shortcut icon" href="../../assets/ico/favicon.png">
 
-    <title>Non-responsive Template for Bootstrap</title>
+    <title>Non-responsive Template for {{ site.app_name }}</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../../dist/css/sass-bootstrap.css" rel="stylesheet">
@@ -22,6 +25,8 @@
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
+
+    {% include ga-js.html %}
   </head>
 
   <body>
@@ -67,8 +72,8 @@
     <div class="container">
 
       <div class="page-header">
-        <h1>Non-responsive Bootstrap</h1>
-        <p class="lead">Disable the responsiveness of Bootstrap by fixing the width of the container and using the first grid system tier.</p>
+        <h1>Non-responsive {{ site.app_name }}</h1>
+        <p class="lead">Disable the responsiveness of {{ site.app_name }} by fixing the width of the container and using the first grid system tier.</p>
       </div>
 
       <h3>What changes</h3>
@@ -91,6 +96,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../../assets/js/jquery.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../dist/js/sass-bootstrap.min.js"></script>
   </body>
 </html>
