@@ -5,7 +5,7 @@ http_path          = "/dist"
 css_dir            = "#{http_path}/css"
 fonts_dir          = "#{http_path}/fonts"
 images_dir         = "#{http_path}/img"
-javascripts_dir    = "/assets/js"
+javascripts_dir    = "/docs-assets/js"
 
 # You can select your preferred output style here (can be overridden via the command line):
 #output_style = :expanded or :nested or :compact or :compressed

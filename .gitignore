@@ -15,6 +15,7 @@ submodules
 *.vi
 *~
 *.sass-cache
+*.lock
 
 # OS or Editor folders
 .DS_Store
@@ -32,6 +33,10 @@ nbproject
 # Komodo
 *.komodoproject
 .komodotools
+
+# grunt-html-validation
+validation-status.json
+validation-report.json
 
 # Folders to ignore
 .hg

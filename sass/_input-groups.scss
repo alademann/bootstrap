@@ -30,12 +30,12 @@
 .input-group-lg > .form-control,
 .input-group-lg > .input-group-addon,
 .input-group-lg > .input-group-btn > .btn { 
-  @include input-size(".input-lg", $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
+  @include input-size(lg, $input-height-large, $padding-large-vertical, $padding-large-horizontal, $font-size-large, $line-height-large, $border-radius-large);
 }
 .input-group-sm > .form-control,
 .input-group-sm > .input-group-addon,
 .input-group-sm > .input-group-btn > .btn {
-  @include input-size(".input-sm", $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
+  @include input-size(sm, $input-height-small, $padding-small-vertical, $padding-small-horizontal, $font-size-small, $line-height-small, $border-radius-small);
 }
 
 
@@ -65,6 +65,7 @@
   font-size: $font-size-base;
   font-weight: normal;
   line-height: 1;
+  color: $input-color;
   text-align: center;
   background-color: $input-group-addon-bg;
   border: 1px solid $input-group-addon-border-color;
@@ -116,6 +117,14 @@
 .input-group-btn {
   position: relative;
   white-space: nowrap;
+
+  // Negative margin to only have a 1px border between the two
+  &:first-child > .btn {
+    margin-right: -1px;
+  }
+  &:last-child > .btn {
+    margin-left: -1px;
+  }
 }
 .input-group-btn > .btn {
   position: relative;

@@ -1,6 +1,6 @@
 /* ========================================================================
- * Bootstrap: modal.js v3.0.0
- * http://twbs.github.com/bootstrap/javascript.html#modals
+ * Bootstrap: modal.js v3.0.2
+ * http://alademann.github.io/sass-bootstrap/javascript/#modals
  * ========================================================================
  * Copyright 2012 Twitter, Inc.
  *
@@ -243,4 +243,4 @@
     .on('show.bs.modal',  '.modal', function () { $(document.body).addClass('modal-open') })
     .on('hidden.bs.modal', '.modal', function () { $(document.body).removeClass('modal-open') })
 
-}(window.jQuery);
+}(jQuery);

@@ -12,7 +12,9 @@ module.exports = function(grunt) {
       grunt: grunt
   };
 
-  modules.livereload = require('./assets/js/grunts/livereload')(modules);
+  modules.livereload = require('./docs-assets/js/grunts/livereload')(modules);
+
+  RegExp.quote = require('regexp-quote')
 
   // Project configuration.
   grunt.initConfig({
@@ -26,11 +28,11 @@ module.exports = function(grunt) {
               '*\n' +
               '* Designed and built with all the love in the world by @alademann, @mdo and @fat.\n' +
               '*/\n',
-    jqueryCheck: 'if (!jQuery) { throw new Error(\"Sass Bootstrap requires jQuery\") }\n\n',
+    jqueryCheck: 'if (typeof jQuery === "undefined") { throw new Error(\"Sass Bootstrap requires jQuery\") }\n\n',
 
     // Task configuration.
     clean: {
-      dist: ['dist', '<%= pkg.name %>-dist.zip']
+      dist: ['dist', '_gh_pages', '<%= pkg.name %>-dist.zip']
     },
 
     jshint: {
@@ -40,11 +42,11 @@ module.exports = function(grunt) {
         },
         src: ['js/*.js']
       },
-      assets: {
+      docs: {
         options: {
           jshintrc: 'js/.jshintrc'
         },
-        src: ['assets/js/application.js']
+        src: ['docs-assets/js/application.js']
       },
       test: {
         options: {
@@ -80,7 +82,8 @@ module.exports = function(grunt) {
 
     uglify: {
       options: {
-        banner: '<%= banner %>'
+        banner: '<%= banner %>',
+        report: 'min'
       },
       bootstrap: {
         src: ['<%= concat.bootstrap.dest %>'],
@@ -174,7 +177,12 @@ module.exports = function(grunt) {
 
     validation: {
       options: {
-        reset: false
+        reset: true,
+        maxTry: 1,
+        relaxerror: [
+            "Bad value X-UA-Compatible for attribute http-equiv on element meta.",
+            "Element img is missing required attribute src.",
+        ]
       },
       files: {
         src: ["_gh_pages/**/*.html"]
@@ -190,8 +198,8 @@ module.exports = function(grunt) {
         }
       },
       docsjs: {
-        files: '<%= jshint.assets.src %>',
-        tasks: ['jshint:assets'],
+        files: '<%= jshint.docs.src %>',
+        tasks: ['jshint:docs'],
         options: {
           livereload: true
         }
@@ -212,8 +220,8 @@ module.exports = function(grunt) {
           livereload: false
         }
       },
-      assets: {
-        files: ['assets/**/*'],
+      docshtml: {
+        files: ['docs-assets/**/*'],
         tasks: ['jekyll:docs'],
         options: {
           livereload: true
@@ -234,43 +242,57 @@ module.exports = function(grunt) {
           livereload: true
         }
       }
+    },
+
+    sed: {
+      versionNumber: {
+        pattern: (function () {
+          var old = grunt.option('oldver')
+          return old ? RegExp.quote(old) : old
+        })(),
+        replacement: grunt.option('newver'),
+        recursive: true
+      }
     }
   });
 
 
   // These plugins provide necessary tasks.
-  grunt.loadNpmTasks('grunt-contrib-connect');
+  // grunt.loadNpmTasks('browserstack-runner');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-css');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-concat');
-  grunt.loadNpmTasks('grunt-contrib-compress');
+  grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-html-validation');
-  grunt.loadNpmTasks('grunt-css');
   grunt.loadNpmTasks('grunt-jekyll');
+  grunt.loadNpmTasks('grunt-contrib-compass');
+  grunt.loadNpmTasks('grunt-sed');
+
 
   grunt.registerTask('lr', modules.livereload);
 
   // Docs HTML validation task
-  grunt.registerTask('validate-html', ['jekyll', 'validation']);
+  grunt.registerTask('validate-html', ['clean', 'jekyll', 'validation']);
 
   // Test task.
-  grunt.registerTask('testSubtasks', ['jshint', 'qunit', 'validate-html']);
-  grunt.registerTask('testSubtasksNoValidation', ['jshint', 'qunit']);
-  grunt.registerTask('test', 
-    function() {
-      if(grunt.option('validate')) {
-        grunt.task.run('testSubtasks');
-      } else {
-        grunt.task.run('testSubtasksNoValidation');
-      }
-    }
-  );
+  var testSubtasks = ['dist-css', 'jshint', 'qunit', 'validate-html'];
+  var testSubtasksNoHTMLValidation = ['dist-css', 'jshint', 'qunit'];
+  // Only run BrowserStack tests under Travis
+  // if (process.env.TRAVIS) {
+  //   // Only run BrowserStack tests if this is a mainline commit in twbs/bootstrap, or you have your own BrowserStack key
+  //   if ((process.env.TRAVIS_REPO_SLUG === 'alademann/sass-bootstrap' && process.env.TRAVIS_PULL_REQUEST === 'false') || process.env.ALADEMANN_HAVE_OWN_BROWSERSTACK_KEY) {
+  //     testSubtasks.push('browserstack_runner');
+  //   }
+  // }
+  grunt.registerTask('test', testSubtasks);
+  grunt.registerTask('test-no-html', testSubtasksNoHTMLValidation);
 
   // JS distribution task.
   grunt.registerTask('dist-js', ['concat', 'uglify']);
@@ -285,20 +307,21 @@ module.exports = function(grunt) {
   grunt.registerTask('dist', ['clean', 'dist-fonts', 'dist-css', 'dist-js', 'compress:dist']);
 
   // Default task.
-  grunt.registerTask('default', ['test', 'dist']);
+  grunt.registerTask('default', ['test-no-html', 'dist']);
 
-  // Default task that runs jekyll server, delivers uncompressed css and watch capabilities
+  // Dev 'default' task that runs jekyll server, delivers uncompressed css and watch capabilities
   grunt.registerTask('dev', 
     [
-      'lr', 
-      'connect:docs', 
-      'dist-fonts', 
-      'dist-css', 
-      'test',
-      'dist-js', 
-      'compress:dist',
+      'lr',
+      'connect:docs',
+      'default',
       'watch'
     ]
   );
+
+  // Version numbering task.
+  // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
+  // This can be overzealous, so its changes should always be manually reviewed!
+  grunt.registerTask('change-version-number', ['sed']);
 
 };
