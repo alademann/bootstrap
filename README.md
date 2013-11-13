@@ -1,4 +1,4 @@
-# Sass Bootstrap v3.0.2 [![Build Status](https://travis-ci.org/alademann/sass-bootstrap.png)](https://travis-ci.org/alademann/sass-bootstrap) [![devDependency Status](https://david-dm.org/alademann/sass-bootstrap/dev-status.png)](https://david-dm.org/alademann/sass-bootstrap#info=devDependencies)
+# Sass Bootstrap v3.0.21 [![Build Status](https://travis-ci.org/alademann/sass-bootstrap.png)](https://travis-ci.org/alademann/sass-bootstrap) [![devDependency Status](https://david-dm.org/alademann/sass-bootstrap/dev-status.png)](https://david-dm.org/alademann/sass-bootstrap#info=devDependencies)
 
 **Sass Bootstrap is focused on being a 1:1 translation from Twitter Bootstrap's Less to Sass.** Bootstrap is a sleek, intuitive, and powerful front-end framework for faster and easier web development, created and maintained by [Mark Otto](http://twitter.com/mdo) and [Jacob Thornton](http://twitter.com/fat), and ported to Sass by [Aaron Lademann](http://twitter.com/alademann).
 
@@ -10,7 +10,7 @@ To get started, check out the [SASS Bootstrap Documentation](http://alademann.gi
 
 Three quick start options are available:
 
-* [Download the latest release](https://github.com/alademann/sass-bootstrap/releases/tag/3.0.2).
+* [Download the latest release](https://github.com/alademann/sass-bootstrap/releases/tag/3.0.21).
 * Clone the repo: `git clone git://github.com/alademann/sass-bootstrap.git`.
 * **Install with [Bower](http://bower.io)**: `bower install sass-bootstrap-compass`.
 

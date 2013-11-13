@@ -1,6 +1,6 @@
 {
   "name": "sass-bootstrap-compass",
-  "version": "3.0.2",
+  "version": "3.0.21",
   "main": ["./dist/js/sass-bootstrap.js", "./dist/css/sass-bootstrap.css", "./dist/fonts/*"],
   "ignore": [
       "**/.*"

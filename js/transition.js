@@ -1,5 +1,5 @@
 /* ========================================================================
- * Bootstrap: transition.js v3.0.2
+ * Bootstrap: transition.js v3.0.21
  * http://alademann.github.io/sass-bootstrap/javascript/#transitions
  * ========================================================================
  * Copyright 2013 Twitter, Inc.
