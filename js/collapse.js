@@ -1,5 +1,5 @@
 /* ========================================================================
- * Bootstrap: collapse.js v3.0.2
+ * Bootstrap: collapse.js v3.0.21
  * http://alademann.github.io/sass-bootstrap/javascript/#collapse
  * ========================================================================
  * Copyright 2013 Twitter, Inc.
