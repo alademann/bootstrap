@@ -1,5 +1,8 @@
-[submodule "submodules/twbs"]
-	path = submodules/twbs
+[submodule "submodules/twbs-sass"]
+	path = submodules/twbs-sass
+	url = git@al.github.com:twbs/bootstrap-sass.git
+[submodule "submodules/twbs2"]
+	path = submodules/twbs2
 	url = git@al.github.com:twbs/bootstrap.git
 [submodule "submodules/jlong-sass-bootstrap"]
 	path = submodules/jlong-sass-bootstrap
