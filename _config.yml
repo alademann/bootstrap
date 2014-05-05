@@ -16,7 +16,7 @@ exclude:      ["*.zip", "browserstack.json", "node_modules", "submodules", "temp
 ## CUSTOM VARS
 repo:               https://github.com/alademann/sass-bootstrap
 download_source:    https://github.com/alademann/sass-bootstrap/archive/3.0.21.zip
-download_dist:      https://github.com/alademann/sass-bootstrap/releases/download/3.0.21/sass-bootstrap-dist.zip
+download_dist:      https://github.com/alademann/sass-bootstrap/raw/3.0.21/sass-bootstrap-dist.zip
 
 issues_open:        https://github.com/alademann/sass-bootstrap/issues?state=open
 issues_new:         https://github.com/alademann/sass-bootstrap/issues/new
