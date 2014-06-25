@@ -906,3 +906,32 @@ $cols-lg-offset: comma-list();
     height: auto;
   }
 }
+
+// Extra mixin, not found in LESS version
+// SCSS does not allow "&" to be used like "&select" or "&textarea"
+
+@mixin input-group-size($class, $input-height, $padding-vertical, $padding-horizontal, $font-size, $line-height, $border-radius) {
+    $nested-selectors: "> .form-control, > .input-group-addon, > .input-group-btn > .btn";
+    .input-group-#{$class} {
+        #{$nested-selectors} {
+            height: $input-height;
+            padding: $padding-vertical $padding-horizontal;
+            font-size: $font-size;
+            line-height: $line-height;
+            border-radius: $border-radius;
+        }
+    }
+
+    select.input-group-#{$class} {
+        #{$nested-selectors} {
+            height: $input-height;
+            line-height: $input-height;
+        }
+    }
+
+    textarea.input-group-#{$class} {
+        #{$nested-selectors} {
+            height: auto;
+        }
+    }
+}
