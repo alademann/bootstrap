@@ -5,6 +5,7 @@ slug: customize
 lead: Customize Bootstrap's components, Less variables, and jQuery plugins to get your very own version.
 ---
 
+
 <!-- less.js isn't IE8-compatible and throws an exception during initialization, so our Blob compatibility check and error messaging code never get called in that case.
   So we use a conditional comment instead to inform folks about the lack of IE8 support.
 -->
@@ -24,17 +25,24 @@ lead: Customize Bootstrap's components, Less variables, and jQuery plugins to ge
 
 <!-- Customizer form -->
 
+<div id="defaults-change-alert" class="alert alert-warning alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Heads up!</strong> The default value for <code>@brand-primary</code> has changed in the latest release to improve contrast and accessibility. Please double check your compiled CSS when upgrading.
+</div>
+
 <div class="bs-docs-section bs-customizer-import">
   <div id="import-drop-target" class="bs-dropzone">
-    <h2>✍</h2>
+    <div class="import-header">
+      <span class="glyphicon glyphicon-download-alt" aria-hidden="true"></span>
+    </div>
     <p class="lead">Have an existing configuration? Upload your <code>config.json</code> to import it.</p>
     <p>Drag and drop here, or <label id="import-manual-trigger" class="btn-link">manually upload<input type="file" id="import-file-select" class="hidden"></label>.</p>
     <hr>
     <p><strong>Don't have one?</strong> That's okay—just start customizing the fields below.</p>
   </div>
-</div><!-- /import -->
+</div>
 
-<form class="bs-customizer" role="form">
+<form class="bs-customizer">
   <div class="bs-docs-section" id="less-section">
     <button class="btn btn-default toggle" type="button">Toggle all</button>
     <h1 id="less" class="page-header">Less files</h1>
@@ -223,31 +231,32 @@ lead: Customize Bootstrap's components, Less variables, and jQuery plugins to ge
         <div class="checkbox">
           <label>
             <input type="checkbox" checked value="component-animations.less">
-            Component animations (for JS)
+            Component animations (for JS)<br>
+            (includes Collapse)
           </label>
         </div>
         <div class="checkbox">
           <label>
             <input type="checkbox" checked value="dropdowns.less">
-            Dropdowns
+            Dropdown
           </label>
         </div>
         <div class="checkbox">
           <label>
             <input type="checkbox" checked value="tooltip.less">
-            Tooltips
+            Tooltip
           </label>
         </div>
         <div class="checkbox">
           <label>
             <input type="checkbox" checked value="popovers.less">
-            Popovers
+            Popover
           </label>
         </div>
         <div class="checkbox">
           <label>
             <input type="checkbox" checked value="modals.less">
-            Modals
+            Modal
           </label>
         </div>
         <div class="checkbox">
@@ -259,8 +268,6 @@ lead: Customize Bootstrap's components, Less variables, and jQuery plugins to ge
       </div><!-- .col-xs-6 .col-sm-4 -->
     </div><!-- /.row -->
   </div>
-
-
 
   <div class="bs-docs-section" id="plugin-section">
     <button class="btn btn-default toggle" type="button">Toggle all</button>
@@ -358,8 +365,6 @@ lead: Customize Bootstrap's components, Less variables, and jQuery plugins to ge
       <p>All plugins require the latest version of <a href="http://jquery.com/" target="_blank">jQuery</a> to be included.</p>
     </div>
   </div>
-
-
 
   <div class="bs-docs-section" id="less-variables-section">
     <button class="btn btn-default toggle" type="button">Reset to defaults</button>

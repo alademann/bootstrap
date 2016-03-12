@@ -48,7 +48,8 @@
     > span {
       color: @pager-disabled-color;
       background-color: @pager-bg;
-      cursor: not-allowed;
+      cursor: @cursor-disabled;
+      pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
     }
   }
 }
